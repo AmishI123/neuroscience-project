@@ -27,10 +27,20 @@ neuroscience methodology — comparing a **stimulus-only** model against a
 
 ## Status
 
+Notebooks 1–4 are written and **verified end-to-end on the real dataset**.
+Checkboxes below track your daughter *completing* each one.
+
 - [x] Project set up
-- [ ] Week 1 — Python + data exploration
-- [ ] Week 2 — first model (scikit-learn warm-up)
-- [ ] Week 3 — baseline encoding model (Model A)
-- [ ] Week 4 — add behavior (Model B), compare
+- [ ] Week 1 — Python + data exploration &nbsp;· `notebooks/01_python_and_data.ipynb`
+- [ ] Week 2 — real Sensorium data exploration &nbsp;· `notebooks/02_real_data_exploration.ipynb`
+- [ ] Week 3 — baseline encoding model (Model A) &nbsp;· `notebooks/03_baseline_model.ipynb`
+- [ ] Week 4 — add behavior (Model B), compare &nbsp;· `notebooks/04_add_behavior.ipynb`
 - [ ] Week 5 — analysis + figures
 - [ ] Week 6 — write-up
+
+## Headline result (verified on mouse `static21067`, 8,372 V1 neurons)
+
+Adding behavior improves neural prediction: mean test correlation **0.126 → 0.158
+(+25%)**, ~90% of neurons improved. The gain comes entirely from **pupil/arousal**,
+not running (this mouse rarely ran) — and the **arousal-sensitive neurons benefit
+most** (+0.069). An honest, self-consistent finding.
