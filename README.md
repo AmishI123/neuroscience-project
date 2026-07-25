@@ -18,6 +18,7 @@ neural activity, compared to using the visual stimulus alone.
 - Week 3 — baseline model: [Open in Colab](https://colab.research.google.com/github/AmishI123/neuroscience-project/blob/main/notebooks/03_baseline_model.ipynb)
 - Week 4 — add behavior (the result): [Open in Colab](https://colab.research.google.com/github/AmishI123/neuroscience-project/blob/main/notebooks/04_add_behavior.ipynb)
 - Week 5 — analysis & figures: [Open in Colab](https://colab.research.google.com/github/AmishI123/neuroscience-project/blob/main/notebooks/05_analysis.ipynb)
+- Week 6 — deep-learning stretch (needs GPU): [Open in Colab](https://colab.research.google.com/github/AmishI123/neuroscience-project/blob/main/notebooks/06_deep_learning_stretch.ipynb)
 
 📄 **Written report:** [`docs/REPORT.md`](docs/REPORT.md) — the paper-style summary (application attachment).
 

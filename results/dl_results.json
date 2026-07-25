@@ -1,0 +1,16 @@
+{
+  "pixel": 0.13080020248889923,
+  "pixel_alpha": 10000.0,
+  "pixel+beh": 0.15437373942938049,
+  "pixel+beh_alpha": 100.0,
+  "cnn": 0.1369449496269226,
+  "cnn_alpha": 100000.0,
+  "cnn+beh": 0.155342335477694,
+  "cnn+beh_alpha": 100.0,
+  "cnn_imp_mean": 0.01839738023931246,
+  "cnn_frac_improved": 0.6256569517439082,
+  "cnn_arousal_imp": 0.051914083249101475,
+  "cnn_other_imp": 0.002002692712290084,
+  "n_neurons": 8372,
+  "minutes": 22.0
+}

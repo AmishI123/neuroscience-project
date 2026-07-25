@@ -128,6 +128,35 @@ behavior raised its prediction to **0.40** — turning noise into a clear relati
 This neuron is essentially arousal-driven: knowing the image barely helps, but knowing
 the mouse's state does.
 
+### 4.6 Extension: do deep-network features help? (deep-learning stretch)
+
+We asked whether features from a **pretrained deep network** predict V1 better than the
+simple pixel summary. Using a pretrained ResNet-50 as a fixed feature extractor (a
+middle layer, at the image's native resolution to preserve spatial layout), we compared
+four models, selecting regularization on validation and reporting on the test set:
+
+![Deep-learning comparison](../results/fig6_deep_learning.png)
+
+| Stimulus model | without behavior | with behavior |
+|---|---|---|
+| pixel summary | 0.131 | 0.154 |
+| **deep-network (CNN) features** | **0.137** | **0.155** |
+
+Two honest observations:
+
+1. **CNN features modestly beat raw pixels** (0.137 vs 0.131). Middle-layer features of a
+   network trained on natural images are slightly more "V1-like" than raw pixels — but
+   only slightly, which is expected: the network was trained to recognize ImageNet
+   objects, not to match a mouse brain.
+2. **Behavior helps regardless of the stimulus model** (CNN: 0.137 → 0.155; ~63% of
+   neurons improved, arousal-sensitive neurons +0.052). The behavior effect is *robust*
+   to the modeling choice — a reassuring check that our main conclusion is not an
+   artifact of using a simple stimulus model.
+
+Notably, switching from pixels to CNN features (+0.006) helped *less* than adding
+behavior (+0.02–0.03). In other words, for this data, **knowing the animal's internal
+state was at least as valuable as using a more sophisticated image model.**
+
 ## 5. Discussion
 
 Our central finding — that behavioral state improves encoding models of V1 — reproduces
@@ -156,15 +185,16 @@ internal state**, and can be recovered by measuring that state.
 ## 7. Future work
 
 - Repeat on a mouse that ran more, to give running a fair test.
-- Replace the linear stimulus model with a pretrained convolutional network's features,
-  which should raise the baseline and may change how much behavior adds on top.
+- Improve the deep-network readout (Section 4.6): a spatially-resolved readout or a CNN
+  *fine-tuned* on neural data (rather than frozen ImageNet features) should widen the gap
+  over pixels and is the standard route to state-of-the-art V1 prediction.
 - Compare which neurons a CNN vs. a linear model predicts well (a bridge to the
   "which architecture looks most like the brain?" question).
 
 ## 8. Reproducibility
 
-All code is in the repository as five documented notebooks
-(`notebooks/01`–`05`), runnable in Google Colab. The dataset is downloaded
+All code is in the repository as six documented notebooks
+(`notebooks/01`–`06`), runnable in Google Colab (notebook 06 needs a GPU runtime). The dataset is downloaded
 automatically from the public Sensorium repository. Every figure in this report was
 generated from the code in this project.
 
