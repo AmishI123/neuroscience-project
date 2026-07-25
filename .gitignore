@@ -1,0 +1,26 @@
+# Data files — large, downloaded locally, never committed
+data/*
+!data/.gitkeep
+!data/README.md
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+env/
+*.egg-info/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# OS / editor
+.DS_Store
+*.swp
+.vscode/
+.idea/
+
+# Results that are large or regenerated (keep figures if small)
+results/*.pkl
+results/*.npy
+results/*.h5
