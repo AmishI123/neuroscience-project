@@ -8,6 +8,16 @@ We build an **encoding model** of mouse visual cortex and test whether adding
 **behavioral variables** (running speed, pupil size) improves how well we predict
 neural activity, compared to using the visual stimulus alone.
 
+## Open the notebooks in Colab (one click each)
+
+> These open the notebook directly from GitHub. In Colab, do **File → Save a copy in
+> Drive** the first time so your work is saved to your own account.
+
+- Week 1 — Python & data: [Open in Colab](https://colab.research.google.com/github/AmishI123/neuroscience-project/blob/main/notebooks/01_python_and_data.ipynb)
+- Week 2 — real data exploration: [Open in Colab](https://colab.research.google.com/github/AmishI123/neuroscience-project/blob/main/notebooks/02_real_data_exploration.ipynb)
+- Week 3 — baseline model: [Open in Colab](https://colab.research.google.com/github/AmishI123/neuroscience-project/blob/main/notebooks/03_baseline_model.ipynb)
+- Week 4 — add behavior (the result): [Open in Colab](https://colab.research.google.com/github/AmishI123/neuroscience-project/blob/main/notebooks/04_add_behavior.ipynb)
+
 ## Where things live
 
 | Folder | What's in it |
