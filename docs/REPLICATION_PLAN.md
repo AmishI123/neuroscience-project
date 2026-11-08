@@ -48,5 +48,8 @@ Pearson correlation on the untouched test block.
 
 ## Current status
 
-The protocol is specified. The additional data run remains pending; no replication
-claim should be made until these outputs exist.
+The protocol has been run on the named reference mouse and one additional mouse.
+The committed results live in `results/per_mouse_metrics.csv`, and the report
+contains the cross-animal interpretation. The current evidence supports a
+two-mouse replication result, not a population estimate. Confidence intervals,
+per-neuron distributions, and replication beyond two animals remain open.

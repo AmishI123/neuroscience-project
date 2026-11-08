@@ -1,0 +1,4 @@
+# Optional environment for notebook 06's CNN comparison.
+# Install requirements.txt first, then this file when CNN reproduction is needed.
+torch>=2.2,<3
+torchvision>=0.17,<1

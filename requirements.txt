@@ -1,8 +1,4 @@
-# Core environment for notebooks 01–05
+# Core environment for notebooks 01–05 and the replication script
 numpy>=1.26,<3
 matplotlib>=3.8,<4
 scikit-learn>=1.4,<2
-
-# Notebook 06 only; omit when running the linear-model core
-torch>=2.2,<3
-torchvision>=0.17,<1
