@@ -16,7 +16,7 @@ of only reading about it.
 Over the past weeks I've been teaching myself to test that idea with actual data.
 Using recordings from thousands of neurons in mouse visual cortex, I built models that
 predict neural activity from the images the mice saw, then asked whether adding their
-behavior — arousal and movement — improved those predictions. It did in both animals:
+behavior — arousal and movement — improved those predictions. It did in all three evaluated animals:
 the original mouse rose from 0.126 to 0.158, a second mouse rose from 0.154 to
 0.203, and a third mouse rose from 0.143 to 0.191. Pupil-linked arousal helped all
 three, while running contributed differently across
