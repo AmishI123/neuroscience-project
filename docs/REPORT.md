@@ -177,7 +177,11 @@ This strengthens the narrower claim that behavioral state carries predictive
 information while reinforcing that the relative contribution of running and pupil is
 animal-dependent. The complete per-mouse metrics are in
 `results/per_mouse_metrics.csv`, and the executable pipeline is
-`src/replicate_mouse.py`.
+`src/replicate_mouse.py`. A 200-resample bootstrap over neurons within each animal
+gave descriptive 95% intervals for stimulus-only versus stimulus-plus-behavior of
+0.1250–0.1283 versus 0.1565–0.1600 in the first mouse, and 0.1525–0.1562 versus
+0.2013–0.2054 in the second. These intervals quantify within-animal measurement
+variation; they are not hierarchical confidence intervals across animals.
 
 ## 5. Discussion
 

@@ -24,6 +24,10 @@ The clean-environment run completed successfully. It reproduced the committed
 reference values: stimulus-only mean held-out correlation `0.126480`,
 stimulus-plus-both `0.158263`, and relative improvement `25.13%`.
 
+The same clean environment also completed the two-mouse run with 200 deterministic
+neuron-level bootstrap resamples per model. The resulting descriptive intervals
+are recorded in `results/per_mouse_metrics.csv`.
+
 This record validates the core dependency installation and reference-mouse
 pipeline. It does not replace the remaining uncertainty analysis or additional
 animal replication work.

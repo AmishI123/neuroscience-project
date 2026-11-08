@@ -42,15 +42,24 @@ def load(root: Path) -> tuple[np.ndarray, np.ndarray, np.ndarray, np.ndarray]:
     return images, responses, behavior, tiers
 
 
-def fit_score(features: np.ndarray, responses: np.ndarray, train: np.ndarray, held_out: np.ndarray) -> float:
+def fit_scores(features: np.ndarray, responses: np.ndarray, train: np.ndarray, held_out: np.ndarray) -> np.ndarray:
     model = Ridge(alpha=1000.0).fit(features[train], responses[train])
-    return float(np.nanmean(correlation(model.predict(features[held_out]), responses[held_out])))
+    return correlation(model.predict(features[held_out]), responses[held_out])
+
+
+def bootstrap_mean_ci(scores: np.ndarray, resamples: int, seed: int) -> list[float]:
+    """Bootstrap neurons within an animal; descriptive, not a population CI."""
+    rng = np.random.default_rng(seed)
+    draws = rng.integers(0, len(scores), size=(resamples, len(scores)))
+    means = np.nanmean(scores[draws], axis=1)
+    return [float(np.nanpercentile(means, 2.5)), float(np.nanpercentile(means, 97.5))]
 
 
 def main() -> None:
     parser = argparse.ArgumentParser()
     parser.add_argument("root", type=Path)
     parser.add_argument("--output", type=Path, required=True)
+    parser.add_argument("--bootstrap-resamples", type=int, default=500)
     args = parser.parse_args()
     images, responses, behavior, tiers = load(args.root)
     train = tiers == "train"
@@ -62,11 +71,16 @@ def main() -> None:
     stimulus = pca.transform(scaled_images)
     behavior_scaled = StandardScaler().fit(behavior[train]).transform(behavior)
 
-    values = {
-        "stimulus_only": fit_score(stimulus, responses, train, held_out),
-        "stimulus_plus_running": fit_score(np.hstack([stimulus, behavior_scaled[:, [2]]]), responses, train, held_out),
-        "stimulus_plus_pupil": fit_score(np.hstack([stimulus, behavior_scaled[:, [0, 1]]]), responses, train, held_out),
-        "stimulus_plus_both": fit_score(np.hstack([stimulus, behavior_scaled]), responses, train, held_out),
+    score_vectors = {
+        "stimulus_only": fit_scores(stimulus, responses, train, held_out),
+        "stimulus_plus_running": fit_scores(np.hstack([stimulus, behavior_scaled[:, [2]]]), responses, train, held_out),
+        "stimulus_plus_pupil": fit_scores(np.hstack([stimulus, behavior_scaled[:, [0, 1]]]), responses, train, held_out),
+        "stimulus_plus_both": fit_scores(np.hstack([stimulus, behavior_scaled]), responses, train, held_out),
+    }
+    values = {name: float(np.nanmean(scores)) for name, scores in score_vectors.items()}
+    bootstrap_ci = {
+        name: bootstrap_mean_ci(scores, args.bootstrap_resamples, seed=1000 + i)
+        for i, (name, scores) in enumerate(score_vectors.items())
     }
     result = {
         "mouse": args.root.name,
@@ -77,6 +91,9 @@ def main() -> None:
         "running_nonzero_fraction": float(np.mean(behavior[:, 2] > 0)),
         "pupil_std": float(np.std(behavior[:, 0])),
         "scores": values,
+        "bootstrap_resamples": int(args.bootstrap_resamples),
+        "bootstrap_unit": "neurons within each animal",
+        "bootstrap_mean_ci95": bootstrap_ci,
         "improvement_both_minus_stimulus": values["stimulus_plus_both"] - values["stimulus_only"],
         "relative_improvement_percent": (values["stimulus_plus_both"] / values["stimulus_only"] - 1) * 100,
     }
