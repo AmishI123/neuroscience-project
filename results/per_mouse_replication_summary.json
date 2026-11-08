@@ -1,0 +1,42 @@
+{
+  "animal_count": 3,
+  "unit_of_summary": "animal; neurons are not pooled as independent animals",
+  "animals": [
+    {
+      "mouse": "static21067-10-18-GrayImageNet-94c6ff995dac583098847cfecd43e7b6",
+      "stimulus_only": 0.1264800131,
+      "stimulus_plus_both": 0.1582627296,
+      "absolute_gain": 0.0317827165,
+      "relative_gain_percent": 25.1286474
+    },
+    {
+      "mouse": "static22846-10-16-GrayImageNet-94c6ff995dac583098847cfecd43e7b6",
+      "stimulus_only": 0.1543059498,
+      "stimulus_plus_both": 0.2033702284,
+      "absolute_gain": 0.0490642786,
+      "relative_gain_percent": 31.796751
+    },
+    {
+      "mouse": "static23343-5-17-GrayImageNet-94c6ff995dac583098847cfecd43e7b6",
+      "stimulus_only": 0.1431103945,
+      "stimulus_plus_both": 0.1905376166,
+      "absolute_gain": 0.0474272221,
+      "relative_gain_percent": 33.1403056
+    }
+  ],
+  "absolute_gain_summary": {
+    "mean": 0.04275807239999999,
+    "median": 0.0474272221,
+    "sd_sample": 0.009540116159921567,
+    "min": 0.0317827165,
+    "max": 0.0490642786
+  },
+  "relative_gain_percent_summary": {
+    "mean": 30.021901333333332,
+    "median": 31.796751,
+    "sd_sample": 4.290598476070313,
+    "min": 25.1286474,
+    "max": 33.1403056
+  },
+  "interpretation": "Descriptive three-animal summary; not a population estimate or hierarchical confidence interval."
+}

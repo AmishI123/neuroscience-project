@@ -46,6 +46,8 @@ Pearson correlation on the untouched test block.
   behavior-gain distribution
 - confidence interval or bootstrap procedure documented in code
 - updated report section distinguishing replication from discovery
+- `results/per_mouse_replication_summary.json` — descriptive animal-level gain
+  summary without pooling neurons
 
 ## Current status
 

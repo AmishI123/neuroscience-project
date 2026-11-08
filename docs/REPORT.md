@@ -180,6 +180,12 @@ gave descriptive 95% intervals for stimulus-only versus stimulus-plus-behavior o
 These intervals quantify within-animal measurement variation; they are not
 hierarchical confidence intervals across animals.
 
+For a separate animal-level descriptive summary, `src/summarize_replication.py`
+reports a mean absolute gain of **0.0428** correlation points across the three
+animals (sample SD **0.0095**, range **0.0318–0.0491**) and a mean relative gain
+of **30.0%** (sample SD **4.3 percentage points**). This summary treats each
+recording as one animal and does not pool its neurons into a population estimate.
+
 ## 5. Discussion
 
 Our central finding — that behavioral state improves encoding models of V1 — reproduces
