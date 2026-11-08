@@ -186,6 +186,18 @@ animals (sample SD **0.0095**, range **0.0318–0.0491**) and a mean relative ga
 of **30.0%** (sample SD **4.3 percentage points**). This summary treats each
 recording as one animal and does not pool its neurons into a population estimate.
 
+### Behavior-shuffle negative control
+
+As a control for trial alignment, we independently permuted the three behavior
+columns across trials within each animal and refit the stimulus-plus-behavior model
+20 times per animal. The aligned gains were **+0.0318**, **+0.0491**, and **+0.0474**
+correlation points. The shuffled-behavior mean gains were **−0.00046**, **−0.00048**,
+and **−0.00049**, respectively. This control is consistent with the observed gain
+depending on aligned behavior rather than an arbitrary extra feature block. It is
+not a causal test, a population null distribution, or proof that behavior causes
+the neural responses. Full seeds and ranges are in
+`results/shuffled_behavior_controls.json`.
+
 ## 5. Discussion
 
 Our central finding — that behavioral state improves encoding models of V1 — reproduces

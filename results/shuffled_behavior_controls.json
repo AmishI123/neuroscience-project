@@ -1,0 +1,44 @@
+[
+  {
+    "mouse": "static21067-10-18-GrayImageNet-94c6ff995dac583098847cfecd43e7b6",
+    "permutations": 20,
+    "seed": 20261108,
+    "stimulus_only": 0.12648001313209534,
+    "aligned_behavior": 0.1582627296447754,
+    "aligned_gain": 0.031782716512680054,
+    "shuffled_behavior_mean": 0.12602066472172738,
+    "shuffled_behavior_sd": 0.00016707035150192835,
+    "shuffled_gain_mean": -0.0004593484103679657,
+    "shuffled_gain_min": -0.0007947832345962524,
+    "shuffled_gain_max": -0.0002410411834716797,
+    "interpretation": "Negative control; shuffled behavior is not a population null distribution."
+  },
+  {
+    "mouse": "static22846-10-16-GrayImageNet-94c6ff995dac583098847cfecd43e7b6",
+    "permutations": 20,
+    "seed": 20261109,
+    "stimulus_only": 0.15430596470832825,
+    "aligned_behavior": 0.20337022840976715,
+    "aligned_gain": 0.049064263701438904,
+    "shuffled_behavior_mean": 0.15382886230945586,
+    "shuffled_behavior_sd": 0.00015540783730276994,
+    "shuffled_gain_mean": -0.0004771023988723755,
+    "shuffled_gain_min": -0.0008970797061920166,
+    "shuffled_gain_max": -0.00018684566020965576,
+    "interpretation": "Negative control; shuffled behavior is not a population null distribution."
+  },
+  {
+    "mouse": "static23343-5-17-GrayImageNet-94c6ff995dac583098847cfecd43e7b6",
+    "permutations": 20,
+    "seed": 20261110,
+    "stimulus_only": 0.14311039447784424,
+    "aligned_behavior": 0.19053761661052704,
+    "aligned_gain": 0.0474272221326828,
+    "shuffled_behavior_mean": 0.14262045472860335,
+    "shuffled_behavior_sd": 0.00010831641023263428,
+    "shuffled_gain_mean": -0.0004899397492408753,
+    "shuffled_gain_min": -0.0007737278938293457,
+    "shuffled_gain_max": -0.00027661025524139404,
+    "interpretation": "Negative control; shuffled behavior is not a population null distribution."
+  }
+]
