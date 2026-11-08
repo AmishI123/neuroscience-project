@@ -41,8 +41,8 @@ Pearson correlation on the untouched test block.
 ## Required outputs
 
 - `results/per_mouse_metrics.csv`
-- per-mouse model-comparison figure
-- distribution of per-mouse behavior gains
+- `results/per_mouse_replication_summary.png` — per-mouse model comparison and
+  behavior-gain distribution
 - confidence interval or bootstrap procedure documented in code
 - updated report section distinguishing replication from discovery
 
