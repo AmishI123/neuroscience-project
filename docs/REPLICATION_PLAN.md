@@ -1,7 +1,8 @@
 # Replication plan: behavioral state and mouse visual cortex
 
-The current report is a complete one-mouse analysis, not a population-level claim.
-This document defines the next experiment before new data are inspected.
+The report began as a complete one-mouse discovery analysis and now includes a
+pre-specified three-mouse replication. It remains a replication result, not a
+population-level claim.
 
 ## Primary question
 
@@ -48,8 +49,9 @@ Pearson correlation on the untouched test block.
 
 ## Current status
 
-The protocol has been run on the named reference mouse and one additional mouse.
+The protocol has been run on the named reference mouse and two additional mice.
 The committed results live in `results/per_mouse_metrics.csv`, and the report
 contains the cross-animal interpretation. The current evidence supports a
-two-mouse replication result, not a population estimate. Confidence intervals,
-per-neuron distributions, and replication beyond two animals remain open.
+three-mouse replication result, not a population estimate. The current bootstrap
+intervals are descriptive within-animal intervals; hierarchical uncertainty and
+replication beyond three animals remain open.

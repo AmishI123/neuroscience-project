@@ -23,8 +23,8 @@ contribution varied; in the first mouse, running appeared on only about 5% of tr
 I then built two prediction models using ridge regression: a baseline using only the
 image the mouse saw, and an extended model that also included behavior. I evaluated both
 on held-out test trials by correlating predicted and actual responses. Adding behavior
-raised mean prediction accuracy from 0.126 to 0.158 in the first mouse and from 0.154
-to 0.203 in a second mouse. Using an ablation, I found that pupil-linked arousal
+raised mean prediction accuracy from 0.126 to 0.158 in the first mouse, from 0.154
+to 0.203 in a second mouse, and from 0.143 to 0.191 in a third mouse. Using an ablation, I found that pupil-linked arousal
 improved both animals, while movement contributed differently across them. The
 replication strengthened the predictive claim without turning it into a causal claim.
 

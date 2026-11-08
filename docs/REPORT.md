@@ -15,18 +15,13 @@
 
 Encoding models predict how visual-cortex neurons respond to images. Real neurons,
 however, respond to the same image differently depending on the animal's internal
-state. Using publicly available recordings of 8,372 neurons in mouse primary visual
-cortex (Sensorium 2022), we asked whether adding two behavioral variables — pupil size
-(a proxy for arousal) and running speed (locomotion) — improves prediction beyond the
-visual stimulus alone. Using ridge-regression encoding models evaluated on held-out
-trials, adding behavior raised mean predicted-vs-actual correlation from **0.126 to
-0.158 (a ~25% relative improvement)**, and improved **~90% of neurons**. An ablation
-showed the entire gain came from **pupil/arousal, not running** — because this mouse
-ran on only 5.4% of trials. The neurons that benefited most were precisely those whose
-activity tracked arousal. The effect was distributed across the cortical surface rather
-than clustered. These results reproduce, with fully transparent methods, the known
-principle that internal state shapes cortical responses, and show that *which*
-behavioral signal matters is an empirical, per-animal question.
+state. Using publicly available Sensorium 2022 recordings across three mice, we asked
+whether adding pupil size and running speed improves prediction beyond the visual
+stimulus alone. The original discovery mouse rose from **0.126 to 0.158**; two
+pre-specified replications rose from **0.154 to 0.203** and **0.143 to 0.191**.
+Pupil improved all three animals, while running contributed differently across them.
+These results support the narrower predictive claim that behavioral state carries
+information, while leaving population-level uncertainty and causality open.
 
 ## 1. Introduction
 
@@ -160,28 +155,30 @@ state was at least as valuable as using a more sophisticated image model.**
 ### 4.7 Cross-animal replication
 
 To test whether the headline result was specific to the original mouse, we ran the
-same four-model pipeline on a second Sensorium recording (`static22846-10-16`). The
-new runner uses the same 4×4 image downsampling, 150-component PCA, training-only
-standardization, ridge alpha 1000, and official chronological train/validation/test
-tiers. The additional mouse had 7,344 neurons and 5,997 trials.
+same four-model pipeline on two additional Sensorium recordings. The runner uses the
+same 4×4 image downsampling, 150-component PCA, training-only standardization, ridge
+alpha 1000, and official chronological train/validation/test tiers.
 
 | Mouse | Stimulus only | + running | + pupil | + both | Relative gain |
 |---|---:|---:|---:|---:|---:|
 | `static21067-10-18` | 0.1265 | 0.1271 | 0.1578 | **0.1583** | +25.1% |
 | `static22846-10-16` | 0.1543 | 0.1696 | 0.1936 | **0.2034** | +31.8% |
+| `static23343-5-17` | 0.1431 | 0.1603 | 0.1799 | **0.1905** | +33.1% |
 
 The qualitative conclusion replicated: adding behavior improved held-out prediction
-in both mice. The useful signal was not identical, however. Running barely changed
-the first mouse but improved the second from 0.1543 to 0.1696; pupil improved both.
+in all three mice. The useful signal was not identical, however. Running barely changed
+the first mouse, improved the second from 0.1543 to 0.1696, and improved the third
+from 0.1431 to 0.1603; pupil improved all three.
 This strengthens the narrower claim that behavioral state carries predictive
 information while reinforcing that the relative contribution of running and pupil is
 animal-dependent. The complete per-mouse metrics are in
 `results/per_mouse_metrics.csv`, and the executable pipeline is
 `src/replicate_mouse.py`. A 200-resample bootstrap over neurons within each animal
 gave descriptive 95% intervals for stimulus-only versus stimulus-plus-behavior of
-0.1250–0.1283 versus 0.1565–0.1600 in the first mouse, and 0.1525–0.1562 versus
-0.2013–0.2054 in the second. These intervals quantify within-animal measurement
-variation; they are not hierarchical confidence intervals across animals.
+0.1250–0.1283 versus 0.1565–0.1600 in the first mouse, 0.1525–0.1562 versus
+0.2013–0.2054 in the second, and 0.1411–0.1447 versus 0.1889–0.1926 in the third.
+These intervals quantify within-animal measurement variation; they are not
+hierarchical confidence intervals across animals.
 
 ## 5. Discussion
 
@@ -204,13 +201,14 @@ internal state**, and can be recovered by measuring that state.
   the-art deep networks predict V1 far better. Our claim is comparative (behavior helps
   *relative to the same stimulus model*), which the design supports, but absolute
   accuracy is low.
-- **One animal.** Findings about running vs. pupil are specific to this mouse's behavior.
+- **Small animal sample.** Three animals provide replication evidence, but not a
+  population estimate or hierarchical confidence interval.
 - **Correlational.** We show behavior improves *prediction*; we do not establish a
   causal or mechanistic account of how arousal modulates responses.
 
 ## 7. Future work
 
-- Repeat on a mouse that ran more, to give running a fair test.
+- Repeat beyond three animals and pre-specify a hierarchical population summary.
 - Improve the deep-network readout (Section 4.6): a spatially-resolved readout or a CNN
   *fine-tuned* on neural data (rather than frozen ImageNet features) should widen the gap
   over pixels and is the standard route to state-of-the-art V1 prediction.
