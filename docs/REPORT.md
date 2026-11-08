@@ -157,6 +157,28 @@ Notably, switching from pixels to CNN features (+0.006) helped *less* than addin
 behavior (+0.02–0.03). In other words, for this data, **knowing the animal's internal
 state was at least as valuable as using a more sophisticated image model.**
 
+### 4.7 Cross-animal replication
+
+To test whether the headline result was specific to the original mouse, we ran the
+same four-model pipeline on a second Sensorium recording (`static22846-10-16`). The
+new runner uses the same 4×4 image downsampling, 150-component PCA, training-only
+standardization, ridge alpha 1000, and official chronological train/validation/test
+tiers. The additional mouse had 7,344 neurons and 5,997 trials.
+
+| Mouse | Stimulus only | + running | + pupil | + both | Relative gain |
+|---|---:|---:|---:|---:|---:|
+| `static21067-10-18` | 0.1265 | 0.1271 | 0.1578 | **0.1583** | +25.1% |
+| `static22846-10-16` | 0.1543 | 0.1696 | 0.1936 | **0.2034** | +31.8% |
+
+The qualitative conclusion replicated: adding behavior improved held-out prediction
+in both mice. The useful signal was not identical, however. Running barely changed
+the first mouse but improved the second from 0.1543 to 0.1696; pupil improved both.
+This strengthens the narrower claim that behavioral state carries predictive
+information while reinforcing that the relative contribution of running and pupil is
+animal-dependent. The complete per-mouse metrics are in
+`results/per_mouse_metrics.csv`, and the executable pipeline is
+`src/replicate_mouse.py`.
+
 ## 5. Discussion
 
 Our central finding — that behavioral state improves encoding models of V1 — reproduces
