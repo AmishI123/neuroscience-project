@@ -14,18 +14,19 @@ background, and together we set out to test whether a mouse's behavior helps pre
 its visual-cortex neurons respond to images.
 
 My specific tasks: I learned Python and its scientific libraries (numpy, scikit-learn)
-from scratch, then loaded the Sensorium 2022 dataset — recordings of 8,372 neurons
-across roughly 6,000 trials, along with the mouse's pupil size and running speed. I first
-explored the data and measured how each neuron's activity related to behavior, and found
-that arousal (pupil) tracked neural activity while running did not — because the mouse
-ran in only 5% of trials.
+from scratch, then loaded Sensorium 2022 recordings — thousands of visual-cortex
+neurons across roughly 6,000 trials per animal, along with pupil size and running speed.
+I first explored the data and measured how neural activity related to behavior. Pupil
+linked to the prediction improvement in both evaluated animals, while the running
+contribution varied; in the first mouse, running appeared on only about 5% of trials.
 
 I then built two prediction models using ridge regression: a baseline using only the
 image the mouse saw, and an extended model that also included behavior. I evaluated both
 on held-out test trials by correlating predicted and actual responses. Adding behavior
-raised mean prediction accuracy from 0.126 to 0.158 — about 25% — and improved roughly
-90% of neurons. Using an ablation, I showed the improvement came entirely from arousal,
-not movement, and that the arousal-sensitive neurons benefited most.
+raised mean prediction accuracy from 0.126 to 0.158 in the first mouse and from 0.154
+to 0.203 in a second mouse. Using an ablation, I found that pupil-linked arousal
+improved both animals, while movement contributed differently across them. The
+replication strengthened the predictive claim without turning it into a causal claim.
 
 What I accomplished: a complete, reproducible analysis — documented in notebooks and a
 short write-up — answering a real question (internal state improves models of visual
