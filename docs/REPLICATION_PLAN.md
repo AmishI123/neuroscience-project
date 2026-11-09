@@ -59,3 +59,9 @@ contains the cross-animal interpretation. The current evidence supports a
 three-mouse replication result, not a population estimate. The current bootstrap
 intervals are descriptive within-animal intervals; hierarchical uncertainty and
 replication beyond three animals remain open.
+
+The next timing experiment is implemented in `src/analyze_behavior_timing.py`.
+It requires a raw Sensorium mouse directory and compares pre-specified trial
+offsets `-10, -5, -2, -1, 0, 1, 2, 5, 10`. Positive offsets use behavior from
+earlier trials; negative offsets use later trials. This is an alignment-
+sensitivity analysis, not a causal timing claim.
