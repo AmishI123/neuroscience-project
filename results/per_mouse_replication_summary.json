@@ -38,5 +38,23 @@
     "min": 25.1286474,
     "max": 33.1403056
   },
+  "leave_one_animal_out_mean_gain": [
+    {
+      "omitted_mouse": "static21067-10-18-GrayImageNet-94c6ff995dac583098847cfecd43e7b6",
+      "remaining_animal_count": 2,
+      "mean_absolute_gain": 0.04824575035
+    },
+    {
+      "omitted_mouse": "static22846-10-16-GrayImageNet-94c6ff995dac583098847cfecd43e7b6",
+      "remaining_animal_count": 2,
+      "mean_absolute_gain": 0.0396049693
+    },
+    {
+      "omitted_mouse": "static23343-5-17-GrayImageNet-94c6ff995dac583098847cfecd43e7b6",
+      "remaining_animal_count": 2,
+      "mean_absolute_gain": 0.04042349755
+    }
+  ],
+  "leave_one_out_interpretation": "Descriptive stability check across the three evaluated animals; not a population estimate or hierarchical confidence interval.",
   "interpretation": "Descriptive three-animal summary; not a population estimate or hierarchical confidence interval."
 }

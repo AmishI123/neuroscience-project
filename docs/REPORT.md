@@ -186,6 +186,13 @@ animals (sample SD **0.0095**, range **0.0318–0.0491**) and a mean relative ga
 of **30.0%** (sample SD **4.3 percentage points**). This summary treats each
 recording as one animal and does not pool its neurons into a population estimate.
 
+As a descriptive stability check, we also recomputed the mean absolute gain after
+omitting each animal in turn. The leave-one-animal-out means are **0.0482** when
+omitting the original mouse, **0.0396** when omitting the second mouse, and
+**0.0404** when omitting the third mouse. All remain positive, but this is a
+three-animal sensitivity analysis—not a population estimate or hierarchical
+confidence interval.
+
 ### Behavior-shuffle negative control
 
 As a control for trial alignment, we independently permuted the three behavior

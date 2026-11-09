@@ -30,6 +30,14 @@ def main() -> None:
         rows = list(csv.DictReader(handle))
     gains = [float(row["improvement_both_minus_stimulus"]) for row in rows]
     relative = [float(row["relative_improvement_percent"]) for row in rows]
+    leave_one_out = [
+        {
+            "omitted_mouse": rows[index]["mouse"],
+            "remaining_animal_count": len(gains) - 1,
+            "mean_absolute_gain": float(np.mean(gains[:index] + gains[index + 1 :])),
+        }
+        for index in range(len(rows))
+    ]
     result = {
         "animal_count": len(rows),
         "unit_of_summary": "animal; neurons are not pooled as independent animals",
@@ -45,6 +53,8 @@ def main() -> None:
         ],
         "absolute_gain_summary": summary(gains),
         "relative_gain_percent_summary": summary(relative),
+        "leave_one_animal_out_mean_gain": leave_one_out,
+        "leave_one_out_interpretation": "Descriptive stability check across the three evaluated animals; not a population estimate or hierarchical confidence interval.",
         "interpretation": "Descriptive three-animal summary; not a population estimate or hierarchical confidence interval.",
     }
     OUTPUT.write_text(json.dumps(result, indent=2) + "\n")

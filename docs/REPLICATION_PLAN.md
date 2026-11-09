@@ -47,7 +47,7 @@ Pearson correlation on the untouched test block.
 - confidence interval or bootstrap procedure documented in code
 - updated report section distinguishing replication from discovery
 - `results/per_mouse_replication_summary.json` — descriptive animal-level gain
-  summary without pooling neurons
+  summary without pooling neurons, including leave-one-animal-out stability
 - `results/shuffled_behavior_controls.json` and `.csv` — 20 trial-shuffle
   negative-control fits per animal
 
