@@ -28,6 +28,11 @@ to 0.203 in a second mouse, and from 0.143 to 0.191 in a third mouse. Using an a
 improved all three animals, while movement contributed differently across them. The
 replication strengthened the predictive claim without turning it into a causal claim.
 
+I also ran behavior-shuffle controls and a leave-one-animal-out stability check. The
+aligned gain stayed positive in all three animals, and the mean gain stayed positive
+when any one animal was omitted. These controls taught me that a convincing result
+needs tests designed to make it fail, not just a stronger headline number.
+
 What I accomplished: a complete, reproducible analysis — documented in notebooks and a
 short write-up — answering a real question (internal state improves models of visual
 cortex) using transparent methods I can fully explain. Most importantly, I learned to
