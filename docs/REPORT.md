@@ -109,6 +109,7 @@ the discovery mouse (`docs/REPLICATION_PLAN.md`). Each mouse is treated as one u
 replication; neurons are not pooled across mice as if they were independent.
 
 **Controls and uncertainty.**
+
 - *Behavior shuffle:* the three behavior columns were independently permuted across
   trials within each mouse and the full model refit, 20 times per mouse. If the gain
   comes from correctly aligned behavior, it should vanish.
