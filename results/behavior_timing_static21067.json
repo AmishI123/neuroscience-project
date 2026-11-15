@@ -1,0 +1,79 @@
+{
+  "mouse": "static21067-10-18-GrayImageNet-94c6ff995dac583098847cfecd43e7b6",
+  "offsets": [
+    -10,
+    -5,
+    -2,
+    -1,
+    0,
+    1,
+    2,
+    5,
+    10
+  ],
+  "train_tiers": [
+    "train"
+  ],
+  "held_out_tiers": [
+    "validation",
+    "test"
+  ],
+  "fill_policy": "training behavior mean for out-of-range shifted rows",
+  "interpretation_boundary": "alignment-specific prediction sensitivity; not causal timing evidence",
+  "results": [
+    {
+      "offset_trials": -10,
+      "behavior_source": "i - offset_trials",
+      "mean_held_out_correlation": 0.12603877484798431,
+      "neuron_count": 8372
+    },
+    {
+      "offset_trials": -5,
+      "behavior_source": "i - offset_trials",
+      "mean_held_out_correlation": 0.12620139122009277,
+      "neuron_count": 8372
+    },
+    {
+      "offset_trials": -2,
+      "behavior_source": "i - offset_trials",
+      "mean_held_out_correlation": 0.1261468380689621,
+      "neuron_count": 8372
+    },
+    {
+      "offset_trials": -1,
+      "behavior_source": "i - offset_trials",
+      "mean_held_out_correlation": 0.12612563371658325,
+      "neuron_count": 8372
+    },
+    {
+      "offset_trials": 0,
+      "behavior_source": "i - offset_trials",
+      "mean_held_out_correlation": 0.1582627296447754,
+      "neuron_count": 8372
+    },
+    {
+      "offset_trials": 1,
+      "behavior_source": "i - offset_trials",
+      "mean_held_out_correlation": 0.12616442143917084,
+      "neuron_count": 8372
+    },
+    {
+      "offset_trials": 2,
+      "behavior_source": "i - offset_trials",
+      "mean_held_out_correlation": 0.12607929110527039,
+      "neuron_count": 8372
+    },
+    {
+      "offset_trials": 5,
+      "behavior_source": "i - offset_trials",
+      "mean_held_out_correlation": 0.12607546150684357,
+      "neuron_count": 8372
+    },
+    {
+      "offset_trials": 10,
+      "behavior_source": "i - offset_trials",
+      "mean_held_out_correlation": 0.1259879320859909,
+      "neuron_count": 8372
+    }
+  ]
+}
