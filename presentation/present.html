@@ -1,0 +1,86 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex"><title>Slides · From neurons to next steps</title><style>
+:root{--bg:#1F1915;--ink:#F3ECE1;--muted:#CDBFA9;--rust:#E3B98F;--bar:rgba(31,25,21,.92)}
+*{box-sizing:border-box}html,body{margin:0;height:100%;background:var(--bg);color:var(--ink);font:500 16px/1.4 system-ui,-apple-system,'Segoe UI',sans-serif;overflow:hidden}
+.stage{position:fixed;inset:0 0 56px 0;display:flex;align-items:center;justify-content:center;padding:12px}
+.stage img{max-width:100%;max-height:100%;object-fit:contain;display:block;box-shadow:0 8px 40px rgba(0,0,0,.45);user-select:none;-webkit-user-drag:none}
+body.full .stage{inset:0;padding:0}body.full .stage img{box-shadow:none}
+.bar{position:fixed;left:0;right:0;bottom:0;height:56px;background:var(--bar);display:flex;align-items:center;gap:8px;padding:0 12px;transition:opacity .25s}
+body.full .bar{opacity:0}body.full.show-bar .bar{opacity:1}
+.bar button,.bar a{min-height:44px;min-width:44px;padding:0 14px;border:1px solid #5A4A3E;background:transparent;color:var(--ink);font:inherit;border-radius:6px;cursor:pointer;display:inline-flex;align-items:center;gap:6px;text-decoration:none}
+.bar button:hover,.bar a:hover{border-color:var(--rust)}
+:focus-visible{outline:3px solid var(--rust);outline-offset:2px}
+.count{min-width:72px;text-align:center;color:var(--muted);font-variant-numeric:tabular-nums}
+.spacer{flex:1}
+.notes{position:fixed;left:0;right:0;bottom:56px;max-height:34vh;overflow:auto;background:#2B231D;border-top:2px solid var(--rust);padding:14px 20px;font:400 18px/1.5 Georgia,serif;display:none}
+body.notes-on .notes{display:block}body.notes-on .stage{bottom:calc(56px + 34vh)}
+body.full .notes{display:none!important}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.hint{color:var(--muted);font-size:13px}
+.bar button,.bar a{white-space:nowrap}.short{display:none}
+.bar a .label{display:inline}
+@media (max-width:640px){.hint,.label,.bar a .label,#notes-toggle{display:none}.short{display:inline}.count{min-width:52px}.bar button,.bar a{padding:0 8px}.bar{gap:4px}.bar{gap:6px;padding:0 8px}.bar button,.bar a{padding:0 10px}}
+</style></head><body>
+<main class="stage" aria-label="Slides"><img id="view" src="slides/01-cover.jpg" alt="From neurons to next steps: an ASDRP neuroscience portfolio by Amishi Mehta, with the four-card collage."></main>
+
+<p class="sr" id="live" aria-live="polite"></p>
+<nav class="bar" aria-label="Slide controls">
+<a href="./" title="All slides"><span class="label">← All slides</span><span class="short">All</span></a>
+<button type="button" id="prev" aria-label="Previous slide">←</button><span class="count" id="count">1 / 16</span><button type="button" id="next" aria-label="Next slide">→</button>
+<span class="spacer"></span><span class="hint">Arrow keys or tap to move · F for full screen · N for presenter view</span>
+<button type="button" id="notes-toggle" title="Presenter view with notes, next slide and a timer, in a separate window (N)">Presenter view</button><a href="from-neurons-to-next-steps-slides.pdf" download title="Download PDF"><span class="label">PDF</span><span class="sr"> download</span>⤓</a>
+<button type="button" id="full" title="Full screen (F)" aria-label="Full screen"><span class="label" id="full-label">Full screen</span><span class="short" id="full-short" aria-hidden="true">⛶</span></button>
+</nav>
+<script>var ITEMS=[{"src": "slides/01-cover.jpg", "alt": "From neurons to next steps: an ASDRP neuroscience portfolio by Amishi Mehta, with the four-card collage.", "notes": "This is one question, followed from real life into the lab and back out again. I\u2019ll show two studies with public brain recordings, then the two apps their findings shaped, and where the work goes next."}, {"src": "slides/02-found.jpg", "alt": "What we found, in three sentences: in mice, brain cells reacted differently to the same picture depending on alertness; a brain-wave headset could not reliably tell even eyes open from closed; so a helpful app asks how you feel and shows one small step at a time.", "notes": "Here is the whole answer in three sentences. One: In mice, brain cells reacted differently to the very same picture depending on how alert the mouse was. Two: A brain-wave headset on a person could not reliably tell even whether their eyes were open or closed. Three: So a helpful app should not try to read your brain: it should ask how you feel and show one small step at a time. The rest of this talk shows the evidence for each one."}, {"src": "slides/03-loop.jpg", "alt": "The loop: real life, understand, measure, design, test, and back to real life.", "notes": "Here is the whole talk. Real life raised a question. A mouse study helps us understand it. An EEG study asks whether we can measure it in a person. The answers shape the design of two apps. And the last step tests the apps back in real life."}, {"src": "slides/04-ch1.jpg", "alt": "Chapter 1, real life: same words, different moment.", "notes": "This is where it started: at Pragnya, where one child was dancing while another covered their ears in the same room. That made us ask whether how alert or tired a brain is changes what gets in."}, {"src": "slides/05-ch2-how.jpg", "alt": "Chapter 2: how the mouse study works, in four steps.", "notes": "Scientists shared recordings of thousands of brain cells from mice watching pictures. We built two simple guessers. Guesser A only knows the picture. Guesser B also knows how wide the pupils were and how fast the mouse was running. Both are tested on pictures they have never seen."}, {"src": "slides/06-ch2-result.jpg", "alt": "Chapter 2 result: guesser B beats guesser A in all three mice.", "notes": "In every mouse, guesser B wins. The scores look small because single brain cells are noisy, so the thing to look at is the jump from A to B: a quarter to a third better. That is a link, not proof of cause."}, {"src": "slides/07-ch2-inside.jpg", "alt": "Inside the first mouse: it is the pupil, not the running, and 90% of brain cells gain.", "notes": "Looking inside the first mouse, from Amishi\u2019s own analysis. Adding running barely changed anything; pupil size, a sign of how alert the mouse is, gave almost the whole gain. Nine in ten brain cells were guessed better, and the cells that follow alertness gained about five times as much as the rest."}, {"src": "slides/08-ch2-checks.jpg", "alt": "Chapter 2 checks: mix up the state, leave one mouse out, pupil or running.", "notes": "We tried to break it. When we gave guesser B the wrong moments\u2019 state, the gain disappeared. Leaving out any one mouse kept the gain. So how alert the mouse is really matters inside its brain. Next question: can a headset measure that in a person?"}, {"src": "slides/09-ch3-how.jpg", "alt": "Chapter 3: how the EEG study works.", "notes": "Now a person. EEG is a cap of sensors on the head. Closing your eyes is one of the easiest changes for it to see. If a simple model cannot read even that reliably, quieter states like tiredness will be harder. We always learn from earlier and test on later."}, {"src": "slides/10-ch3-result.jpg", "alt": "Chapter 3 result: good on one stretch, a coin flip over time.", "notes": "On one stretch it worked reasonably well. But when we tested it on five stretches across the recording, it averaged a coin flip."}, {"src": "slides/11-ch3-drift.jpg", "alt": "Chapter 3: scores on five stretches scatter around a coin flip.", "notes": "Each dot is one stretch. They land on both sides of a coin flip, and some are worse than guessing. Within two minutes, the signal drifted."}, {"src": "slides/12-ch3-bands.jpg", "alt": "Experiment 2: brain-wave rhythms help on average but still dip below a coin flip.", "notes": "So we asked a follow-up and wrote the plan down before running it: would the strength of brain-wave rhythms, like alpha, hold steady where raw readings did not? They helped on average, but two of five stretches still fell below a coin flip. By the rule we set beforehand, it did not hold up. So a tool should not try to guess how someone is doing from a sensor."}, {"src": "slides/13-ch4-rules.jpg", "alt": "Chapter 4: four findings become four design rules.", "notes": "This is where the science turns into design. Each finding gives a rule, and each rule is a real feature in the apps."}, {"src": "slides/14-ch4-screens.jpg", "alt": "Chapter 4: the rules on real screens in Next Step and Helper Jobs.", "notes": "Here they are. Next Step asks about energy and shrinks the plan. Save and pause and I\u2019m stuck make it easy to stop and come back. Helper Jobs gives one picture step at a time, read aloud, with a Help button that reaches a volunteer."}, {"src": "slides/15-ch5.jpg", "alt": "Chapter 5: the road ahead in four steps.", "notes": "Next, with an ASDRP mentor, we run the three remaining data experiments and write the first paper, on why the EEG drifts. Then design studies with the people the apps are for. Longer term, the joined-up question: do apps that adjust to how you feel help people learn?"}, {"src": "slides/16-close.jpg", "alt": "The loop, who did what, and where to see everything.", "notes": "To sum up the loop. Everything I showed is on the website, with the phone tour, these slides and both apps linked from it. Thank you."}];var KIND="Slide";
+(function(){
+  var items = ITEMS, i = 0, kind = KIND;
+  var img = document.getElementById('view'), count = document.getElementById('count'), live = document.getElementById('live'), notes = document.getElementById('notes');
+  var m = /[#&]?(\d+)$/.exec(location.hash); if (m) i = Math.min(items.length - 1, Math.max(0, +m[1] - 1));
+  // Load the neighbours early so moving between pages is instant.
+  items.forEach(function(item){ var pre = new Image(); pre.src = item.src; });
+  // The presenter window and this one stay on the same slide.
+  var channel = ('BroadcastChannel' in window) ? new BroadcastChannel('bb-present') : null, quiet = false;
+  if (channel) channel.onmessage = function(e){ if (e.data && typeof e.data.slide === 'number' && e.data.slide !== i) { quiet = true; show(e.data.slide); quiet = false; } if (e.data && e.data.hello) channel.postMessage({slide: i}); };
+  function show(n){
+    i = Math.min(items.length - 1, Math.max(0, n));
+    img.src = items[i].src; img.alt = items[i].alt;
+    count.textContent = (i + 1) + ' / ' + items.length;
+    live.textContent = kind + ' ' + (i + 1) + ' of ' + items.length + '. ' + items[i].alt;
+    history.replaceState(null, '', '#' + (i + 1));
+    if (channel && !quiet) channel.postMessage({slide: i});
+    document.getElementById('prev').disabled = i === 0; document.getElementById('next').disabled = i === items.length - 1;
+  }
+  function full(){
+    var el = document.documentElement;
+    if (!document.fullscreenElement) { (el.requestFullscreen || el.webkitRequestFullscreen || function(){}).call(el); }
+    else { (document.exitFullscreen || document.webkitExitFullscreen).call(document); }
+  }
+  document.addEventListener('fullscreenchange', function(){ document.body.classList.toggle('full', !!document.fullscreenElement); var on = !!document.fullscreenElement; document.getElementById('full-label').textContent = on ? 'Exit full screen' : 'Full screen'; document.getElementById('full-short').textContent = on ? '✕' : '⛶'; document.getElementById('full').setAttribute('aria-label', on ? 'Exit full screen' : 'Full screen'); });
+  document.getElementById('prev').onclick = function(){ show(i - 1); };
+  document.getElementById('next').onclick = function(){ show(i + 1); };
+  document.getElementById('full').onclick = full;
+  // Speaker notes open in their own window, for the laptop screen, so they never show on the projector.
+  var notesBtn = document.getElementById('notes-toggle');
+  if (notesBtn) notesBtn.onclick = function(){ window.open('presenter.html#' + (i + 1), 'bb-presenter', 'width=1280,height=800'); };
+  document.addEventListener('keydown', function(e){
+    if (e.altKey || e.ctrlKey || e.metaKey) return;
+    var k = e.key;
+    // Space and Enter on a focused button press that button; they never also move the slides.
+    if ((k === ' ' || k === 'Enter') && e.target && e.target.closest && e.target.closest('button, a')) return;
+    if (k === 'ArrowRight' || k === 'PageDown' || k === ' ' || k === 'Enter') { e.preventDefault(); show(i + 1); }
+    else if (k === 'ArrowLeft' || k === 'PageUp' || k === 'Backspace') { e.preventDefault(); show(i - 1); }
+    else if (k === 'Home') { e.preventDefault(); show(0); }
+    else if (k === 'End') { e.preventDefault(); show(items.length - 1); }
+    else if (k === 'f' || k === 'F') { full(); }
+    else if ((k === 'n' || k === 'N') && notesBtn) { notesBtn.click(); }
+  });
+  // Click the right two thirds to go forward, the left third to go back. Swipe on phones.
+  document.querySelector('.stage').addEventListener('click', function(e){ if (e.clientX < innerWidth / 3) show(i - 1); else show(i + 1); });
+  var x0 = null; document.addEventListener('touchstart', function(e){ x0 = e.touches[0].clientX; }, {passive: true});
+  document.addEventListener('touchend', function(e){ if (x0 === null) return; var dx = e.changedTouches[0].clientX - x0; if (Math.abs(dx) > 40) show(i + (dx < 0 ? 1 : -1)); x0 = null; });
+  // In full screen the bar hides; moving the mouse brings it back for a moment.
+  var t = null; document.addEventListener('mousemove', function(){ document.body.classList.add('show-bar'); clearTimeout(t); t = setTimeout(function(){ document.body.classList.remove('show-bar'); }, 1800); });
+  window.addEventListener('hashchange', function(){ var h = /#([0-9]+)$/.exec(location.hash); if (h && +h[1] - 1 !== i) show(+h[1] - 1); });
+  show(i);
+})();
+</script>
+</body></html>

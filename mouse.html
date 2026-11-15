@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#F3ECE1" />
+  <title>Understand · mouse study · From neurons to next steps</title>
+  <meta name="description" content="Chapter 2: knowing how alert and active a mouse was made its brain’s response to pictures 25–33% easier to predict, in all three mice." />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="From neurons to next steps" />
+  <meta property="og:title" content="Understand · mouse study · From neurons to next steps" />
+  <meta property="og:description" content="Chapter 2: knowing how alert and active a mouse was made its brain’s response to pictures 25–33% easier to predict, in all three mice." />
+  <meta property="og:url" content="https://amishi123.github.io/neuroscience-project/mouse.html" />
+  <meta property="og:image" content="https://amishi123.github.io/neuroscience-project/presentation/slides/01-cover.jpg" />
+  <meta property="og:image:width" content="1920" />
+  <meta property="og:image:height" content="1080" />
+  <meta property="og:image:alt" content="From neurons to next steps: an ASDRP neuroscience portfolio by Amishi Mehta." />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link rel="canonical" href="https://amishi123.github.io/neuroscience-project/mouse.html" />
+  
+  <link rel="icon" href="assets/icon.svg" type="image/svg+xml" />
+  <link rel="stylesheet" href="assets/base.css" />
+  <link rel="stylesheet" href="assets/experience.css" />
+  <link rel="stylesheet" href="assets/theme-atlas.css" />
+  <link rel="stylesheet" href="assets/styles.css" />
+  <link rel="stylesheet" href="assets/charts.css" />
+</head>
+<body>
+  <aside class="public-demo-banner" aria-label="About this portfolio">ASDRP application portfolio · Public data only · Every number comes from saved results</aside>
+  <a class="skip-link" href="#app">Skip to the page</a>
+  <header>
+    <a class="brand" href="index.html"><span class="mark" aria-hidden="true">n.</span> From neurons to next steps</a>
+    <span class="header-status"><span class="badge">Public data only</span><span class="badge">Future plans clearly marked</span></span>
+    <a class="header-link" href="https://github.com/AmishI123/neuroscience-project/tree/main/portfolio">Source code</a>
+  </header>
+  <main id="app" tabindex="-1">
+    <section class="screen active landing" aria-labelledby="page-title">
+    <div class="lm-head"><div class="hj-heading"><a class="back-button" href="index.html">← <span>All chapters</span></a><p class="eyebrow">Chapter 2 · Understand · Mouse study</p><h1><span id="page-title">Does how alert a mouse is change how its brain responds to what it sees?</span></h1><p class="hj-sub">Mice watched pictures while scientists recorded thousands of brain cells in the part of the brain that handles seeing. We tried to guess what each cell would do, first from the picture alone, then from the picture plus two signs of the mouse’s state: how wide its pupils were and how fast it was running. If state did not matter, the extra signs would not help.</p></div><div class="hj-art" data-art="mouseHero"></div></div>
+      <section class="landing-problems answer"><p class="lp-energy"><b>It mattered, in all three mice.</b> Knowing the mouse’s state made our guesses a quarter to a third better (25–33%), on pictures the model had never seen. <span>This shows state and seeing are linked. It does not yet show which causes which.</span></p></section>
+
+      <section class="landing-more" aria-labelledby="how-title">
+        <div class="lm-head"><div><h2 class="landing-subhead" id="how-title">How we tested it</h2><p class="lp-lead">Two guessers, the same pictures, and a fair test on pictures neither had seen.</p></div><div class="hj-art" data-art="mouseStudy"></div></div>
+        <ul class="lm-grid"><li><div class="lm-top"><span class="lm-icon" data-icon="photo"></span><p class="lm-k">Step 1</p></div><h3>What the mouse saw</h3><p>Each picture is shrunk to a short summary of its light and dark patterns, so a simple model can use it.</p></li><li><div class="lm-top"><span class="lm-icon" data-icon="eye"></span><p class="lm-k">Step 2</p></div><h3>What state it was in</h3><p>Pupil size (wider usually means more alert) and running speed, recorded at the same moment as the brain cells.</p></li><li><div class="lm-top"><span class="lm-icon" data-icon="chart-dots"></span><p class="lm-k">Step 3</p></div><h3>Two simple guessers</h3><p>Guesser A sees only the picture. Guesser B sees the picture plus pupil and running. Both are the simplest kind of model: each clue gets a weight, and the weights are added up.</p></li><li><div class="lm-top"><span class="lm-icon" data-icon="target"></span><p class="lm-k">Step 4</p></div><h3>A fair test</h3><p>Both guess how each brain cell responds to pictures they have never seen. We score how closely each guess follows the real cell.</p></li><li><div class="lm-top"><span class="lm-icon" data-icon="books"></span><p class="lm-k">The data</p></div><h3>A public dataset</h3><p>Sensorium 2022: recordings of thousands of brain cells from mice watching pictures, shared by scientists for anyone to study.</p></li><li><div class="lm-top"><span class="lm-icon" data-icon="users"></span><p class="lm-k">Being fair</p></div><h3>Each mouse counts once</h3><p>The many brain cells in one mouse are not counted as many mice.</p></li></ul>
+      </section>
+
+      <h2 class="landing-subhead">The results</h2>
+      <div class="chart-card"><div data-chart="mouse-scale"></div><div><p class="lm-k">How to read the score</p><h3>How closely the guess follows the real brain cell.</h3><p>0 means the guess and the cell have nothing in common; 1 would be a perfect match. Brain cells are noisy, so even good guesses score low. What matters is the jump from A to B.</p><p class="chart-note">The score is a correlation, averaged over every recorded brain cell.</p></div></div>
+      <div class="chart-card"><div data-chart="mouse-scores"></div><div><p class="lm-k">Result</p><h3>Every mouse is easier to predict once we know its state.</h3><p>The picture explains part of what the seeing part of the brain does. Whether the mouse is alert and moving explains more, in every animal.</p><p class="chart-note">Tested on pictures the guessers never saw.</p></div></div>
+      <div class="chart-card"><div data-chart="mouse-gain"></div><div><p class="lm-k">How much state adds</p><h3>Every mouse gains, by different amounts.</h3><p>Pupil size helps all three mice. How much running adds changes from mouse to mouse, so each mouse is shown on its own.</p><p class="chart-note">Gain = guesser B’s score minus guesser A’s score.</p></div></div>
+
+      <h2 class="landing-subhead" id="inside-title">Inside the first mouse</h2><p class="landing-demo-note">From Amishi’s saved results and report in <a href="https://github.com/AmishI123/neuroscience-project">AmishI123/neuroscience-project</a>, redrawn here. These are for the first mouse only.</p>
+      <div class="tour-nums inside-nums"><p><b>90%</b><span>of brain cells were guessed better once state was added</span></p><p><b>+0.017</b><span>typical gain per cell (the middle value)</span></p><p><b>+0.35</b><span>the biggest gain for a single cell</span></p></div>
+      <div class="chart-card"><div data-chart="mouse1-ablation"></div><div><p class="lm-k">Which part of state?</p><h3>It is the pupil, not the running.</h3><p>Adding running barely moved the score. Adding pupil size gave almost the whole gain. This mouse ran on only about 5% of trials, so running had little to say.</p><p class="chart-note">Score on unseen pictures, first mouse.</p></div></div>
+      <div class="chart-card"><div data-chart="mouse1-cells"></div><div><p class="lm-k">Which cells gain?</p><h3>The cells that follow alertness gain most.</h3><p>Cells whose activity rises or falls with pupil size gained about five times as much as the rest.</p><p class="chart-note">A cell “follows pupil” when its activity and pupil size move together (correlation above 0.1), as in Amishi’s report.</p></div></div>
+      <div class="chart-card"><div data-chart="mouse1-cell"></div><div><p class="lm-k">One cell</p><h3>From nearly unpredictable to predictable.</h3><p>Brain cell 3035 was almost impossible to predict from the picture alone. Knowing the mouse’s state raised its score from 0.05 to 0.40.</p><p class="chart-note">Score for this one cell on unseen pictures.</p></div></div>
+
+      <section class="landing-more" aria-labelledby="checks-title" id="checks">
+        <div class="lm-head"><div><h2 class="landing-subhead" id="checks-title">Trying to break the result</h2><p class="lp-lead">Three checks that could have made the gain disappear. It survived all three.</p></div><div class="hj-art" data-art="controls"></div></div>
+        <ul class="lm-grid"><li><div class="lm-top"><span class="lm-icon" data-icon="arrows-shuffle"></span><p class="lm-k">Mix up the state</p></div><h3>The gain disappears</h3><p>We gave guesser B the pupil and running from the wrong moments, 20 times per mouse. It added nothing. The gain needs the mouse’s state at that moment.</p></li><li><div class="lm-top"><span class="lm-icon" data-icon="users"></span><p class="lm-k">Leave one mouse out</p></div><h3>Still there</h3><p>Take any one mouse away and the other two still show the gain, so no single mouse carries the result.</p></li><li><div class="lm-top"><span class="lm-icon" data-icon="eye"></span><p class="lm-k">Pupil or running?</p></div><h3>Pupil helps every mouse</h3><p>Taking each sign away in turn: pupil helps all three mice; running helps some more than others.</p></li></ul>
+      </section>
+      <div class="chart-card"><div data-chart="mouse-loo"></div><div><p class="lm-k">Leave one mouse out</p><h3>The gain stays without any one mouse.</h3><p>So the pattern does not hang on one recording. It is a check, not a promise about all mice.</p><p class="chart-note">Average gain over the two mice that are left.</p></div></div>
+
+      <div class="landing-facts" style="margin-top:28px">
+        <div class="landing-fact"><h2>Code and data</h2><p>The analysis is in <a href="https://github.com/AmishI123/neuroscience-project">AmishI123/neuroscience-project</a> (her notebooks 01–05). The numbers on this page are copied from its saved results, and an automatic check confirms they still match. Data: Willeke et al. (2022), <i>The Sensorium competition on predicting large-scale mouse primary visual cortex activity</i>, arXiv:2206.08666.</p></div>
+        <div class="landing-fact landing-fact-not"><h2>What it does not show</h2><p>Three mice cannot speak for all mice. A better guess does not show that being alert or running causes the brain to change. Other things that happen at the same time could explain it.</p></div>
+      </div>
+      <section class="landing-problems answer bridge"><p class="lp-energy"><b>What chapter 2 tells us:</b> the same picture lands differently depending on the state the mouse is in. So the next question: can a brain-wave headset measure that in a person? <a href="eeg.html">Chapter 3 →</a></p></section>
+      <p class="landing-note"><a href="index.html">← All chapters</a><a href="eeg.html">Chapter 3 · EEG →</a></p>
+    </section>
+    <nav class="landing-note family-links" aria-label="Everything in this portfolio"><b>Everything in this portfolio:</b><a href="https://amishi123.github.io/neuroscience-project/share/">Share and demo</a><a href="https://amishi123.github.io/neuroscience-project/">The website</a><a href="https://amishi123.github.io/neuroscience-project/neuroscience-mobile/">Phone tour</a><a href="https://amishi123.github.io/neuroscience-project/presentation/">Slides</a><a href="https://amishi123.github.io/neuroscience-project/video/">Video</a><a href="https://next-step-live.onrender.com/">Next Step app</a><a href="https://helper-jobs.onrender.com">Helper Jobs app</a><a href="https://github.com/AmishI123/neuroscience-project/tree/main/portfolio">Source code</a></nav>
+  </main>
+  <script src="assets/icons.js"></script><script src="assets/icons-extra.js"></script><script src="assets/art.js"></script><script src="assets/science-art.js"></script>
+  <script src="assets/results.js"></script><script src="assets/charts.js"></script><script src="assets/site.js"></script>
+</body>
+</html>
