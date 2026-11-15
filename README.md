@@ -77,6 +77,12 @@ Other scripts in `src/`: `summarize_replication.py`, `plot_replication.py`,
 | `data/` | Datasets (downloaded locally, not committed) |
 | `application/` | Application essay drafts |
 
+## Related projects
+
+- **Portfolio and story:** [ASDRP Neuroscience Portfolio](https://mehtama1234.github.io/ASDRP-Neuroscience-Portfolio/) ties these projects together.
+- **Next Step:** [AmishI123/next-step](https://github.com/AmishI123/next-step), a calm web app that asks how much energy you have and shows only the next step on a low day. Built with AI tools, with advice and guidance from a parent.
+- **Neurocomms:** [AmishI123/neurocomms-app](https://github.com/AmishI123/neurocomms-app), communication-support prototypes and Helper Jobs. Same build notes; fictional data only.
+
 ## Method in one line
 
 Ridge regression (scikit-learn) on 150 image principal components, comparing a

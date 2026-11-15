@@ -2,12 +2,8 @@
 
 *An encoding-model study of arousal and locomotion in mouse primary visual cortex (V1).*
 
-**Author:** [Your Name] · **Collaborator:** Manish Mehta (parent)
+**Author:** Amishi Mehta · **Collaborator:** Manish Mehta (parent)
 **Code & data:** https://github.com/AmishI123/neuroscience-project
-
-> This is a draft report intended as the application's "paper" attachment. Replace
-> [Your Name], read it in full, and edit anything you'd say differently — it should
-> sound like you.
 
 ---
 
