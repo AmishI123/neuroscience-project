@@ -1,162 +1,128 @@
 # Does Behavioral State Improve Prediction of Mouse Visual Cortex Activity?
 
-*An encoding-model study of arousal and locomotion in mouse primary visual cortex (V1).*
+*An encoding-model study of arousal and locomotion in mouse primary visual cortex (V1), replicated in three mice.*
 
-**Author:** Amishi Mehta · **Collaborator:** Manish Mehta (parent)
+**Author:** Amishi Mehta · with advice and guidance from Manish Mehta (parent)
 **Code & data:** https://github.com/AmishI123/neuroscience-project
 
 ---
 
 ## Abstract
 
-Encoding models predict how visual-cortex neurons respond to images. Real neurons,
-however, respond to the same image differently depending on the animal's internal
-state. Using publicly available Sensorium 2022 recordings across three mice, we asked
-whether adding pupil size and running speed improves prediction beyond the visual
-stimulus alone. The original discovery mouse rose from **0.126 to 0.158**; two
-pre-specified replications rose from **0.154 to 0.203** and **0.143 to 0.191**.
-Pupil improved all three animals, while running contributed differently across them.
-These results support the narrower predictive claim that behavioral state carries
-information, while leaving population-level uncertainty and causality open.
+Encoding models predict how visual-cortex neurons respond to images, but real neurons
+respond to the same image differently depending on the animal's internal state. Using
+public Sensorium 2022 recordings (7,300–8,400 V1 neurons per mouse), we asked whether
+adding pupil size and running speed to a linear encoding model improves held-out
+prediction beyond the image alone. In a discovery mouse, mean prediction accuracy rose
+from **0.126 to 0.158** (Pearson correlation). Two further mice, analysed with the same
+pipeline chosen in advance, rose from **0.154 to 0.203** and from **0.143 to 0.191**:
+a gain of 25–33% in every animal. Pupil improved prediction in all three mice, while
+running helped only in the two that ran more. The gain disappeared when behavior was
+shuffled across trials, survived dropping any one mouse, and held when the image model
+was replaced with pretrained deep-network features. Within the discovery mouse, the
+neurons that gained most were those whose activity tracked arousal. These results
+support a predictive claim, that behavioral state carries information about V1 activity
+that the image does not, and leave population-level estimates and causal mechanism
+open.
+
+## Key findings
+
+1. **Behavior improved prediction in 3 of 3 mice** (+0.032, +0.049, +0.047 correlation
+   points; +25%, +32%, +33%).
+2. **Pupil helped every mouse; running depended on the mouse.** It added almost nothing
+   in the mouse that rarely ran.
+3. **The gain needs correctly aligned behavior.** Shuffling behavior across trials
+   reduced it to about −0.0005 in every mouse.
+4. **Arousal-sensitive neurons gained most** (+0.069 vs +0.014 for the rest, discovery
+   mouse).
+5. **The result does not depend on the image model.** With CNN features, behavior still
+   helped (0.137 → 0.155).
 
 ## 1. Introduction
 
 When a mouse views an image, neurons in its primary visual cortex (V1) fire. A central
 goal of systems neuroscience is the **encoding model**: a function that predicts these
-neural responses from the stimulus. But the brain is not a camera. The same image can
-elicit different responses depending on whether the animal is alert or drowsy, moving
-or still. Two commonly recorded signals summarize much of this internal state:
-**pupil size** (larger pupils accompany heightened arousal) and **running speed**
-(locomotion is known to boost V1 gain in mice).
+responses from the stimulus. But the brain is not a camera. The same image can drive a
+neuron differently depending on whether the animal is alert or drowsy, moving or still.
+Locomotion increases the gain of mouse V1 responses (Niell & Stryker, 2010), pupil size
+tracks fast changes in cortical state during quiet wakefulness (Reimer et al., 2014),
+and arousal and locomotion make partly distinct contributions to cortical activity
+(Vinck et al., 2015). More broadly, spontaneous behaviors account for a large share of
+activity across cortex (Stringer et al., 2019).
 
-We tested a simple, concrete question:
+These findings suggest that a model which sees only the image is missing something
+predictable. We tested that directly:
 
 > **Does adding behavioral variables (pupil, running) to an encoding model improve its
-> prediction of V1 activity, compared to using the visual stimulus alone?**
+> prediction of held-out V1 activity, compared to the visual stimulus alone?**
 
-We deliberately used a transparent linear method (ridge regression) rather than a deep
-network, so that every step is interpretable and the comparison between "stimulus only"
-and "stimulus + behavior" is clean.
+We used a transparent linear model (ridge regression) rather than a deep network, so
+that the comparison between "stimulus only" and "stimulus + behavior" is clean and every
+step can be inspected. We then asked three follow-up questions: which behavioral signal
+carries the gain, whether the result replicates in other mice, and whether it survives
+controls designed to break it.
 
 ## 2. Data
 
-We used one scan from the **Sensorium 2022** dataset (mouse `static21067-10-18`):
+We used three recordings from the public **Sensorium 2022** dataset (Willeke et al.,
+2022). Each recording is a two-photon calcium-imaging scan of layer 2/3 V1 neurons in a
+mouse viewing natural grayscale images (144×256 pixels), with pupil size, change in
+pupil size and running speed recorded on every trial.
 
-- **8,372 neurons** in V1 (all in layer 2/3), recorded with two-photon calcium imaging.
-- **5,994 trials**, each a natural grayscale image (144×256 pixels) shown to the mouse.
-- Simultaneous **behavior** per trial: pupil size, change in pupil size, running speed.
-- Official split: 4,473 training / 523 validation / 998 test trials.
+| Mouse | Neurons | Trials | Training | Held-out | Trials with nonzero running |
+|---|---:|---:|---:|---:|---:|
+| `static21067-10-18` (discovery) | 8,372 | 5,994 | 4,473 | 1,521 | 5.4% |
+| `static22846-10-16` (replication) | 7,344 | 5,997 | 4,498 | 1,499 | 6.1% |
+| `static23343-5-17` (replication) | 7,334 | 5,951 | 4,466 | 1,485 | 12.9% |
 
-We trained on the training trials and evaluated on the combined validation + test
-trials (1,521 held-out trials the model never saw).
+We used the official splits: models were trained on the training trials and evaluated on
+the combined validation and test trials, which the model never saw.
 
 ## 3. Methods
 
-**Stimulus features.** Each 144×256 image was downsampled to 36×64 by 4×4 block
-averaging, standardized, and reduced to **150 principal components** (PCA fit on
-training images only; these 150 components captured ~90% of image variance).
+**Stimulus features.** Each image was downsampled to 36×64 by 4×4 block averaging,
+standardized, and reduced to **150 principal components**, with PCA fit on training
+images only. In the discovery mouse these components captured about 90% of image
+variance.
 
-**Behavior features.** The three behavioral variables were standardized (using training
-statistics only).
+**Behavior features.** Pupil size, change in pupil size and running speed were
+standardized using training-trial statistics only. "Pupil" below means both pupil
+variables together.
 
-**Models.** We fit ridge-regression models (scikit-learn, regularization α = 1000) that
-predict all 8,372 neurons simultaneously:
+**Models.** For each mouse we fit four ridge-regression models (scikit-learn, α = 1000)
+that predict all neurons at once:
 
-- **Model A (baseline):** stimulus features only.
-- **Model B (extended):** stimulus features + behavior.
-- **Ablations:** stimulus + running only; stimulus + pupil only.
+1. stimulus only (the baseline);
+2. stimulus + running;
+3. stimulus + pupil;
+4. stimulus + running + pupil.
 
-**Evaluation.** For each neuron we computed the Pearson correlation between predicted
-and actual responses across held-out trials, then averaged across neurons. All
-preprocessing was fit on training data only, to avoid leakage.
+**Evaluation.** For each neuron we computed the Pearson correlation between predicted and
+actual responses across held-out trials, then averaged across neurons. All
+preprocessing was fit on training data only, to avoid leakage between training and
+evaluation.
+
+**Replication protocol.** The two replication mice were chosen before their results were
+inspected, and analysed with the same downsampling, PCA size, standardization and α as
+the discovery mouse (`docs/REPLICATION_PLAN.md`). Each mouse is treated as one unit of
+replication; neurons are not pooled across mice as if they were independent.
+
+**Controls and uncertainty.**
+- *Behavior shuffle:* the three behavior columns were independently permuted across
+  trials within each mouse and the full model refit, 20 times per mouse. If the gain
+  comes from correctly aligned behavior, it should vanish.
+- *Leave one mouse out:* the mean gain was recomputed with each mouse omitted in turn.
+- *Bootstrap:* 200 resamples over neurons within each mouse gave descriptive 95%
+  intervals for each model's mean correlation.
 
 ## 4. Results
 
-### 4.1 Behavior improves prediction — and it's pupil, not running
+### 4.1 Behavior improved prediction in all three mice
 
-![Model comparison](../results/fig1_model_comparison.png)
+![Per-mouse replication](../results/per_mouse_replication_summary.png)
 
-Mean test correlation rose from **0.126** (stimulus only) to **0.158** (stimulus +
-behavior), a **~25% relative improvement**. The ablation is decisive: adding running
-alone barely changed anything (0.127), while adding pupil alone captured essentially the
-entire gain (0.158). This makes sense given the behavior itself: **the mouse was running
-on only 5.4% of trials**, so locomotion carried almost no usable signal, whereas pupil
-(arousal) varied continuously.
-
-### 4.2 Most neurons improve; a tail improves a lot
-
-![Improvement distribution](../results/fig2_improvement_distribution.png)
-
-About **90% of neurons** were predicted better with behavior. The distribution is
-right-skewed (mean +0.032, median +0.017): most neurons gain modestly, but a tail gains
-substantially (up to +0.36).
-
-### 4.3 The winners are the arousal-sensitive neurons
-
-![Improvement vs arousal](../results/fig3_improvement_vs_arousal.png)
-
-We measured each neuron's **arousal modulation** as the correlation between its response
-and pupil size (as in our exploratory analysis). Improvement from behavior rises clearly
-with arousal modulation: neurons whose activity tracked arousal (pupil correlation > 0.1;
-n = 2,750) improved by **+0.069 on average**, versus **+0.014** for the rest. The model
-gains most exactly where behavior carries information — a satisfying internal consistency.
-
-### 4.4 The effect is spread across the cortex
-
-![Spatial map](../results/fig4_spatial_map.png)
-
-Coloring each neuron by its improvement at its physical location reveals **no strong
-spatial clustering** (correlation between improvement and cortical depth ≈ 0). Arousal
-modulation appears to be a distributed property of the L2/3 population, not confined to
-a patch.
-
-### 4.5 A dramatic single example
-
-![Example neuron](../results/fig5_example_neuron.png)
-
-Neuron 3035 was nearly unpredictable from the stimulus alone (correlation 0.05). Adding
-behavior raised its prediction to **0.40** — turning noise into a clear relationship.
-This neuron is essentially arousal-driven: knowing the image barely helps, but knowing
-the mouse's state does.
-
-### 4.6 Extension: do deep-network features help? (deep-learning stretch)
-
-We asked whether features from a **pretrained deep network** predict V1 better than the
-simple pixel summary. Using a pretrained ResNet-50 as a fixed feature extractor (a
-middle layer, at the image's native resolution to preserve spatial layout), we compared
-four models, selecting regularization on validation and reporting on the test set.
-(These numbers come from a test-only evaluation with separately tuned regularization,
-so they differ slightly from the headline 0.126 / 0.158, which are scored on the
-combined validation + test trials with a fixed α.)
-
-![Deep-learning comparison](../results/fig6_deep_learning.png)
-
-| Stimulus model | without behavior | with behavior |
-|---|---|---|
-| pixel summary | 0.131 | 0.154 |
-| **deep-network (CNN) features** | **0.137** | **0.155** |
-
-Two honest observations:
-
-1. **CNN features modestly beat raw pixels** (0.137 vs 0.131). Middle-layer features of a
-   network trained on natural images are slightly more "V1-like" than raw pixels — but
-   only slightly, which is expected: the network was trained to recognize ImageNet
-   objects, not to match a mouse brain.
-2. **Behavior helps regardless of the stimulus model** (CNN: 0.137 → 0.155; ~63% of
-   neurons improved, arousal-sensitive neurons +0.052). The behavior effect is *robust*
-   to the modeling choice — a reassuring check that our main conclusion is not an
-   artifact of using a simple stimulus model.
-
-Notably, switching from pixels to CNN features (+0.006) helped *less* than adding
-behavior (+0.02–0.03). In other words, for this data, **knowing the animal's internal
-state was at least as valuable as using a more sophisticated image model.**
-
-### 4.7 Cross-animal replication
-
-To test whether the headline result was specific to the original mouse, we ran the
-same four-model pipeline on two additional Sensorium recordings. The runner uses the
-same 4×4 image downsampling, 150-component PCA, training-only standardization, ridge
-alpha 1000, and official train/validation/test tiers.
+*Figure 1. Mean held-out correlation for the stimulus-only and stimulus-plus-behavior
+models in each mouse (left), and the absolute gain (right).*
 
 | Mouse | Stimulus only | + running | + pupil | + both | Relative gain |
 |---|---:|---:|---:|---:|---:|
@@ -164,104 +130,198 @@ alpha 1000, and official train/validation/test tiers.
 | `static22846-10-16` | 0.1543 | 0.1696 | 0.1936 | **0.2034** | +31.8% |
 | `static23343-5-17` | 0.1431 | 0.1603 | 0.1799 | **0.1905** | +33.1% |
 
-The qualitative conclusion replicated: adding behavior improved held-out prediction
-in all three mice. The useful signal was not identical, however. Running barely changed
-the first mouse, improved the second from 0.1543 to 0.1696, and improved the third
-from 0.1431 to 0.1603; pupil improved all three.
-This strengthens the narrower claim that behavioral state carries predictive
-information while reinforcing that the relative contribution of running and pupil is
-animal-dependent. The complete per-mouse metrics are in
-`results/per_mouse_metrics.csv`, and the executable pipeline is
-`src/replicate_mouse.py`. A 200-resample bootstrap over neurons within each animal
-gave descriptive 95% intervals for stimulus-only versus stimulus-plus-behavior of
-0.1250–0.1283 versus 0.1565–0.1600 in the first mouse, 0.1525–0.1562 versus
-0.2013–0.2054 in the second, and 0.1411–0.1447 versus 0.1889–0.1926 in the third.
-These intervals quantify within-animal measurement variation; they are not
-hierarchical confidence intervals across animals.
+Adding behavior raised mean held-out correlation in every mouse. Across the three
+animals the mean absolute gain was **0.043** correlation points (sample SD 0.0095, range
+0.032–0.049) and the mean relative gain was **30.0%** (SD 4.3 points). The bootstrap
+intervals for the two models did not overlap in any mouse: 0.1250–0.1283 versus
+0.1565–0.1600, 0.1525–0.1562 versus 0.2013–0.2054, and 0.1411–0.1447 versus
+0.1889–0.1926. These intervals describe measurement variation within each mouse; they
+are not confidence intervals for the mouse population.
 
-For a separate animal-level descriptive summary, `src/summarize_replication.py`
-reports a mean absolute gain of **0.0428** correlation points across the three
-animals (sample SD **0.0095**, range **0.0318–0.0491**) and a mean relative gain
-of **30.0%** (sample SD **4.3 percentage points**). This summary treats each
-recording as one animal and does not pool its neurons into a population estimate.
+### 4.2 Pupil helped every mouse; running depended on the mouse
 
-As a descriptive stability check, we also recomputed the mean absolute gain after
-omitting each animal in turn. The leave-one-animal-out means are **0.0482** when
-omitting the original mouse, **0.0396** when omitting the second mouse, and
-**0.0404** when omitting the third mouse. All remain positive, but this is a
-three-animal sensitivity analysis—not a population estimate or hierarchical
-confidence interval.
+| Mouse | Nonzero running | Gain from running | Gain from pupil | Gain from both |
+|---|---:|---:|---:|---:|
+| `static21067-10-18` | 5.4% | +0.0006 | +0.0313 | +0.0318 |
+| `static22846-10-16` | 6.1% | +0.0153 | +0.0392 | +0.0491 |
+| `static23343-5-17` | 12.9% | +0.0172 | +0.0368 | +0.0474 |
 
-### 4.8 Behavior-shuffle negative control
+Pupil alone produced most of the gain in every mouse. Running was different. In the
+discovery mouse, which had nonzero running on only 5.4% of trials, running added almost
+nothing (+0.0006). In the other two mice it added about +0.015 to +0.017 on its own.
+In those mice, combining running and pupil also beat pupil alone (0.2034 vs 0.1936;
+0.1905 vs 0.1799), so running carried information that pupil did not. That fits the
+idea that arousal and locomotion are partly separate signals (Vinck et al., 2015).
 
-As a control for trial alignment, we independently permuted the three behavior
-columns across trials within each animal and refit the stimulus-plus-behavior model
-20 times per animal. The aligned gains were **+0.0318**, **+0.0491**, and **+0.0474**
-correlation points. The shuffled-behavior mean gains were **−0.00046**, **−0.00048**,
-and **−0.00049**, respectively. This control is consistent with the observed gain
-depending on aligned behavior rather than an arbitrary extra feature block. It is
-not a causal test, a population null distribution, or proof that behavior causes
-the neural responses. Full seeds and ranges are in
+With three mice we cannot say how running's contribution depends on how much an animal
+runs. The pattern is consistent with a simple point: a behavioral variable can only help
+a model if the behavior actually varies.
+
+![Model comparison, discovery mouse](../results/fig1_model_comparison.png)
+
+*Figure 2. The four models in the discovery mouse. Pupil carries nearly all of the gain.*
+
+### 4.3 The gain depends on correctly aligned behavior
+
+If the gain came simply from giving the model three extra input columns, it would
+survive shuffling. It did not:
+
+| Mouse | Gain with aligned behavior | Mean gain with shuffled behavior (20 shuffles) |
+|---|---:|---:|
+| `static21067-10-18` | +0.0318 | −0.00046 |
+| `static22846-10-16` | +0.0491 | −0.00048 |
+| `static23343-5-17` | +0.0474 | −0.00049 |
+
+Shuffled behavior made prediction very slightly worse, as expected for uninformative
+extra features. Recomputing the mean gain with each mouse left out gave 0.048, 0.040 and
+0.040, all positive. Neither check is a causal test; both show that the result is not an
+artifact of extra features or of any single animal. Full seeds and ranges are in
 `results/shuffled_behavior_controls.json`.
+
+### 4.4 Inside the discovery mouse: who benefits?
+
+The remaining analyses use the discovery mouse only.
+
+![Improvement distribution](../results/fig2_improvement_distribution.png)
+
+*Figure 3. Per-neuron improvement from adding behavior (discovery mouse).*
+
+**Most neurons improve, and a tail improves a lot.** About **90% of neurons** were
+predicted better with behavior. The distribution is right-skewed (mean +0.032, median
++0.017, maximum +0.36): most neurons gain modestly, while a minority gain substantially.
+
+![Improvement vs arousal](../results/fig3_improvement_vs_arousal.png)
+
+*Figure 4. Improvement from behavior against each neuron's arousal modulation (its
+correlation with pupil size). The red line is the binned mean.*
+
+**Arousal-sensitive neurons gain most.** We measured each neuron's arousal modulation as
+the correlation between its response and pupil size. Improvement rises with the strength
+of that modulation, in either direction (Figure 4). Neurons with pupil correlation above
+0.1 (n = 2,750) improved by **+0.069** on average, against **+0.014** for the rest. The
+model gains most where behavior carries information about the neuron, which is what the
+hypothesis predicts.
+
+![Spatial map](../results/fig4_spatial_map.png)
+
+*Figure 5. Each neuron's improvement plotted at its position in cortex.*
+
+**The effect is spread across the imaged area.** Improvement showed no strong spatial
+clustering, and its correlation with cortical depth was about 0. Within this layer 2/3
+population, sensitivity to state appears to be distributed rather than confined to one
+patch.
+
+![Example neuron](../results/fig5_example_neuron.png)
+
+*Figure 6. Neuron 3035: predicted versus actual responses without and with behavior.*
+
+**A single example.** Neuron 3035 was nearly unpredictable from the image alone
+(correlation 0.05). With behavior its prediction rose to **0.40**. For this neuron,
+knowing the image barely helps, but knowing the mouse's state does.
+
+### 4.5 A better image model does not remove the effect
+
+A linear model on pixel principal components is a weak description of what V1 responds
+to. To check that the behavior effect is not an artifact of that weakness, we replaced
+the pixel features with features from a pretrained ResNet-50 (a middle layer, at the
+image's native resolution) in the discovery mouse. Regularization was tuned on the
+validation trials and results are reported on the test trials only, so the numbers
+differ slightly from the 0.126 / 0.158 above.
+
+![Deep-learning comparison](../results/fig6_deep_learning.png)
+
+*Figure 7. Pixel and CNN image features, each with and without behavior (discovery
+mouse, test trials).*
+
+| Image features | Without behavior | With behavior |
+|---|---:|---:|
+| Pixel principal components | 0.131 | 0.154 |
+| CNN (ResNet-50) features | 0.137 | 0.155 |
+
+CNN features beat pixels only slightly (0.137 vs 0.131). That is not surprising for a
+network trained to recognize ImageNet objects rather than to match a mouse brain.
+Behavior helped with either image model (CNN: 0.137 → 0.155; about 63% of neurons
+improved; arousal-sensitive neurons +0.052). Switching to the better image model
+(+0.006) helped less than adding behavior (+0.018 to +0.023). In this data, knowing the
+animal's state was worth more than a more sophisticated description of the image.
 
 ## 5. Discussion
 
-Our central finding — that behavioral state improves encoding models of V1 — reproduces
-a well-established principle in mouse visual neuroscience using simple, interpretable
-tools. The more interesting nuance is that **the identity of the useful behavioral
-signal depended on the animal**. Textbooks emphasize locomotion's effect on V1, but in
-this mostly-stationary mouse, arousal (pupil) carried the signal and running did not.
-This is a useful reminder that behavioral variables are only informative to the extent
-the behavior actually varies.
+Our central finding, that behavioral state improves encoding models of V1, reproduces a
+well-established principle using simple, inspectable tools, and it held in each of three
+mice analysed with a fixed pipeline. Three points are worth drawing out.
 
-The result also has a clean interpretation: part of a neuron's trial-to-trial
-variability that looks like "noise" to a stimulus-only model is in fact **structured by
-internal state**, and can be recovered by measuring that state.
+**Part of what looks like noise is state.** To a stimulus-only model, trial-to-trial
+variability in a neuron's response is error. Our results show that a meaningful part of
+it is predictable from the animal's state, and that the neurons whose activity tracks
+arousal are the ones where the model recovers most.
+
+**Which signal matters depends on the animal.** Locomotion is the best-known modulator
+of mouse V1, but in our discovery mouse, which rarely ran, it contributed almost nothing
+while pupil carried the effect. In the two mice that ran more, running added information
+beyond pupil. A behavioral variable can only be informative if the behavior varies, and
+a study built on a single animal could easily draw the wrong conclusion about which
+signal matters.
+
+**Controls change what a result means.** The raw gain could have come from extra
+features, from one unusual animal, or from a weak image model. The shuffle control, the
+leave-one-mouse-out check and the CNN comparison each ruled out one of these. None of
+them shows that arousal causes the change in neural responses; they show that the
+predictive result is real.
 
 ## 6. Limitations
 
-- **Linear model.** Ridge regression on PCA image features is a weak stimulus model;
-  V1 responses are nonlinear, so our baseline correlation (~0.13) is modest. State-of-
-  the-art deep networks predict V1 far better. Our claim is comparative (behavior helps
-  *relative to the same stimulus model*), which the design supports, but absolute
-  accuracy is low.
-- **Small animal sample.** Three animals provide replication evidence, but not a
-  population estimate or hierarchical confidence interval.
-- **No timing analysis.** The trial order in the Sensorium release is shuffled, not
-  chronological: neighboring-trial autocorrelation of pupil and running is about 0
-  and the splits are interleaved. A trial-offset experiment therefore acted as another
-  shuffled-behavior control (aligned 0.158 vs. ~0.126 at every offset) and says nothing
-  about how quickly behavior and neural activity are related. That would need original
-  trial timestamps.
-- **Correlational.** We show behavior improves *prediction*; we do not establish a
-  causal or mechanistic account of how arousal modulates responses.
+- **Linear model and modest accuracy.** Ridge regression on image principal components is
+  a weak stimulus model, and our baseline correlations (0.13–0.15) are far below
+  state-of-the-art deep networks. Our claim is comparative: behavior helps relative to the
+  same stimulus model.
+- **Raw correlations.** We report raw Pearson correlation averaged over neurons, without
+  correcting for each neuron's noise ceiling, and we used one fixed regularization
+  strength rather than tuning it per mouse.
+- **Three animals.** Three mice give replication evidence, not a population estimate or a
+  hierarchical confidence interval.
+- **No timing analysis.** The trial order in this Sensorium release is shuffled, not
+  chronological: in the discovery mouse, neighboring trials show essentially no
+  autocorrelation in pupil or running, and the splits are interleaved. A trial-offset experiment therefore behaved
+  like another shuffle control (aligned 0.158 versus about 0.126 at every offset) and
+  could not tell us how quickly behavior and neural activity are related. That would
+  need the original trial timestamps.
+- **Correlational.** Behavior improves *prediction*. We do not establish a causal or
+  mechanistic account of how arousal changes neural responses.
 
 ## 7. Future work
 
-- Repeat beyond three animals and pre-specify a hierarchical population summary.
-- Improve the deep-network readout (Section 4.6): a spatially-resolved readout or a CNN
-  *fine-tuned* on neural data (rather than frozen ImageNet features) should widen the gap
-  over pixels and is the standard route to state-of-the-art V1 prediction.
-- Compare which neurons a CNN vs. a linear model predicts well (a bridge to the
-  "which architecture looks most like the brain?" question).
+- Extend the same pre-specified pipeline to more mice and report a hierarchical,
+  animal-level summary.
+- Normalize accuracy by each neuron's noise ceiling, using the repeated test images.
+- Replace frozen ImageNet features with a CNN readout fitted to neural data, the standard
+  route to state-of-the-art V1 prediction, and test whether the behavior gain persists.
+- Compare which neurons a CNN and a linear model predict well, as a bridge to the
+  question of which architectures best resemble biological vision.
 
 ## 8. Reproducibility
 
-The discovery analysis is in six documented notebooks (`notebooks/01`–`06`), runnable
-in Google Colab (notebook 06 needs a GPU runtime); notebook 02 downloads one mouse from
-the public Sensorium repository. The three-mouse replication, bootstrap intervals,
-summary and shuffle controls are scripts in `src/`, run on locally downloaded raw
-recordings (see `docs/REPRODUCIBILITY_RUN.md` and `docs/REPLICATION_PLAN.md`). Core
-dependencies are pinned in `requirements.txt`; CNN dependencies are separate in
-`requirements-cnn.txt`. Every figure and number in this report comes from code in this
-repository.
+The discovery analysis is in six documented notebooks (`notebooks/01`–`06`), runnable in
+Google Colab (notebook 06 needs a GPU runtime); notebook 02 downloads one mouse from the
+public Sensorium repository. The three-mouse replication, bootstrap intervals, summary
+and shuffle controls are scripts in `src/`, run on locally downloaded recordings (see
+`docs/REPRODUCIBILITY_RUN.md` and `docs/REPLICATION_PLAN.md`). Per-mouse results are in
+`results/per_mouse_metrics.csv`. Core dependencies are pinned in `requirements.txt`; CNN
+dependencies are in `requirements-cnn.txt`. Every figure and number in this report comes
+from code in this repository.
 
 ## References
 
-1. Willeke et al. (2022). *The Sensorium competition on predicting large-scale mouse
-   primary visual cortex activity.* arXiv:2206.08666. Dataset:
+1. Willeke, K. F., et al. (2022). The Sensorium competition on predicting large-scale
+   mouse primary visual cortex activity. arXiv:2206.08666. Dataset:
    https://gin.g-node.org/cajal/Sensorium2022
-2. Niell & Stryker (2010). *Modulation of visual responses by behavioral state in mouse
-   visual cortex.* Neuron. (Locomotion boosts V1 activity.)
-3. Reimer et al. (2014). *Pupil fluctuations track fast switching of cortical states
-   during quiet wakefulness.* Neuron. (Pupil as an arousal proxy.)
+2. Niell, C. M., & Stryker, M. P. (2010). Modulation of visual responses by behavioral
+   state in mouse visual cortex. *Neuron*, 65(4), 472–479.
+3. Reimer, J., et al. (2014). Pupil fluctuations track fast switching of cortical states
+   during quiet wakefulness. *Neuron*, 84(2), 355–362.
+4. Vinck, M., Batista-Brito, R., Knoblich, U., & Cardin, J. A. (2015). Arousal and
+   locomotion make distinct contributions to cortical activity patterns and visual
+   encoding. *Neuron*, 86(3), 740–754.
+5. Stringer, C., Pachitariu, M., Steinmetz, N., Reddy, C. B., Carandini, M., & Harris,
+   K. D. (2019). Spontaneous behaviors drive multidimensional, brainwide activity.
+   *Science*, 364(6437), eaav7893.
