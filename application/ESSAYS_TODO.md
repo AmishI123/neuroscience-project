@@ -1,15 +1,15 @@
 # ASDRP application: status
 
-Her own answers are in `submitted_answers.md` and are the source of truth.
+Her own answers are in `submitted_answers.md`. Tightened versions that fit every word limit are in `improved_essays.md` (use those, with her approval).
 
 | # | Prompt | Status |
 |---|---|---|
 | 1 | Why applying (375) | Done, hers |
 | 2 | Coursework and grades (400) | Done, hers |
-| 3 | Other STEM experience (375) | Done, hers. **Check word count; may be over.** |
+| 3 | Other STEM experience (375) | Done, hers. Fixed in `improved_essays.md` (333 words). |
 | 4 | Diversity (200) | Done, hers |
 | 5 | Hands-on research (375) | Revised in `essay_5_research_experience.md`. **Fill the [bracket] on who did what.** |
-| - | Advisor / field (150) | Hers, but ~190 words. **Trim to 150.** |
+| - | Advisor / field (150) | Hers, but ~190 words. Fixed in `improved_essays.md` (113 words). |
 | - | Activities (1000) | **Add Learn To Be tutoring; remove the form's sample lines.** |
 | - | Uploads | Transcript required; report `docs/REPORT.md` as the paper; resume optional |
 
