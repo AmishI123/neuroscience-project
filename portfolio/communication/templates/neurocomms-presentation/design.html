@@ -1,0 +1,251 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Next Step · Design doc</title><meta name="description" content="Next Step: design from first principles."><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;1,9..144,400&family=IBM+Plex+Sans+Condensed:wght@500;600&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap" rel="stylesheet"><style>
+:root{--cream:#F3ECE1;--paper:#FAF6EF;--ink:#2B2622;--muted:#5A5047;--rust:#9A4A22;--dark:#3B2F28;--line:#D9CDBA}
+*{box-sizing:border-box}
+html{background:var(--cream)}
+body{margin:0;background:var(--cream);color:var(--ink);font:400 18px/1.55 'Source Serif 4',Georgia,serif;-webkit-text-size-adjust:100%}
+a{color:var(--rust)}
+.wrap{max-width:1080px;margin:0 auto;padding:0 16px}
+.top{border-bottom:1.5px solid var(--ink);padding:22px 0 14px;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;font:600 13px/1.2 'IBM Plex Sans Condensed',sans-serif;letter-spacing:.18em;text-transform:uppercase}
+.top a{color:var(--ink);text-decoration:none}
+.top span{color:var(--muted)}
+.eyebrow{font:600 13px/1.2 'IBM Plex Sans Condensed',sans-serif;letter-spacing:.18em;text-transform:uppercase;color:var(--rust);margin:44px 0 12px}
+h1{font:400 clamp(34px,5.4vw,60px)/1.08 Fraunces,Georgia,serif;letter-spacing:-.01em;margin:0 0 18px}
+h1 em{color:var(--rust)}
+.lede{font-size:20px;color:var(--muted);max-width:720px;margin:0 0 32px}
+.foot{border-top:1.5px solid var(--ink);margin-top:56px;padding:16px 0 32px;font:500 13px/1.4 'IBM Plex Sans Condensed',sans-serif;color:var(--muted)}
+.btn{display:inline-block;padding:10px 16px;border:1.5px solid var(--ink);background:var(--paper);color:var(--ink);text-decoration:none;font:600 15px/1.2 'IBM Plex Sans Condensed',sans-serif;min-height:44px}
+.btn.primary{background:var(--rust);border-color:var(--rust);color:#fff}
+.btns{display:flex;gap:10px;flex-wrap:wrap}
+.doc{max-width:760px}.doc h2{font:400 30px/1.15 Fraunces,Georgia,serif;margin:44px 0 10px;padding-top:14px;border-top:1.5px solid var(--ink)}
+.doc p,.doc li{font-size:18px}.doc img{width:100%;height:auto;border:1px solid var(--line);margin:8px 0}
+.tablewrap{overflow-x:auto;margin:16px 0}table{border-collapse:collapse;width:100%;min-width:560px;font-size:15px;line-height:1.4;background:var(--paper)}
+th,td{border:1px solid var(--line);padding:8px 10px;text-align:left;vertical-align:top}th{font:600 14px/1.2 'IBM Plex Sans Condensed',sans-serif;letter-spacing:.04em;background:#EBE3D6}
+code{font-size:.85em;background:#EBE3D6;padding:1px 4px;word-break:break-word}
+.doc blockquote{margin:16px 0 8px;padding:16px 20px;background:var(--paper);border-left:4px solid var(--rust);font-size:18px}.doc blockquote p{margin:0}
+@media print{.top,.foot,.btns{display:none}body{font-size:12pt}}</style></head><body><div class="wrap"><header class="top"><a href="./">Next Step</a><span>Early test version · October 2026</span></header><main id="content"><p class="eyebrow">Design doc</p><h1>Next Step: design from first principles.</h1><div class="btns" style="margin-bottom:8px"><a class="btn primary" href="next-step-design.pdf" download>Download PDF</a><a class="btn" href="./">All materials</a></div><article class="doc"><p>18 October 2026 · Amishi Mehta</p>
+<blockquote>
+<p><strong>In short.</strong> Next Step is an early test app for teenagers (about 13 to 17) whose brains work differently, for example autistic, ADHD or dyslexic. It helps at four hard moments: starting schoolwork even when you know roughly what to do, getting back to work after a break, telling a teacher what helps without having to share a medical label, and finding friendly people online in small rooms about drawing, games, animals, music, making and stories. Because energy changes from day to day, it asks for less on tired days. We know these moments are hard for some people from 1,296 public posts, mostly by adults, and from published studies; we have not yet heard from teenagers about school. Typed work stays on your own phone or computer. Only four things can leave it: what you post in the live test, what you send in the feedback form, talking to type (which uses the browser’s speech service), and optional AI help, which is off until you turn it on. The rooms come in two forms: practice rooms on your device, where everyone is made up, and a live test version where adults can try the rooms together. In the live test, sign-in, age and parent checks are pretend stand-ins, so it is not safe for real teenagers yet. In a real version a trained adult would check every post, and there would be no private messages, photos or like counts. No young person has used it yet, so we don’t know if it helps. Next, we plan to pay teenagers to help shape it, then run a careful study approved by an ethics board. The rest of this document is the detailed plan and the research behind it, partly written for experts.</p>
+</blockquote>
+<p>Next Step helps neurodivergent young people through four moments where things stall — <strong>Start, Come back, Say what you need, Find your people</strong> — adjusts to how much energy they have today, and lets them talk or type everywhere. The online rooms are about things young people enjoy (drawing, games, animals, music), not about what is hard for them.</p>
+<h2>Who it is for</h2>
+<p>The user is a neurodivergent young person aged 13 to 17 (autistic, ADHD, dyslexic, or not sure yet), at school, using it themselves. Older students can use it too. Every screen speaks to them, never about them.</p>
+<ul>
+<li><strong>Adults come in only by invitation.</strong> A parent, teacher or support worker sees what the young person chooses to share (their card, a question, a summary), never their plan, notes or rooms.</li>
+<li><strong>Phrases is a tool for adults.</strong> Preparing word cards for a child who uses AAC (a talking device or picture board) is a different job for a different person. It stays, clearly labelled "For parents and professionals".</li>
+<li><strong>No diagnosis is needed or asked for, anywhere.</strong> In the public posts we read, people often wanted to explain their needs without disclosing a label (455 posts about getting changes at work and 370 about stigma, mostly from adults). The counts show the theme comes up again and again, not how common it is.</li>
+</ul>
+<h2>What is hard</h2>
+<p>The difficulty is not ability. It is friction at a few moments, with low energy underneath them all. Evidence strength uses the research reports' labels.</p>
+<div class="tablewrap"><table>
+<thead>
+<tr>
+<th>Moment</th>
+<th>What goes wrong</th>
+<th>Evidence</th>
+<th>In the app now</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Start</td>
+<td>Starting a task you understand still stalls; instructions spread over several places make it harder (our own example, no school data yet); time is hard to judge</td>
+<td>Finding it hard to judge time in ADHD: strong (a review combining 55 studies). Initiation: 274 public posts. Planning and organising are common barriers for college students with ADHD (<a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC10361779/">systematic review</a>)</td>
+<td>Study turns instructions into checked steps</td>
+</tr>
+<tr>
+<td>Come back</td>
+<td>Interruptions and switching cost a lot; picking up again feels like starting over</td>
+<td>Monotropism (deep focus on one thing makes switching costly): early. 271 public posts</td>
+<td>Pause notes and "Pick up where you left off"</td>
+</tr>
+<tr>
+<td>Say what you need</td>
+<td>Explaining needs to teachers without disclosing a diagnosis; fear of being judged</td>
+<td>455 accommodation and 370 stigma posts; self-advocacy training: emerging</td>
+<td>My card and Ask for a change, in the Say tab</td>
+</tr>
+<tr>
+<td>Find your people</td>
+<td>Loneliness, bullying, not fitting in; unsafe online spaces</td>
+<td>Systematic review (41 studies): belonging comes from acceptance, safe spaces and shared interests: moderate</td>
+<td>Interest rooms with kind reactions (practice rooms, plus a live test with pretend safety checks)</td>
+</tr>
+<tr>
+<td>Energy (under all four)</td>
+<td>Hiding your differences all day (masking) is linked to exhaustion (burnout); capacity changes day to day; sensory overload</td>
+<td>Burnout and masking: emerging to moderate. 296 and 266 public posts (the two themes overlap)</td><td>Energy check and low-energy mode</td>
+</tr>
+</tbody>
+</table></div>
+<p>Before this plan, two gaps stood out: energy was missing, and saying what you need was a side tool. Both are now in the main app.</p>
+<p><strong>Where the post counts come from.</strong> 1,296 public Reddit and LinkedIn posts (after removing duplicates), sorted into themes by keyword. Most are from adults, often about work, and nobody's age was checked. They show these problems are real for some people, not how common they are, and not yet for teenagers at school. We found nothing specific to dyslexia yet.</p>
+<h2>Principles</h2>
+<ol>
+<li><strong>You decide.</strong> Nothing is sent, posted, spoken or added unless you choose it.</li>
+<li><strong>Small and visible.</strong> One step at a time, where it came from, and roughly how long it takes.</li>
+<li><strong>Stopping is normal.</strong> Pausing is normal; the app saves your place. Any amount counts.</li>
+<li><strong>Today's energy sets the size.</strong> A low-energy day gets a smaller plan, not a guilt message.</li>
+<li><strong>No diagnosis needed.</strong> You can ask for help by saying what helps, not what you have.</li>
+<li><strong>Belong through what you love.</strong> Rooms are about drawing, games, animals and music first. Watching is joining.</li>
+<li><strong>Safe because risky things cannot be done.</strong> No private messages, uploads, voice recordings, counts or strangers finding you. A person checks every post.</li>
+<li><strong>Private, calm and honest.</strong> It stays on your device, sound is off until you tap, and we never claim it treats anything.</li>
+</ol>
+<h2>The shape of the app</h2>
+<p><img alt="The four moments, Start, Come back, Say what you need and Find your people, sitting on two shared foundations: energy today, and type or talk everywhere." src="img/four-moments.jpg" /></p>
+<p>Every part belongs to one moment and links to the others: a stuck step leads to a question or a room, finishing leads to a check-out, and your card travels into the rooms.</p>
+<h2>Screen by screen</h2>
+<p>The menu at the bottom has <strong>Home · Study · Say · People · Tools</strong>, matching the four moments. Nothing existing is removed.</p>
+<ul>
+<li><strong>Landing (first visit and "What is this?").</strong> One line on who it is for, the four moments as four tiles, three phone screens, and where your information goes.</li>
+<li><strong>Today (Home).</strong> An optional energy check: <em>A little · Some · Plenty</em>. Below it, one card per moment: your next step (or where you paused), your card (ready, or make one), your rooms (this week's prompt), and a quiet work session.</li>
+<li><strong>Study (Start and Come back).</strong> Today's flow stays. New: an <strong>I'm stuck</strong> button on the current step with four ways out: make it smaller, draft a question, see how others began, or take a break. On a low-energy day, Study shows only the next step. After finishing: "What next?" (say you are done in the quiet work room, start a new plan, or tell someone).</li>
+<li><strong>Say (Say what you need).</strong> My card with starter chips for common needs. New: <strong>Ask for a change</strong>: pick who (a teacher, a parent) and what (more time, written steps, a quiet place, a break), then preview and copy the message. It is built from your card and never sent for you. Also: your question drafts, "What I said I would do", and Phrases (for parents and professionals).</li>
+<li><strong>People (Find your people).</strong> Interest rooms with this week's prompt and activities (next section). Your card's <em>how I like to talk</em> travels with your made-up name, if you choose.</li>
+<li><strong>Tools.</strong> Everything in one list, grouped by moment, plus backups and device data.</li>
+</ul>
+<h2>Find your people</h2>
+<p>Rooms are organised by what young people love, and each room always has something to <em>do</em>, so nobody has to start a conversation. The evidence: in two studies, art or cooking groups helped about as much as social-skills classes, and clubs where everyone has a job helped a little. The honest claim is enjoyment and belonging, not therapy.</p>
+<p><strong>Rooms:</strong> Drawing, Games, Animals, Music, Making, Stories, plus two support rooms, Small starts and Quiet make-together. Each room follows a weekly rhythm: an idea on Monday, an activity mid-week, and on Friday everyone sees what was made.</p>
+<p><strong>Taking part is a ladder:</strong> watch, react with a kind preset (<em>Love this · Me too · Tell me more · Calm vibes</em>, never a count), contribute, make something together.</p>
+<div class="tablewrap"><table>
+<thead>
+<tr>
+<th>Activity</th>
+<th>Room</th>
+<th>How it works</th>
+<th>Why it is safe</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Stamp Studio</td>
+<td>Drawing</td>
+<td>Build this week's scene from stamps in a calm palette; 16–17 also get a simple brush</td>
+<td>No uploads, no text on the canvas, checked before anyone sees it</td>
+</tr>
+<tr>
+<td>Creature of the Week</td>
+<td>Animals</td>
+<td>Draw the animal or pick a fact card; "draw your pet" corner</td>
+<td>No pet photos, so no homes, faces or places</td>
+</tr>
+<tr>
+<td>Loop Lab</td>
+<td>Music</td>
+<td>Tap a grid of preset sounds to make a loop; everyone’s tunes play one after another</td>
+<td>No microphone or voice; sound off until you tap</td>
+</tr>
+<tr>
+<td>Co-op Puzzle</td>
+<td>Games</td>
+<td>Everyone places pieces whenever they like; "We did it" at the end, no scores</td>
+<td>Preset messages only ("Found an edge!")</td>
+</tr>
+<tr>
+<td>Show Your Thing</td>
+<td>Any room</td>
+<td>A template card: 3 facts I love, my favourite, a question for others</td>
+<td>An adult checks it for real names, schools, places and usernames</td>
+</tr>
+<tr>
+<td>Pass-the-Drawing</td>
+<td>Drawing, Stories</td>
+<td>Up to five people each add one layer over a week; reveal on Friday</td>
+<td>Turns, not chat; skip any turn</td>
+</tr>
+<tr>
+<td>Story Dice Quest</td>
+<td>Stories</td>
+<td>A moderator runs a short quest; you pick an action and roll</td>
+<td>An adult runs the game; players use game actions, not free chat</td>
+</tr>
+<tr>
+<td>Quiet make-together</td>
+<td>Support</td>
+<td>Say what you are doing, work 25 minutes alongside others, check out</td>
+<td>Shows that others are working too, never a camera, a name or a number</td>
+</tr>
+</tbody>
+</table></div>
+<h2>Build order</h2>
+<p>The first group is finished. Each step is checked on simulated phone and laptop screens before the next one starts.</p>
+<p><strong>Done first</strong></p>
+<ol>
+<li>Navigation by moment: Home · Study · Say · People · Tools.</li>
+<li>Today: energy check and one card per moment; fix the paused card so it shows the step's name, not "Pick one small part".</li>
+<li>Study: the I'm stuck button, low-energy mode (next step only), and "What next?" after finishing.</li>
+<li>Say: Ask for a change, starter chips on My card, and Phrases labelled for parents and professionals.</li>
+<li>People: interest rooms with weekly prompts and kind preset reactions, then Stamp Studio, Creature of the Week, Loop Lab and Show Your Thing, with Quiet make-together kept.</li>
+<li>Landing, slides and handout retold as the four moments.</li>
+</ol>
+<p><strong>Next</strong></p>
+<ol>
+<li>Co-op Puzzle, Pass-the-Drawing and Story Dice Quest.</li>
+<li>"How I like to talk" shown next to your made-up name.</li>
+<li>Time estimates per step (your guess against how long it took, kept private).</li>
+<li>Real safety checks for the live rooms: a real sign-in, age check and parent-consent service, trained adults who check every post, and written rules for checking drawings.</li>
+<li>Before any real young person uses it: a written check of risks to children, a written check of how their data is protected, and paid sessions where neurodivergent teenagers help design it.</li>
+</ol>
+<h2>What we will not build</h2>
+<div class="tablewrap"><table>
+<thead>
+<tr>
+<th>Not this</th>
+<th>Why</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Streaks, likes, follower or reaction counts, leaderboards</td>
+<td>Linked to pressure and problematic use in early teens; losing a streak can feel especially bad for people who find pressure or feeling rejected very hard</td>
+</tr>
+<tr>
+<td>Private messages, friend lists, stranger matching</td>
+<td>Private chat is the main way adults trick children online; UK safety rules name it as a key risk</td>
+</tr>
+<tr>
+<td>Photo or file uploads, voice or video</td>
+<td>Faces, uniforms and places identify children; US child-privacy law (COPPA) treats a child’s voice as personal information</td>
+</tr>
+<tr>
+<td>Timed, scored or elimination games</td>
+<td>Exclusion and pressure; the evidence asks for clear, calm structure</td>
+</tr>
+<tr>
+<td>"Social skills training" framing, or any clinical claim</td>
+<td>Trial effects are small; the honest claim is enjoyment and belonging</td>
+</tr>
+<tr>
+<td>An AI friend that stands in for people, or AI advice about your own condition</td>
+<td>Documented wrong answers and over-reliance; AI stays an optional helper you switch on</td>
+</tr>
+<tr>
+<td>Notifications that nudge you back</td>
+<td>Children link nudges to losing time; reminders stay off unless you turn them on</td>
+</tr>
+</tbody>
+</table></div>
+<h2>What we know and don’t know</h2>
+<p><strong>We know:</strong> it is built on what the research says is hard; it is designed with clear safety rules; it works without the internet after the first visit (except talking to type); typed words stay on your device unless you turn on AI help; every example is made up; 625 of 637 computer tests pass.</p>
+<p><strong>We don’t know:</strong> whether it helps anyone yet. No young person has used it, and the rooms have only been tried as a practice demo and as a live test with pretend safety checks. Next, we plan to pay teenagers to help shape it, then run a careful study approved by an ethics board, asking whether it feels enjoyable, friendly and safe, not measuring a diagnosis or a skill score.</p>
+
+<h2>Sources</h2>
+<p>From the project’s own research notes (available from Amishi Mehta): counts of public online posts, the community plan and its safety review.</p>
+<ul>
+<li><a href="https://adhdevidence.org/blog/time-blindness-found-to-be-a-consistent-feature-of-adhd">Time blindness in ADHD, meta-analysis summary</a></li>
+<li><a href="https://link.springer.com/doi/10.1007/s40489-024-00487-6">Loneliness and connection in autistic adolescents, systematic review (White, Tecwyn &amp; Petty, 2024)</a></li>
+<li><a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC8992925">Autistic burnout and masking (Mantzalas et al., 2022)</a></li><li><a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC10361779/">Support for university students with ADHD, systematic review</a></li>
+<li><a href="https://eprints.whiterose.ac.uk/id/eprint/198143/">I-SOCIALISE LEGO club trial (Wright et al., 2023)</a></li>
+<li><a href="https://link.springer.com/article/10.1007/s00787-021-01814-6">KONTAKT vs group cooking, adolescents (Afsharnejad et al., 2022)</a></li>
+<li><a href="https://doi.org/10.1177/13623613251414902">KONTAKT vs ART-Legends, children (2026)</a></li>
+<li><a href="https://www.frontiersin.org/articles/10.3389/fpsyg.2020.586171/text">Autistic peer rapport (Crompton et al., 2020)</a></li>
+<li><a href="https://dl.acm.org/doi/full/10.1145/3689648">Body doubling survey of 193 neurodivergent people (Eagle et al., 2024)</a></li>
+<li><a href="https://www.cochranelibrary.com/cdsr/doi/10.1002/14651858.CD004381.pub4/full">Music therapy for autistic people, Cochrane review</a></li>
+<li><a href="https://www.frontiersin.org/journals/digital-health/articles/10.3389/fdgth.2022.872404/pdf">Kooth pre-moderated teen forum pilot (Mindel et al., 2022)</a></li>
+<li><a href="https://ico.org.uk/for-organisations/uk-gdpr-guidance-and-resources/childrens-information/childrens-code-guidance-and-resources/age-appropriate-design-a-code-of-practice-for-online-services/code-standards/">ICO Age Appropriate Design Code standards</a></li>
+<li><a href="https://www.esafety.gov.au/industry/safety-by-design/foundations">eSafety Safety by Design</a></li>
+<li><a href="https://www.whitecase.com/insight-alert/unpacking-ftcs-coppa-amendments-what-you-need-know">COPPA amendments (White &amp; Case)</a></li>
+<li><a href="https://techcrunch.com/2025/11/18/roblox-will-require-all-users-to-perform-age-checks-to-access-chat-starting-in-january">Roblox age checks for chat (TechCrunch)</a></li>
+<li><a href="https://respect.international/wp-content/uploads/2023/09/DISRUPTED-CHILDHOOD-%E2%80%93-The-Cost-of-Persuasive-Design.pdf">5Rights: Disrupted Childhood, persuasive design</a></li>
+<li><a href="https://www.frontiersin.org/journals/education/articles/10.3389/feduc.2023.1308664/pdf">Co-design with autistic students, scoping review (Newson et al., 2024)</a></li>
+</ul></article></main><footer class="foot">An early test version. Every example is made up. It does not diagnose anything. · <a href="../">Open the app</a></footer></div></body></html>

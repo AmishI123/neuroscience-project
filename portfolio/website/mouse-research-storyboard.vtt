@@ -1,0 +1,32 @@
+WEBVTT
+
+00:00:00.000 --> 00:00:04.000
+ASDRP / MOUSE VISUAL CORTEX
+Can behavior help us predict the brain?
+A visual-cortex encoding-model study using real mouse recordings.
+
+00:00:04.000 --> 00:00:08.000
+THE DATA
+Three mice. Thousands of neurons.
+Natural-image stimuli, pupil size, running speed, and neural responses.
+
+00:00:08.000 --> 00:00:12.000
+THE COMPARISON
+Two models. One held-out test.
+Stimulus only versus stimulus plus behavior, with training-only preprocessing.
+
+00:00:12.000 --> 00:00:16.000
+THE RESULT
+0.126 → 0.158 | 0.154 → 0.203 | 0.143 → 0.191
+Mean held-out correlation rises when behavior is added in all three evaluated mice.
+
+00:00:16.000 --> 00:00:20.000
+THE ABLATION
+Pupil improves all three.
+Running contributes differently across animals; the result is predictive, not causal.
+
+00:00:20.000 --> 00:00:24.000
+THE LIMIT
+Three animals are not a population.
+The next scientific step is replication beyond three animals with population-level uncertainty.
+

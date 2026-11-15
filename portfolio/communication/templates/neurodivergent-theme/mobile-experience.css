@@ -1,0 +1,410 @@
+.experience-nav{display:flex;gap:8px;margin-bottom:32px;border-bottom:1px solid var(--line);padding-bottom:12px}.experience-nav button{background:transparent;color:var(--muted);min-width:88px}.experience-nav [aria-current=page]{background:var(--green);color:white}.home-heading{padding:20px 0 24px}.home-heading h1{max-width:650px}.home-current{max-width:760px;background:#e9eddf;padding:32px;border-left:4px solid var(--green)}.home-current h2{font-family:Georgia,serif;font-size:32px;overflow-wrap:anywhere}.home-current p{max-width:600px}.home-current button{margin-top:16px}.home-options{display:flex;gap:12px;flex-wrap:wrap;margin:24px 0}.home-note{margin-top:32px}#experience-tools>*,#study-bridge-panel{max-width:100%}#study-bridge-panel{border-left:0}#study-bridge-panel h2{font-family:Georgia,serif;font-size:34px}#study-bridge-panel input,#study-bridge-panel textarea{font-size:16px}.study-task>div{min-width:0;flex:1}.study-task strong,.study-task small{overflow-wrap:anywhere}header{flex-wrap:wrap}body{padding-bottom:env(safe-area-inset-bottom)}@media(max-width:580px){main{padding-bottom:110px}.experience-nav{position:fixed;bottom:0;left:0;right:0;z-index:10;margin:0;background:var(--paper);border-top:1px solid var(--line);border-bottom:0;padding:10px 18px calc(10px + env(safe-area-inset-bottom));justify-content:space-between}.experience-nav button{flex:1;min-width:0;min-height:48px}.home-heading{padding-top:0}.home-current{padding:24px}.home-current h2{font-size:28px}.home-current button,.home-options button{width:100%}.home-options{flex-direction:column}header{padding:18px;gap:10px}header .badge{max-width:none}#study-bridge-panel .actions{gap:10px}#study-bridge-panel h2{font-size:30px}.study-candidate{grid-template-columns:22px minmax(0,1fr)}}@media(prefers-reduced-motion:reduce){*,*::before,*::after{scroll-behavior:auto!important;transition:none!important;animation:none!important}}
+.study-steps{display:flex;flex-wrap:wrap;gap:8px;margin:24px 0}.study-steps button{background:transparent;border:1px solid var(--line);color:var(--ink)}.study-steps [aria-current=step]{background:var(--green);color:white}.study-steps button:disabled{opacity:.65}.study-steps+ p{margin-top:16px}#study-bridge-panel h2{max-width:720px}#study-work-screen .study-bridge-saved{margin-top:0;border:0;padding:0;background:transparent}#study-work-screen .study-task{border:1px solid var(--line);padding:20px}#study-review-screen .study-candidate{padding:20px}#study-bridge-panel summary{cursor:pointer;min-height:44px;padding:10px 0}#study-bridge-panel summary:focus-visible{outline:3px solid #af591c;outline-offset:3px}@media(max-width:580px){.study-steps{gap:6px}.study-steps button{font-size:13px;padding:10px 8px;flex:1}#study-review-screen .study-candidate{padding:14px}#study-work-screen .study-task{padding:14px}}
+.experience-preferences{margin-left:auto;max-width:100%;min-width:0}.experience-preferences summary{cursor:pointer;min-height:44px;padding:12px 0;font-size:1rem}.experience-preferences summary:focus-visible{outline:3px solid #af591c;outline-offset:3px}.experience-preferences .accessibility-tools{justify-content:space-between;flex-wrap:wrap;margin:10px 0;font-size:1rem}.experience-preferences select{min-height:44px;max-width:100%}@media(max-width:580px){.experience-preferences{width:100%;margin:0}}
+.study-candidate{grid-template-columns:minmax(0,1fr)!important}.study-include{display:flex;align-items:center;gap:12px;min-height:44px;font-weight:650}.study-include input{width:20px;height:20px;accent-color:var(--green)}.study-edit-field{display:block;margin:14px 0;font-size:14px;font-weight:650}.study-edit-field span{display:block;margin-bottom:6px}.study-edit-field input,.study-edit-field select{min-height:44px;font-weight:400}html{scroll-padding-bottom:110px}#study-discard-draft{margin-bottom:16px}
+#study-focus-card{background:#e9eddf;border-left:4px solid var(--green);border-radius:12px;padding:24px}#study-focus-title{font-family:Georgia,serif;font-size:30px;overflow-wrap:anywhere}#study-focus-card .actions{margin-top:20px}#study-focus-card>button{margin-top:16px}#study-work-status:empty{display:none}#study-all-steps{border-top:1px solid var(--line);padding-top:12px}#study-all-steps>.study-task{margin:12px 0}#study-all-steps>summary{font-weight:650}#study-focus-card textarea{min-height:84px}#study-focus-card .eyebrow{margin-bottom:12px}@media(max-width:580px){#study-focus-card{padding:18px}#study-focus-title{font-size:27px}}
+.study-inline-feedback{margin:16px 0 10px;padding:12px;border:1px solid #c58a6d;border-left:4px solid #963923;border-radius:10px;background:#fff1e8;color:#71351f;font-weight:650;line-height:1.45}
+@media(max-width:580px){body[data-study-stage="review"] header{padding-top:10px;padding-bottom:10px}body[data-study-stage="review"] header .brand{display:none}body[data-study-stage="review"] header .badge:nth-of-type(2){display:none}body[data-study-stage="review"] #study-bridge-panel h2{font-size:27px;margin-bottom:8px}body[data-study-stage="review"] #study-bridge-panel .study-steps{margin-top:8px;margin-bottom:10px}body[data-study-stage="review"] #study-bridge-panel .study-steps+p{margin-top:8px}body[data-study-stage="review"] #study-draft-status{margin:10px 0}body[data-study-stage="review"] #study-discard-draft{margin-top:4px}}
+body[data-study-stage="review"] #study-bridge-status{position:sticky;top:0;z-index:2;padding:8px 0;background:var(--paper)}
+#study-focus-card textarea{font-weight:400}#study-focus-card details p{overflow-wrap:anywhere}
+.study-recovery-actions{margin-top:24px;gap:12px}
+#study-plan-recovery{max-width:60ch;line-height:1.65}
+@media(max-width:580px){.study-recovery-actions>button{width:100%}}
+body[data-text-size=large] #study-bridge-panel .study-edit-field,body[data-text-size=xlarge] #study-bridge-panel .study-edit-field,body[data-text-size=large] #study-bridge-panel input,body[data-text-size=xlarge] #study-bridge-panel input,body[data-text-size=large] #study-bridge-panel textarea,body[data-text-size=xlarge] #study-bridge-panel textarea{font-size:1em}body[data-text-size=large] .quiet,body[data-text-size=xlarge] .quiet,body[data-text-size=large] .study-task small,body[data-text-size=xlarge] .study-task small{font-size:.9em}
+
+#study-revision-panel,#study-revision-preview,#study-personal-handoff,#study-revision-history{min-width:0;overflow-wrap:anywhere}
+.study-history-task{max-width:42rem;margin:16px 0 24px;padding:16px;border:1px solid var(--line);border-radius:12px;background:var(--surface);line-height:1.6}
+.study-history-task h5{margin:0 0 12px;font-size:1em;line-height:1.5}
+.study-history-task p{margin:8px 0;white-space:pre-wrap}
+.study-revision-removal,#study-personal-handoff>label{display:flex;align-items:flex-start;gap:12px;min-height:44px;padding:12px 0;line-height:1.5}
+.study-revision-removal input,#study-handoff-consent{flex:0 0 20px;width:20px;height:20px;margin-top:3px;accent-color:var(--green)}
+.study-revision-removal+.study-revision-removal{border-top:1px solid var(--line)}
+#study-revision-preview:not(:empty){margin:20px 0;padding:16px;border:1px solid var(--line);border-radius:8px;background:var(--paper)}
+.study-revision-actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:20px}
+.study-revision-selection{margin-top:8px;font-weight:400;line-height:1.5;overflow-wrap:anywhere}
+#study-handoff-preview{display:block;max-width:100%;margin:12px 0;white-space:pre-wrap}
+#study-personal-handoff>summary,#study-revision-history>summary,#study-saved-review>summary{min-height:44px;padding:10px 0;cursor:pointer}
+#study-bridge-panel summary:focus-visible{outline:3px solid #af591c;outline-offset:3px}
+@media(max-width:580px){.study-revision-actions>button,#study-handoff-download{width:100%}}
+
+/* Shared product surface: local fonts, quiet borders and one action hierarchy. */
+#study-review-help{margin:12px 0 24px;padding:0 16px;border:1px solid var(--line);border-radius:12px;background:var(--surface)}
+#study-review-help summary{font-weight:650}
+#study-review-help[open]{padding-bottom:16px}
+#study-review-help p{line-height:1.65;margin:4px 0 16px}
+.tool-shortcuts{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin:24px 0 36px;max-width:1040px}
+.tool-shortcut{display:flex;flex-direction:column;align-items:flex-start;gap:12px;padding:24px;text-align:left;min-height:120px;border:1px solid var(--line);border-radius:var(--radius-card);background:var(--surface);color:var(--ink)}
+.tool-shortcut strong{font-size:1.125em;line-height:1.4}
+.tool-shortcut span{font-weight:400;color:var(--muted);line-height:1.6}
+#experience-tools>.intro h1{font-size:clamp(36px,4.6vw,58px);font-weight:400;line-height:1.1;letter-spacing:-.03em;max-width:18ch;text-wrap:balance}
+#experience-tools>.intro .lede{max-width:48ch;line-height:1.65;font-size:1.125em}
+#experience-tools>.panel{border-radius:var(--radius-card);padding:var(--space-panel);scroll-margin-top:20px}
+#experience-tools>.panel h2{font-family:Georgia,serif;font-weight:400;line-height:1.2;font-size:clamp(28px,3vw,36px)}
+@media(max-width:760px){.tool-shortcuts{grid-template-columns:1fr;gap:12px}.tool-shortcut{min-height:96px;padding:20px;gap:6px}}
+.study-candidate-position{margin:0 0 12px;font-size:.75em;letter-spacing:.1em;color:var(--muted)}
+.study-candidate .study-include{border-bottom:1px solid var(--line);padding-bottom:12px;margin-bottom:4px}
+.study-candidate-body{min-width:0}
+.study-candidate-body>.study-edit-field{margin:18px 0}
+.study-candidate-body textarea[data-study-field]{display:block;width:100%;min-height:64px;max-width:100%;resize:vertical;white-space:pre-wrap;overflow-wrap:anywhere;font-family:inherit;font-weight:400}
+.study-candidate-body>.uncertainty-note{padding:12px 14px;margin:16px 0;background:var(--surface-soft);border-left:3px solid var(--green);line-height:1.65;color:var(--ink)}
+.study-candidate-body>details{border-top:1px solid var(--line);margin-top:12px}
+.study-candidate-body>details .quiet{line-height:1.7;overflow-wrap:anywhere}
+.study-candidate:has(.study-include input:checked) .study-exclusion-field{display:none}
+.study-exclusion-field{border-top:1px solid var(--line);padding-top:16px}
+@media(min-width:760px){
+  .study-candidate-body{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);column-gap:20px;align-items:start}
+  .study-candidate-body>*{grid-column:1 / -1;min-width:0}
+  .study-candidate-body>.study-candidate-meta{grid-column:auto}
+}
+.study-revision-rules{padding:16px;border-left:3px solid var(--green);background:var(--surface-soft);line-height:1.65}
+#study-revision-panel>h3{font-family:Georgia,serif;font-size:1.75em;font-weight:400;line-height:1.2;margin:32px 0 12px}
+#study-revision-panel>h4{margin:28px 0 8px;font-size:1.05em}
+#study-revision-panel>.study-edit-field{padding:20px;border:1px solid var(--line);border-radius:16px;background:var(--surface);margin:16px 0}
+#study-revision-preview:not(:empty){padding:0;border:0;background:transparent;display:grid;gap:16px}
+.study-revision-card{min-width:0;padding:24px;border:1px solid var(--line);border-radius:16px;background:var(--surface)}
+.study-revision-card .eyebrow{margin:0 0 12px;font-size:.75em;letter-spacing:.1em}
+.study-revision-card h4{font-size:1.25em;line-height:1.35;margin:0 0 16px;font-weight:650}
+.study-revision-consequence{border-left:3px solid var(--green);padding-left:12px;font-weight:650;line-height:1.5}
+.study-revision-before{line-height:1.6;color:var(--muted)}
+.study-revision-evidence{border-top:1px solid var(--line);margin-top:20px}
+.study-revision-evidence summary{font-weight:650}
+.study-revision-evidence dt{font-size:.875em;font-weight:700;color:var(--muted);margin-top:16px}
+.study-revision-evidence dd{margin:6px 0 0;line-height:1.65;overflow-wrap:anywhere}
+@media(min-width:960px){#study-revision-preview:not(:empty){grid-template-columns:repeat(2,minmax(0,1fr));align-items:start}}
+@media(max-width:580px){.study-revision-card,#study-revision-panel>.study-edit-field{padding:16px}}
+:root{--surface:#fffef9;--surface-soft:#edf1e7;--radius-card:20px;--radius-control:12px;--space-panel:clamp(20px,3vw,36px)}
+body[data-contrast="high"]{--surface:#fff;--surface-soft:#fff}
+.experience-nav{gap:6px;border-bottom:0;padding:6px;background:var(--surface-soft);border-radius:16px;width:fit-content}
+.experience-nav button{border-radius:11px;min-height:46px;font-weight:650;color:var(--ink)}
+.experience-nav [aria-current=page]{box-shadow:0 2px 5px #203a3414}
+#experience-home{max-width:1080px;margin:0 auto}
+.home-heading{padding:8px 0 28px}
+.home-heading h1{font-size:clamp(36px,4.6vw,62px);font-weight:400;line-height:1.08;letter-spacing:-.035em;margin-bottom:20px;text-wrap:balance}
+.home-heading .lede{font-size:1.125em;line-height:1.65;max-width:36ch}
+.home-current{background:var(--surface);border:1px solid var(--line);border-top:4px solid var(--green);border-radius:var(--radius-card);padding:var(--space-panel);box-shadow:0 8px 28px #203a3408}
+.home-current h2{font-size:clamp(28px,3vw,38px);line-height:1.18;font-weight:400;letter-spacing:-.02em;text-wrap:balance}
+.home-current p{line-height:1.65}
+.home-current button{min-height:48px;border-radius:var(--radius-control);margin-top:12px}
+.home-options{margin:20px 0;gap:10px}
+.home-options button{min-height:48px;border-radius:var(--radius-control)}
+.home-note{font-size:.875em;line-height:1.6;margin:24px 0 0}
+#study-bridge-panel{border-radius:var(--radius-card);padding:var(--space-panel)}
+#study-bridge-panel h2{line-height:1.16;font-weight:400;letter-spacing:-.025em;text-wrap:balance}
+@media(max-width:580px){
+  #study-bridge-panel>h2{font-size:24px;line-height:1.2;margin-bottom:8px}
+  #study-bridge-panel>.eyebrow{margin-bottom:8px}
+  #study-bridge-panel>.study-steps{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:6px;margin:8px 0}
+  #study-bridge-panel>.study-steps button{min-width:0;padding:10px 4px;min-height:44px}
+  #study-bridge-panel>.study-steps+p{margin-top:8px}
+  #study-bridge-panel #study-review-help{margin-bottom:12px}
+  #study-bridge-panel #study-discard-draft{margin-bottom:8px}
+  body[data-text-size=large] #study-bridge-panel>.study-steps,
+  body[data-text-size=xlarge] #study-bridge-panel>.study-steps{grid-template-columns:repeat(2,minmax(0,1fr))}
+  body[data-text-size=large] #study-bridge-panel>.study-steps button:first-child,
+  body[data-text-size=xlarge] #study-bridge-panel>.study-steps button:first-child{grid-column:1 / -1}
+}
+#study-bridge-panel button{border-radius:var(--radius-control)}
+#study-bridge-panel input:not([type=checkbox]),#study-bridge-panel select,#study-bridge-panel textarea{border-radius:10px;line-height:1.5}
+#study-review-screen .study-candidate{background:var(--surface);border:1px solid var(--line);border-radius:16px;margin:18px 0;padding:var(--space-panel)}
+#study-focus-card{background:var(--surface-soft);border-radius:var(--radius-card)}
+body[data-contrast="high"] .home-current{box-shadow:none;border-width:2px}
+body[data-contrast="high"] .experience-nav{border:1px solid var(--line)}
+@media(min-width:960px){
+  #experience-home{display:grid;grid-template-columns:1fr 1fr;gap:0 56px;align-items:start;padding:32px 0}
+  .home-heading{grid-column:1;grid-row:1 / span 2;padding-top:20px}
+  .home-current{grid-column:2;grid-row:1;width:100%}
+  .home-options{grid-column:2;grid-row:2}
+  .home-note{grid-column:2;margin-top:0}
+}
+@media(max-width:580px){
+  .experience-nav{width:auto;border-radius:0;border-top:1px solid var(--line);background:var(--paper);padding:8px 18px calc(8px + env(safe-area-inset-bottom));gap:8px}
+  .experience-nav button{min-height:48px}
+  .home-heading{padding:0 0 16px}
+  .home-heading h1{margin-bottom:16px}
+  .home-heading .lede{margin-bottom:16px}
+  .home-current{padding:24px}
+  #cards .card-row{grid-template-columns:24px minmax(0,1fr);gap:12px;padding:16px;margin:16px 0;border:1px solid var(--line);border-radius:16px;background:var(--surface)}
+  #cards .card-purpose{min-height:44px;font-size:1em}
+  #cards .card-row>input{grid-column:1 / -1;width:100%;min-width:0;min-height:48px;font-size:1em}
+  #cards .card-actions{grid-column:1 / -1;justify-content:flex-end;gap:8px}
+  #cards .card-actions button{min-width:44px;min-height:44px;border-radius:10px}
+}
+/* Assignment management stays secondary to the current next action. */
+.workspace-panel { margin-top: 2rem; grid-column: 1 / -1; }
+.workspace-welcome, .workspace-walkthrough-tips { margin: 1rem 0; padding: 1rem; border: 1px solid var(--line); border-radius: 14px; font-size: .95rem; line-height: 1.55; }
+.workspace-welcome summary, .workspace-walkthrough-tips summary { cursor: pointer; min-height: 44px; }
+.workspace-welcome li, .workspace-walkthrough-tips li { margin: .6rem 0; }
+.workspace-welcome button { white-space: normal; max-width: 100%; min-height: 44px; margin-top: .6rem; }
+.translation-row .translation-feedback { grid-column:1 / -1; margin:8px 0; padding:12px; border-left:3px solid var(--green); background:var(--surface); color:var(--ink); line-height:1.5; }
+#phrase-workspace-status { padding:16px; border:1px solid var(--line); border-left:3px solid var(--green); border-radius:10px; background:var(--surface); }
+#device-backup-status { padding:16px; margin:16px 0; border-left:3px solid var(--green); background:var(--surface-soft); color:var(--ink); line-height:1.5; overflow-wrap:anywhere; }
+#experience-home > .workspace-welcome { grid-column: 1 / -1; }
+@media(max-width:580px){
+  .has-saved-work .home-current { padding:20px; }
+  .has-saved-work .home-current h2 { font-size:24px; line-height:1.2; margin:12px 0; }
+  .has-saved-work #home-context { line-height:1.5; margin:12px 0; }
+  .has-saved-work .home-current button { margin-top:8px; }
+}
+@media(max-width:959px){
+  .has-saved-work .home-heading h1 { font-size:28px; margin:8px 0; }
+  .has-saved-work .home-heading .lede { display:none; }
+  .has-saved-work .home-heading { padding-bottom:12px; }
+}
+.workspace-list { display: grid; gap: 1rem; }
+.workspace-assignment { border: 1px solid var(--line, #d8dfd7); border-radius: 16px; padding: 1rem; min-width: 0; }
+.workspace-assignment h3 { margin: 0 0 .5rem; overflow-wrap: anywhere; }
+.workspace-assignment .actions { flex-wrap: wrap; }
+.workspace-assignment button { max-width: 100%; white-space: normal; overflow-wrap: anywhere; min-height: 44px; }
+.workspace-create { display: grid; gap: .6rem; margin: 1.4rem 0; }
+.workspace-create input { width: 100%; min-width: 0; min-height: 44px; box-sizing: border-box; }
+.workspace-management { margin-top: .8rem; }
+.workspace-management summary { min-height: 44px; display: list-item; align-content: center; cursor: pointer; }
+.workspace-create button { justify-self: start; min-height: 44px; }
+@media (min-width: 900px) {
+  .workspace-list { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .workspace-list > p, .workspace-list > button { grid-column: 1 / -1; }
+  .workspace-create { max-width: 36rem; }
+}
+#workspace-status { overflow-wrap: anywhere; }
+#workspace-backup, #workspace-recovery-download { max-width: 100%; white-space: normal; min-height: 44px; }
+#workspace-restore { display: block; max-width: 100%; min-height: 44px; margin: .6rem 0; }
+label[for="workspace-restore"] { display: block; margin-top: 1rem; }
+#workspace-storage-summary { overflow-wrap: anywhere; }
+/* Recovery starts before normal app initialization; keep its surface self-contained. */
+#device-recovery { width:calc(100% - 32px); max-width:760px; margin:24px auto; padding:28px; overflow-wrap:anywhere; }
+#device-recovery h1 { font-size:clamp(2rem,4vw,2.75rem); line-height:1.15; letter-spacing:-.025em; }
+#device-recovery .actions { gap:12px; }
+#device-recovery button { max-width:100%; white-space:normal; }
+@media(max-width:580px) {
+  #device-recovery { width:100%; margin:0 auto; padding:20px; }
+  #device-recovery .actions { display:grid; grid-template-columns:minmax(0,1fr); }
+}
+#workspace-storage-summary button { max-width: 100%; white-space: normal; min-height: 44px; margin-top: .5rem; }
+#study-workspace-readonly { padding: 1rem; border: 1px solid var(--line, #d8dfd7); border-radius: 12px; }
+@media (max-width: 580px) {
+  .workspace-assignment .actions { display: grid; grid-template-columns: 1fr; }
+  .workspace-assignment button, .workspace-create button { width: 100%; }
+}
+
+@media (max-width: 360px) {
+  body[data-study-stage="review"] #study-bridge-panel > .study-steps button {
+    padding-top: 5px;
+    padding-bottom: 5px;
+    line-height: 1.25;
+  }
+  body[data-study-stage="work"] #study-focus-title { font-size: 22px; line-height: 1.2; }
+}
+
+@media (max-width: 580px) {
+  #experience-tools, #experience-tools > *, .tool-shortcuts, .tool-shortcut { min-width: 0; max-width: 100%; }
+  .tool-shortcuts { width: 100%; }
+  body[data-study-stage="review"] .study-conflict { margin-top: 8px; padding: 10px; }
+  body[data-study-stage="review"] .study-conflict p { margin-bottom: 8px; }
+  body[data-study-stage="work"] #study-focus-card { padding: 14px; }
+  body[data-study-stage="work"] #study-focus-title { margin-bottom: 8px; }
+  body[data-study-stage="work"] header { padding-top: 10px; padding-bottom: 10px; }
+  body[data-study-stage="work"] header .brand { display: none; }
+}
+/* Home: the promise, then exactly one first action. Optional help and
+   assignment management follow it instead of competing with it. */
+#experience-home .home-current .home-state{font-size:.875em;font-weight:650;letter-spacing:0;text-transform:none;color:var(--green);margin:0 0 10px}
+#experience-home .home-heading .lede{max-width:34ch}
+#experience-home .home-note{display:flex;gap:8px;align-items:baseline;color:var(--muted)}
+#experience-home .home-note::before{content:"";flex:none;width:8px;height:8px;border-radius:50%;background:var(--green);transform:translateY(-1px)}
+#experience-home .home-options{margin:16px 0 0}
+#experience-home .home-options .secondary{background:transparent;border-color:transparent;text-decoration:underline;text-underline-offset:4px;padding-left:0;padding-right:0;min-height:44px}
+#experience-home .home-options .secondary:hover{text-decoration-thickness:2px}
+#experience-home > .workspace-welcome{margin:40px 0 0;padding:4px 20px;border:0;border-radius:14px;background:var(--surface-soft,#eef0e6)}
+#experience-home > .workspace-welcome[open]{padding-bottom:16px}
+#experience-home > .workspace-welcome summary{display:flex;align-items:center;font-weight:600;padding:10px 0}
+#experience-home > .workspace-welcome > p{margin:4px 0 12px;max-width:68ch}
+#experience-home > .workspace-welcome ul{max-width:72ch;padding-left:20px;margin:12px 0 0;color:var(--muted)}
+#experience-home > .workspace-welcome button{margin:0 8px 0 0}
+@media(min-width:960px){
+  #experience-home{grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);grid-template-areas:"head card" "head opts" "welcome welcome" "ws ws";gap:0 64px;align-items:start}
+  #experience-home .home-heading{grid-area:head;align-self:center;padding:0}
+  #experience-home .home-current{grid-area:card}
+  #experience-home .home-options{grid-area:opts}
+  #experience-home > .workspace-welcome{grid-area:welcome}
+  #experience-home > .workspace-panel{grid-area:ws}
+}
+#experience-home .home-heading .home-note{margin:20px 0 8px;font-size:.9375em}
+@media(max-width:580px){
+  #experience-home .home-options{align-items:flex-start}
+  #experience-home .home-options .secondary{width:auto}
+  #experience-home > .workspace-welcome{margin-top:28px}
+  #experience-home > .workspace-welcome button{width:100%;margin:8px 0 0}
+}
+/* Review card: source, then the reason to look closely, then the decision. */
+.study-candidate{--flag-ink:#7a4b0c;--flag-bg:#f7ecd5;--flag-line:#c98a2b}
+.study-candidate .study-candidate-position{margin:0 0 14px;color:var(--muted)}
+.study-source-quote{margin:0 0 14px}
+.study-source-quote figcaption{font-size:.8125em;font-weight:600;color:var(--muted);margin-bottom:6px}
+.study-source-quote blockquote{margin:0;padding:2px 0 2px 16px;border-left:3px solid var(--line);font-family:Georgia,serif;font-size:1.125em;line-height:1.5;color:var(--ink);overflow-wrap:anywhere}
+#study-review-screen .study-candidate > .uncertainty-note{margin:0 0 14px;padding:10px 14px;background:var(--flag-bg);border-left:3px solid var(--flag-line);border-radius:0 8px 8px 0;color:var(--flag-ink);font-size:.9375em;line-height:1.55}
+#study-review-screen .study-candidate:has(.study-include input:checked){border-left:4px solid var(--green)}
+#study-review-screen .study-candidate:has(.study-include input:not(:checked)){background:transparent;border-style:dashed}
+#study-review-screen .study-candidate:has(.study-include input:not(:checked)) .study-include{color:var(--muted)}
+#study-review-screen .study-candidate details > summary{padding:12px 0;font-weight:600;color:var(--green);cursor:pointer}
+body[data-contrast="high"] .study-candidate{--flag-ink:#4a2c00;--flag-bg:#fff;--flag-line:#7a4b0c}
+@media(max-width:580px){.study-source-quote blockquote{font-size:1.0625em}}
+/* The first-step context belongs to review. On the work screen it was an empty
+   field above the current step, and typing in it started a stray draft. */
+#study-bridge-panel:has(> #study-work-screen:not([hidden])) > #study-bridge-context,
+#study-bridge-panel:has(> #study-work-screen:not([hidden])) > label:has(+ #study-bridge-context){display:none}
+/* Returning home: the restart note is the memorable part of the card. */
+#experience-home .home-progress{display:block;color:var(--muted);font-size:.9375em}
+#experience-home .home-paused{display:block;margin-top:12px;padding:12px 14px;background:var(--surface-soft,#edf1e7);border-left:3px solid var(--green);border-radius:0 10px 10px 0;font-family:Georgia,serif;font-size:1.0625em;line-height:1.5;color:var(--ink);overflow-wrap:anywhere}
+#experience-home .home-paused strong{display:block;font-family:system-ui,-apple-system,"Segoe UI",sans-serif;font-size:.8125em;font-weight:650;color:var(--green);margin-bottom:4px}
+#experience-home.has-saved-work .home-current h2{font-size:clamp(22px,2.2vw,28px);line-height:1.25}
+@media(max-width:580px){
+  #experience-home.has-saved-work .home-options{flex-direction:row;flex-wrap:wrap;gap:4px 20px}
+}
+/* Tools: one panel treatment, shortcuts in a single row on wide screens. */
+.tool-shortcuts{grid-template-columns:repeat(auto-fit,minmax(190px,1fr))}
+#experience-tools .executive-support-panel{background:var(--surface);border-color:var(--line)}
+#experience-tools .context-anchor-panel,#experience-tools .time-steps-panel{border-left:1px solid var(--line)}
+#experience-tools .setup-note .big-number{display:none}
+#experience-tools > #library-panel{margin-top:48px}
+@media(max-width:580px){.tool-shortcuts{grid-template-columns:1fr}}
+#experience-tools > .setup-grid{margin-bottom:28px}
+/* Drafting assistant grouping */
+#assistant-panel .assistant-settings{margin:16px 0 24px;padding:16px 20px;border:1px solid var(--line);border-radius:14px;background:var(--surface)}
+#assistant-panel .assistant-settings h3{margin:0 0 8px;font-size:1em}
+#assistant-panel .assistant-settings .assistant-endpoint input{width:100%;max-width:420px}
+#reply-coach #reply-goal{display:block;width:100%;margin:10px 0;min-height:44px}
+#assistant-panel .assistant-settings:not(:has(.assistant-endpoint)){display:none}
+#assistant-panel .assistant-settings #test-ai-provider{margin-top:12px}
+/* Phone header: brand and settings on one row, status as one quiet line. */
+@media(max-width:580px){
+  header{align-items:center;row-gap:6px;column-gap:12px;padding-top:12px;padding-bottom:10px}
+  header .brand{order:1}
+  header .experience-preferences{order:2;margin-left:auto;width:auto}
+  header .experience-preferences[open]{width:100%}
+  header .experience-preferences summary{padding:10px 0;font-size:.9375em}
+  header .badge{order:3;background:none;border:0;padding:0;margin:0;font-size:11.5px;letter-spacing:-.005em;color:var(--muted);max-width:none}
+  header .badge + .badge{margin-left:-2px}
+  header #install-app{order:4}
+}
+/* A left-out suggestion needs no task editing: keep source, reason and the
+   keep-for-later choice; checking Include brings the fields back. */
+#study-review-screen .study-candidate:has(.study-include input:not(:checked)) .study-candidate-body > .study-edit-field:not(.study-exclusion-field){display:none}
+#study-review-screen .study-candidate:has(.study-include input:not(:checked)) .study-include{border-bottom:0;margin-bottom:0}
+#study-review-screen .study-candidate:has(.study-include input:not(:checked)) .study-exclusion-field{border-top:0;padding-top:4px}
+@media(max-width:580px){
+  #study-review-screen .study-candidate .study-edit-field{margin:12px 0}
+  #study-review-screen .study-candidate textarea{min-height:0}
+}
+/* Work screen: lighter headline, one clear main action. */
+#study-focus-title{font-weight:400;line-height:1.2;letter-spacing:-.01em}
+#study-focus-card .actions{display:flex;flex-direction:row;flex-wrap:wrap;align-items:center;gap:10px 16px}
+#study-focus-card #study-work-complete{order:1}
+#study-focus-card #study-work-pause{order:2}
+#study-focus-card .actions > .secondary:not(#study-work-pause){order:3;background:transparent;border-color:transparent;text-decoration:underline;text-underline-offset:4px;padding-left:4px;padding-right:4px}
+@media(max-width:580px){
+  #study-focus-title{font-size:25px}
+  #study-focus-card .actions > *{width:auto}
+  #study-focus-card #study-work-complete{flex:1 1 100%;width:100%}
+  #study-focus-card #study-work-pause{flex:1 1 auto}
+  body[data-study-stage] header .brand{display:flex}
+  body[data-study-stage] header .badge:nth-of-type(2){display:inline}
+}
+/* Communication card: save and show first; the ways to send it are quieter. */
+#communication-card-panel .actions:has(#save-communication-card){display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px}
+#communication-card-panel #save-communication-card,#communication-card-panel #show-communication-card{grid-column:span 2;min-height:48px}
+#communication-card-panel :is(#copy-communication-card,#share-communication-card,#print-communication-card,#export-communication-card){background:transparent;border-color:transparent;text-decoration:underline;text-underline-offset:4px;min-height:44px;padding:6px}
+@media(max-width:580px){
+  #communication-card-panel .actions:has(#save-communication-card){grid-template-columns:repeat(2,minmax(0,1fr))}
+  #communication-card-panel #save-communication-card,#communication-card-panel #show-communication-card{grid-column:span 1;width:100%}
+  #communication-card-panel :is(#copy-communication-card,#share-communication-card,#print-communication-card,#export-communication-card){width:100%}
+}
+/* Section labels: plain sentence case, not tracked-out capitals. */
+.eyebrow{letter-spacing:.01em;font-size:.8125em;font-weight:650;color:var(--green)}
+.study-candidate .study-candidate-position{letter-spacing:.06em;font-size:.75em}
+/* Work progress: count plus a thin bar. */
+.study-progress{margin:4px 0 16px}
+.study-progress-label{margin:0 0 8px;font-size:.9375em}
+.study-progress-label strong{color:var(--ink)}
+.study-progress-bar{height:6px;border-radius:999px;background:var(--line);overflow:hidden}
+.study-progress-bar span{display:block;height:100%;background:var(--green);border-radius:inherit;transition:width .4s ease}
+body[data-contrast="high"] .study-progress-bar{border:1px solid var(--ink)}
+/* On the work screen the confirmation line repeats what the progress line says. */
+body[data-study-stage="work"] #study-bridge-status:empty{display:none}
+/* The payoff: a finished step is acknowledged on the card itself. */
+.study-done-note{position:relative;display:block;margin:0 0 16px;padding:12px 14px 12px 44px;border-radius:12px;background:var(--green);color:#fff;font-size:.9375em;line-height:1.45;overflow-wrap:anywhere;animation:study-done-in .45s cubic-bezier(.2,.8,.2,1)}
+.study-done-note::before{content:"";position:absolute;left:14px;top:13px;width:20px;height:20px;border-radius:50%;background:#fff url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M5.5 10.5l3 3 6-7' fill='none' stroke='%23245648' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/16px no-repeat}
+.study-done-note strong{font-weight:700}
+@keyframes study-done-in{from{opacity:0;transform:translateY(-6px) scale(.98)}to{opacity:1;transform:none}}
+@media(prefers-reduced-motion:reduce){.study-done-note{animation:none}}
+body[data-contrast="high"] .study-done-note{background:#000;outline:2px solid #fff}
+/* Tools: a shortcut opens one tool on its own. */
+#experience-tools[data-focus-tool] > :not(.tool-focused):not(.tool-back):not(.tool-shortcuts):not(dialog){display:none}
+/* In one-tool mode the shortcuts become a compact row of tabs. */
+#experience-tools[data-focus-tool] .tool-shortcuts{display:flex;gap:8px;overflow-x:auto;margin:0 0 20px;padding:0 8px 4px;scrollbar-width:thin;scroll-padding-inline:8px}
+#experience-tools[data-focus-tool] .tool-shortcut{flex:0 0 auto;min-height:44px;padding:10px 14px;border-radius:999px;gap:0}
+.tool-shortcut .tool-tab{display:none}
+#experience-tools[data-focus-tool] .tool-shortcut :is(span,strong){display:none}
+#experience-tools[data-focus-tool] .tool-shortcut .tool-tab{display:inline;font-size:.875em;white-space:nowrap}
+#experience-tools .tool-shortcut[aria-current]{background:var(--green);border-color:var(--green);color:#fff}
+#experience-tools .tool-back{display:inline-flex;align-items:center;min-height:44px;margin:0 0 16px;padding:8px 2px;background:transparent;border:0;color:var(--green);font-weight:650;text-decoration:underline;text-underline-offset:4px}
+/* Research records and exports sit together at the end of All steps. */
+.study-data-tools{margin-top:28px;padding-top:16px;border-top:1px solid var(--line)}
+.study-data-tools h4{margin:0 0 6px;font-size:.9375em}
+.study-data-tools > .quiet,.study-data-tools small{font-size:.8125em}
+.study-data-tools .actions{display:flex;flex-direction:row;flex-wrap:wrap;gap:4px 18px;align-items:center}
+.study-data-tools .actions > button.secondary:not(.danger){width:auto;min-height:44px;padding:6px 2px;background:transparent;border-color:transparent;text-decoration:underline;text-underline-offset:4px;font-weight:600}
+.study-data-tools .actions > button.danger{width:auto;flex:0 1 auto;max-width:100%;white-space:normal;margin-top:6px}
+.study-data-tools .actions > small{flex:1 1 100%}
+/* Phrase Studio on a phone */
+@media(max-width:580px){
+  /* Case notes are reference material; keep them compact above the cards. */
+  #workspace .case-panel{padding:18px;font-size:.9375em}
+  #workspace .case-panel h2{font-size:24px;margin:4px 0 8px}
+  #workspace .case-panel h3{font-size:1em;margin:16px 0 4px}
+  #workspace .case-panel p{margin:0 0 8px;line-height:1.5}
+}
+/* Quick Board controls: search and filter on one row, actions below. */
+#quick-board .quick-board-tools{display:flex;flex-wrap:wrap;align-items:center;gap:10px;margin:16px 0}
+#quick-board .quick-board-speak-toggle{flex:1 1 100%;display:flex;align-items:center;gap:10px;min-height:44px;font-weight:600}
+#quick-board .quick-board-speak-toggle input{width:20px;height:20px;accent-color:var(--green)}
+#quick-board label[for="quick-board-search"],#quick-board label[for="quick-board-filter"]{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+#quick-board #quick-board-search{flex:1 1 180px;min-width:0;min-height:48px}
+#quick-board #quick-board-filter{flex:0 1 auto;min-height:48px}
+#quick-board .quick-board-tools > button{flex:0 0 auto;min-height:44px}
+/* First-visit "how it works" strip. Hidden once there is saved work. */
+.home-how{list-style:none;counter-reset:how;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin:40px 0 0;padding:0}
+#experience-home.has-saved-work .home-how{display:none}
+.home-how li{counter-increment:how;position:relative;display:grid;grid-template-columns:40px minmax(0,1fr);grid-template-rows:auto 1fr;column-gap:14px;row-gap:4px;padding:18px;border:1px solid var(--line);border-radius:16px;background:var(--surface)}
+.home-how svg{grid-row:1 / span 2;width:40px;height:40px;padding:6px;border-radius:12px;background:var(--surface-soft,#edf1e7);fill:none;stroke:var(--green);stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.home-how strong{font-size:1em}
+.home-how strong::before{content:counter(how) ". ";color:var(--muted);font-weight:600}
+.home-how span{font-size:.9375em;line-height:1.5;color:var(--muted)}
+@media(min-width:960px){#experience-home .home-how{grid-column:1 / -1;grid-row:3}#experience-home > .workspace-welcome{grid-row:4}#experience-home > .workspace-panel{grid-row:5}}
+@media(max-width:959px){.home-how{grid-template-columns:1fr;gap:10px;margin-top:28px}}
+/* Community layer: bounded, local-only prototype surfaces. */
+.community-layer-panel{max-width:1040px;margin:0 0 28px;border-left:4px solid #8066a8;background:#fbf8ff}.community-layer-panel h2{font-family:Georgia,serif}.community-layer-panel h3{margin-top:26px;padding-top:18px;border-top:1px solid var(--line)}.community-layer-panel h4{margin:0 0 6px;font-size:17px}.community-rooms{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-top:14px}.community-room,.community-post{border:1px solid var(--line);border-radius:12px;padding:14px;background:#fff}.community-room p,.community-post p{font-size:14px}.community-room button{margin-top:8px}.community-composer,.community-moderation-queue,.community-posts{display:grid;gap:12px}.community-composer{padding:16px;border:1px solid var(--line);border-radius:12px;background:var(--paper)}.community-composer select{width:auto;max-width:240px}.community-post{display:grid;gap:10px}.community-post .actions{margin-top:4px}@media(max-width:700px){.community-rooms{grid-template-columns:1fr}}@media(max-width:580px){.community-layer-panel{border-left:0}.community-layer-panel .actions,.community-post .actions{flex-direction:column}.community-layer-panel button{width:100%}}
+/* Drafted clarification question in Restart notes */
+.clarify-draft-note{display:flex;flex-wrap:wrap;align-items:center;gap:10px 16px;margin:0 0 16px;padding:14px 16px;border-radius:12px;background:var(--surface-soft,#edf1e7);border-left:3px solid var(--green)}
+.clarify-draft-note p{flex:1 1 260px;margin:0;line-height:1.5}
+.clarify-draft-note button{flex:0 0 auto;min-height:44px}
+#study-work-status.study-status-repeat{display:none}
+#complete .tool-back{display:inline-flex;align-items:center;min-height:44px;margin:0 0 12px;padding:8px 2px;background:transparent;border:0;color:var(--green);font-weight:650;text-decoration:underline;text-underline-offset:4px}
+#complete .download-panel{margin-top:32px}
+#complete .download-panel h2{font-size:1.25em}
+/* Restart notes: reminder label above its date field. */
+.context-anchor-candidate label:has(input[type="datetime-local"]){display:grid;gap:6px}
+.context-anchor-candidate input[type="datetime-local"]{min-height:44px;width:100%;max-width:100%}
+/* Time planner: minute fields match the other fields; plain step labels. */
+#time-steps-panel input[type="number"]{min-height:44px;width:100%;max-width:12em}
+#time-steps-panel .time-steps-cards small{letter-spacing:.01em;font-weight:650;color:var(--green)}
+#time-steps-panel input[type="datetime-local"]{min-height:44px}
+#experience-tools .community-layer-panel{border-left:1px solid var(--line);background:var(--surface)}
+/* Say and People: the Tools page filtered to one moment */
+#experience-tools[data-group]>.tool-shortcuts{display:none}
+#experience-tools[data-group="say"]>:not(.intro):not([data-moment="say"]){display:none}
+#experience-tools[data-group="people"]>:not(.intro):not([data-moment="people"]){display:none}
+#device-storage-inspection summary{cursor:pointer;min-height:44px;padding:10px 0}
+/* Date and time fields: Chrome focuses an inner segment, so the field itself never matches :focus-visible. Show the ring while focus is inside. */
+input:is([type="date"],[type="time"],[type="datetime-local"]):focus-within{outline:3px solid #af591c;outline-offset:3px}
+/* Phrases tab: the resume and personal-setup panels belong to this tool, so show them when it is open from its tab. */
+#experience-tools[data-focus-tool="phrase-studio-setup"] > :is(#resume-panel,#personal-setup):not([hidden]){display:block}

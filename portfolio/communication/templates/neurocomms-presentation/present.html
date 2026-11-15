@@ -1,0 +1,86 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex"><title>Next Step · Present</title><style>
+:root{--bg:#1F1915;--ink:#F3ECE1;--muted:#CDBFA9;--rust:#E3B98F;--bar:rgba(31,25,21,.92)}
+*{box-sizing:border-box}html,body{margin:0;height:100%;background:var(--bg);color:var(--ink);font:500 16px/1.4 system-ui,-apple-system,'Segoe UI',sans-serif;overflow:hidden}
+.stage{position:fixed;inset:0 0 56px 0;display:flex;align-items:center;justify-content:center;padding:12px}
+.stage img{max-width:100%;max-height:100%;object-fit:contain;display:block;box-shadow:0 8px 40px rgba(0,0,0,.45);user-select:none;-webkit-user-drag:none}
+body.full .stage{inset:0;padding:0}body.full .stage img{box-shadow:none}
+.bar{position:fixed;left:0;right:0;bottom:0;height:56px;background:var(--bar);display:flex;align-items:center;gap:8px;padding:0 12px;transition:opacity .25s}
+body.full .bar{opacity:0}body.full.show-bar .bar{opacity:1}
+.bar button,.bar a{min-height:44px;min-width:44px;padding:0 14px;border:1px solid #5A4A3E;background:transparent;color:var(--ink);font:inherit;border-radius:6px;cursor:pointer;display:inline-flex;align-items:center;gap:6px;text-decoration:none}
+.bar button:hover,.bar a:hover{border-color:var(--rust)}
+:focus-visible{outline:3px solid var(--rust);outline-offset:2px}
+.count{min-width:72px;text-align:center;color:var(--muted);font-variant-numeric:tabular-nums}
+.spacer{flex:1}
+.notes{position:fixed;left:0;right:0;bottom:56px;max-height:34vh;overflow:auto;background:#2B231D;border-top:2px solid var(--rust);padding:14px 20px;font:400 18px/1.5 Georgia,serif;display:none}
+body.notes-on .notes{display:block}body.notes-on .stage{bottom:calc(56px + 34vh)}
+body.full .notes{display:none!important}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.hint{color:var(--muted);font-size:13px}
+.bar button,.bar a{white-space:nowrap}.short{display:none}
+.bar a .label{display:inline}
+@media (max-width:640px){.hint,.label,.bar a .label,#notes-toggle{display:none}.short{display:inline}.count{min-width:52px}.bar button,.bar a{padding:0 8px}.bar{gap:4px}.bar{gap:6px;padding:0 8px}.bar button,.bar a{padding:0 10px}}
+</style></head><body>
+<main class="stage" aria-label="Slides"><img id="view" src="slides/01-cover.jpg" alt="Slide 1: Start your schoolwork, get back to it after a break, ask for what helps, and find friendly people. You decide each step."></main>
+
+<p class="sr" id="live" aria-live="polite"></p>
+<nav class="bar" aria-label="Slide controls">
+<a href="./" title="All materials"><span class="label">← All materials</span><span class="short">All</span></a>
+<button type="button" id="prev" aria-label="Previous slide">←</button><span class="count" id="count">1 / 16</span><button type="button" id="next" aria-label="Next slide">→</button>
+<span class="spacer"></span><span class="hint">Arrow keys or tap to move · F for full screen · N for presenter view</span>
+<button type="button" id="notes-toggle" title="Presenter view with notes, next slide and a timer, in a separate window (N)">Presenter view</button><a href="next-step-slides.pdf" download title="Download PDF"><span class="label">PDF</span><span class="sr"> download</span>⤓</a>
+<button type="button" id="full" title="Full screen (F)" aria-label="Full screen"><span class="label" id="full-label">Full screen</span><span class="short" id="full-short" aria-hidden="true">⛶</span></button>
+</nav>
+<script>var ITEMS=[{"src": "slides/01-cover.jpg", "alt": "Slide 1: Start your schoolwork, get back to it after a break, ask for what helps, and find friendly people. You decide each step.", "notes": "Say: Next Step is an early test app for teenagers whose brains work differently. It helps with four moments: starting schoolwork, getting back to it after a break, asking for what helps, and finding friendly people. You decide each step."}, {"src": "slides/02-story.jpg", "alt": "Slide 2: Sam\u2019s homework instructions are in three places, and they disagree. Next Step sorts them into one list.", "notes": "Say: Sam is made up. On the left, today: three sets of instructions that disagree, a break, and starting over. On the right, with Next Step: one list, each task showing where it came from, the unclear one kept for later, and a note that keeps Sam\u2019s place."}, {"src": "slides/03-problem.jpg", "alt": "Slide 3: Four times schoolwork gets stuck. The hard part is the moment, not you.", "notes": "Say each one in a sentence: what goes wrong, and what it costs. Then energy under all four. The hard part is the moment, never the person, and the app never guesses a condition."}, {"src": "slides/04-origin.jpg", "alt": "Slide 4: How we know this is real: other people describe these problems too, in 1,296 public posts and published studies.", "notes": "Say: this is how we know the problems are real. Point at the numbers, then at the right-hand column: most of it is adults, often at work. We have not heard from teenagers about school yet; that comes next."}, {"src": "slides/05-moments.jpg", "alt": "Slide 5: One app for all four moments. You tell it your energy today, and it asks for less on hard days.", "notes": "Say: one app, four moments. Point at each card, then the energy band: you tell it how much energy you have, and on hard days it asks for less."}, {"src": "slides/06-check.jpg", "alt": "Slide 6: It pulls the tasks out of your instructions, and warns you when one might be wrong.", "notes": "Demo: Study, Try a made-up example, Find the tasks. Point at the real line, the warning and the tick box. Untick one to show you are in charge. Say: it uses simple rules on your device; AI help is off unless you turn it on."}, {"src": "slides/07-pause.jpg", "alt": "Slide 7: Take a break without losing your place. The note you left is waiting.", "notes": "Demo: type a note, tap Stop for now, Home shows it. Tap Return to paused step (it picks up at once), then I did it. Say: a break no longer means starting over."}, {"src": "slides/08-energy.jpg", "alt": "Slide 8: It asks for less when you have less.", "notes": "Demo: on Home pick A little. In Study only the next step shows. Open I\u2019m stuck and read the four choices. Say: nothing is sent by any of them."}, {"src": "slides/09-words.jpg", "alt": "Slide 9: Explain what helps you once, on a short card in your own words.", "notes": "Demo: Say tab, My card, tap a ready-made line, Save card. Say: you explain what helps once, in your own words, instead of starting over with every new teacher."}, {"src": "slides/10-ask.jpg", "alt": "Slide 10: Ask for what helps, without explaining why.", "notes": "Demo: Ask for a change: a teacher, Ms Rivera, more time, steps in writing, add from my card. Say: it writes a polite message in your name; nothing is sent for you. Copy message."}, {"src": "slides/11-voice.jpg", "alt": "Slide 11: Type or talk. You check the words before anything is added.", "notes": "Demo: tap Speak instead on the pause note, fix the words, Use these words. Say: talking needs the internet, because the browser turns your voice into words; we keep no recording."}, {"src": "slides/12-community.jpg", "alt": "Slide 12: Do what you love, alongside others.", "notes": "Demo: People, pretend name Fern, join Drawing, Make something, two stamps, Send to be checked. Say: I am now playing the trained adult who checks posts; in real use that would be a real person. Approve in room, then Love this on Kit\u2019s picture. Kind words only, no numbers, no private messages. Everyone in the practice rooms is made up; the live test is for adults, with pretend sign-in and parent checks."}, {"src": "slides/13-privacy.jpg", "alt": "Slide 13: Your work stays on your phone or computer. Nothing leaves unless you share it, talk instead of type, or turn on AI help.", "notes": "Say: your work stays on your phone or computer. Nothing leaves unless you share it, talk instead of type, or turn on AI help, which is off until you turn it on and shows you what it will send. In the live test, a post goes to the test server and is wiped every day."}, {"src": "slides/14-notyet.jpg", "alt": "Slide 14: What we don\u2019t know yet. Said plainly. Whether it helps people: no study has been run. Screen readers: built to the rules, not yet tried by people who use them. Rooms and activities: built on research, not yet tried with young people. Who would pay: unknown. Phone apps: exist, not yet tried on real phones. Room safety: designed, not yet run with real checkers and members.", "notes": "Say these before anyone asks: we don\u2019t know yet if it helps, and it has not been tried with young people, screen-reader users or real phones."}, {"src": "slides/15-verified.jpg", "alt": "Slide 15: You can open it on the web today. It is checked by computer tests, not yet by people.", "notes": "Say: 637 small computer tests click through the app; 625 pass, and the 12 that fail need files from other build steps or folders on another computer, so they are not app problems. Tests check the app works as built. They cannot tell us if it helps anyone."}, {"src": "slides/16-help.jpg", "alt": "Slide 16: Help us test it with the people it\u2019s for. Your view, a careful first study, and design it with teens. Try it at amishi123.github.io/next-step. Tell us what you think at next-step-live.onrender.com/feedback.", "notes": "Ask for three things, then take questions. Keep the questions sheet open."}];var KIND="Slide";
+(function(){
+  var items = ITEMS, i = 0, kind = KIND;
+  var img = document.getElementById('view'), count = document.getElementById('count'), live = document.getElementById('live'), notes = document.getElementById('notes');
+  var m = /[#&]?(\d+)$/.exec(location.hash); if (m) i = Math.min(items.length - 1, Math.max(0, +m[1] - 1));
+  // Load the neighbours early so moving between pages is instant.
+  items.forEach(function(item){ var pre = new Image(); pre.src = item.src; });
+  // The presenter window and this one stay on the same slide.
+  var channel = ('BroadcastChannel' in window) ? new BroadcastChannel('next-step-present') : null, quiet = false;
+  if (channel) channel.onmessage = function(e){ if (e.data && typeof e.data.slide === 'number' && e.data.slide !== i) { quiet = true; show(e.data.slide); quiet = false; } if (e.data && e.data.hello) channel.postMessage({slide: i}); };
+  function show(n){
+    i = Math.min(items.length - 1, Math.max(0, n));
+    img.src = items[i].src; img.alt = items[i].alt;
+    count.textContent = (i + 1) + ' / ' + items.length;
+    live.textContent = kind + ' ' + (i + 1) + ' of ' + items.length + '. ' + items[i].alt;
+    history.replaceState(null, '', '#' + (i + 1));
+    if (channel && !quiet) channel.postMessage({slide: i});
+    document.getElementById('prev').disabled = i === 0; document.getElementById('next').disabled = i === items.length - 1;
+  }
+  function full(){
+    var el = document.documentElement;
+    if (!document.fullscreenElement) { (el.requestFullscreen || el.webkitRequestFullscreen || function(){}).call(el); }
+    else { (document.exitFullscreen || document.webkitExitFullscreen).call(document); }
+  }
+  document.addEventListener('fullscreenchange', function(){ document.body.classList.toggle('full', !!document.fullscreenElement); var on = !!document.fullscreenElement; document.getElementById('full-label').textContent = on ? 'Exit full screen' : 'Full screen'; document.getElementById('full-short').textContent = on ? '✕' : '⛶'; document.getElementById('full').setAttribute('aria-label', on ? 'Exit full screen' : 'Full screen'); });
+  document.getElementById('prev').onclick = function(){ show(i - 1); };
+  document.getElementById('next').onclick = function(){ show(i + 1); };
+  document.getElementById('full').onclick = full;
+  // Speaker notes open in their own window, for the laptop screen, so they never show on the projector.
+  var notesBtn = document.getElementById('notes-toggle');
+  if (notesBtn) notesBtn.onclick = function(){ window.open('presenter.html#' + (i + 1), 'next-step-presenter', 'width=1280,height=800'); };
+  document.addEventListener('keydown', function(e){
+    if (e.altKey || e.ctrlKey || e.metaKey) return;
+    var k = e.key;
+    // Space and Enter on a focused button press that button; they never also move the slides.
+    if ((k === ' ' || k === 'Enter') && e.target && e.target.closest && e.target.closest('button, a')) return;
+    if (k === 'ArrowRight' || k === 'PageDown' || k === ' ' || k === 'Enter') { e.preventDefault(); show(i + 1); }
+    else if (k === 'ArrowLeft' || k === 'PageUp' || k === 'Backspace') { e.preventDefault(); show(i - 1); }
+    else if (k === 'Home') { e.preventDefault(); show(0); }
+    else if (k === 'End') { e.preventDefault(); show(items.length - 1); }
+    else if (k === 'f' || k === 'F') { full(); }
+    else if ((k === 'n' || k === 'N') && notesBtn) { notesBtn.click(); }
+  });
+  // Click the right two thirds to go forward, the left third to go back. Swipe on phones.
+  document.querySelector('.stage').addEventListener('click', function(e){ if (e.clientX < innerWidth / 3) show(i - 1); else show(i + 1); });
+  var x0 = null; document.addEventListener('touchstart', function(e){ x0 = e.touches[0].clientX; }, {passive: true});
+  document.addEventListener('touchend', function(e){ if (x0 === null) return; var dx = e.changedTouches[0].clientX - x0; if (Math.abs(dx) > 40) show(i + (dx < 0 ? 1 : -1)); x0 = null; });
+  // In full screen the bar hides; moving the mouse brings it back for a moment.
+  var t = null; document.addEventListener('mousemove', function(){ document.body.classList.add('show-bar'); clearTimeout(t); t = setTimeout(function(){ document.body.classList.remove('show-bar'); }, 1800); });
+  window.addEventListener('hashchange', function(){ var h = /#([0-9]+)$/.exec(location.hash); if (h && +h[1] - 1 !== i) show(+h[1] - 1); });
+  show(i);
+})();
+</script>
+</body></html>

@@ -1,0 +1,58 @@
+name: Publish the portfolio website
+
+# Copies website/ to the gh-pages branch, which GitHub Pages serves at
+# https://amishi123.github.io/neuroscience-project/
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'portfolio/website/**'
+      - 'portfolio/projects/eeg-eye-state/results/**'
+      - '.github/workflows/publish-site.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: publish-site
+  cancel-in-progress: true
+
+jobs:
+  publish:
+    runs-on: ubuntu-24.04
+    defaults:
+      run:
+        working-directory: portfolio
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Rebuild the numbers and pages from committed results
+        run: |
+          python3 website/build_results.py
+          python3 website/build_pages.py
+          git diff --exit-code website/ || { echo "::error::website/ is out of date with the committed results; run website/build_results.py and website/build_pages.py"; exit 1; }
+      - name: Put together the site
+        run: |
+          rm -rf _site && cp -r website _site
+          rm -f _site/build_results.py _site/build_pages.py _site/make_qr.py _site/hosting.json _site/presentation/build_deck.py _site/presentation/build_video.py _site/presentation/viewers.py
+          rm -rf _site/__pycache__ _site/presentation/__pycache__ _site/presentation/src/__pycache__ _site/video/voice
+          touch _site/.nojekyll
+      - name: Test it end to end before publishing
+        run: |
+          pip install -q playwright==1.48.0
+          python3 -m playwright install --with-deps chromium >/dev/null
+          python3 application/e2e_site.py _site
+      - name: Push the site to gh-pages
+        run: |
+          cd _site
+          git init -q -b gh-pages
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git commit -qm "Publish website from ${GITHUB_SHA::7}"
+          git push -qf "https://x-access-token:${{ github.token }}@github.com/${GITHUB_REPOSITORY}.git" gh-pages
