@@ -1,6 +1,6 @@
 # Final drafts (story: a brain's state shapes what it takes in)
 
-Written from her own submitted answers plus the choices made in this session: Pragnya opening A, anesthesia from curiosity, mouse study credited as 'most of the work, with advice and guidance from my father', EEG study and apps left out. Nothing new is claimed beyond her essays, the repo results and those choices. She should read each one and change anything that doesn't sound like her.
+Written from her own submitted answers plus the choices made in this session: Pragnya opening A, anesthesia from curiosity, mouse study credited as 'most of the work, with advice and guidance from my father', EEG study left out; one sentence on the Next Step app (built with AI tools and her father's advice and guidance) added to Essay 3 and the advisor essay as a hint of HCI. Nothing new is claimed beyond her essays, the repo results and those choices. She should read each one and change anything that doesn't sound like her.
 
 Essay 4 is unchanged from the tightened version. Plain text is ready to paste; the bold markers in Essay 5 can be removed.
 
@@ -28,17 +28,19 @@ This year I am taking Honors Chemistry and AP Calculus AB. Chemistry sits behind
 
 My classes have given me a foundation in math and biology. The more useful lesson has been what to do when I get stuck and how to learn something without waiting for someone to explain it again. Those are the habits I want to bring to ASDRP.
 
-## 3 Other STEM experience (limit 375), 360 words
+## 3 Other STEM experience (limit 375), 386 words
 
 Outside the classroom, I look for activities that build both my scientific curiosity and my ability to help others.
 
-I volunteer with Pragnya, which supports neurodivergent children. I run games and activities and adjust how I interact with each child. In one session a child was dancing while another covered their ears because the noise was too much. Some of the children speak in single words and others are non-verbal. One girl I was paired with remembers my name on days I am not with her, comes over to say hi, and starts conversations about shared interests. Watching how differently each child engages with the same activity was my first close look at how the brain shapes behavior, and a big part of why I want to study neuroscience.
+I volunteer with Pragnya, which supports neurodivergent children. I run games and activities and adjust how I interact with each child. In one session a child was dancing while another covered their ears because the noise was too much. One girl I was paired with remembers my name on days I am not with her, comes over to say hi, and starts conversations about shared interests. Watching how differently each child engages with the same activity was my first close look at how the brain shapes behavior, and a big part of why I want to study neuroscience.
 
 I also tutor math with Learn To Be. One student on IXL could handle the arithmetic but froze at any problem longer than a sentence. We spent sessions breaking problems into pieces and underlining what each part was asking before touching any numbers. Once she saw it was mostly translation, her scores climbed. Tutoring has taught me to slow down, listen for where someone is actually confused, and try explanations until one lands. I understand math differently after teaching it.
 
 That interest carries into projects I do on my own. Using Python and public datasets, I explore sleep, neuronal activity, and Alzheimer's. For one project I built a classifier on a brain imaging dataset to tell healthy scans from scans at different stages of Alzheimer's. Getting the preprocessing right was harder than the modeling, and it showed me how much of research happens in the careful steps before any result. Alzheimer's interests me because of stories I have read and a film about families living with it. I noticed not only what the disease does to a person, but how much the people around them carry.
 
-I want to bring these habits to ASDRP and do research seriously, alongside mentors who can push my thinking further than I can alone. Longer term, I want to use computation to study neurodegenerative disease, applying data and modeling to questions that matter for care.
+I have also built a small app, Next Step, with AI tools and advice and guidance from my father. It asks students how much energy they have and, on a low day, shows only the next step. Designing it taught me that a tool should ask instead of guess, which is what the children at Pragnya keep teaching me.
+
+I want to bring these habits to ASDRP and do research seriously, alongside mentors who can push my thinking further than I can alone.
 
 ## 4 Diversity (limit 200), 168 words
 
@@ -60,10 +62,10 @@ I have not been part of a formal lab program yet, but I have done computational 
 
 These projects drew me toward molecular neuroscience, because the questions I care about, like how memory breaks down in Alzheimer's or what changes in neurons when a brain's state shifts, need experimental biology at the cellular level. Through ASDRP I want lab experience and mentorship, and to pair wet-lab work with the computational skills I have built.
 
-## Advisor / field preference (limit 150), 109 words
+## Advisor / field preference (limit 150), 123 words
 
 I'm interested in molecular neuroscience because I want to work in healthcare, understanding and treating the brain and nervous system. I'm considering becoming a Certified Registered Nurse Anesthetist or a psychiatrist, and both require a solid grounding in neuroscience, pharmacology, and how the body works.
 
 I'm especially curious about how neurons communicate, how brain state changes what neurons do, and how medications interact with the nervous system. Anesthesia fascinates me because it changes neural activity on purpose, so that pain and consciousness can be managed safely.
 
-I would love to work on a project with Mrs. Sahar Jahanikia, to see how lab research shapes the way patients are treated.
+I'm also drawn to human-centered design, from a small app I built for students. I would love to work on a project with Mrs. Sahar Jahanikia, to see how lab research shapes the way patients are treated.
