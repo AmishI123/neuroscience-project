@@ -4,6 +4,7 @@
 
 **Author:** Amishi Mehta · with advice and guidance from Manish Mehta (parent)
 **Code & data:** https://github.com/AmishI123/neuroscience-project
+**Portfolio (results, slides, video and apps):** https://amishi123.github.io/neuroscience-portfolio/
 
 ---
 

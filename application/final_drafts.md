@@ -48,7 +48,7 @@ That is what diversity looks like to me: real, in front of me, in how people tak
 
 I want to be part of a research group that works the same way, where people arrive with their own approach and are not asked to smooth it out. The person doing something differently is often the one seeing what the rest of us are missing.
 
-## 5 Hands-on research (limit 375), 358 words
+## 5 Hands-on research (limit 375), 367 words
 
 I have not been part of a formal lab program yet, but I have done computational research on public biological datasets. Each project taught me something different about when to trust a result.
 
@@ -58,7 +58,7 @@ I have not been part of a formal lab program yet, but I have done computational 
 
 3. Sleep health data. I wanted to know whether common claims about stress or steps held up in real data, starting from my own sleep habits. I ran correlations and trained a linear regression and a decision tree to predict sleep duration. Stress and age both correlated with sleep, but age also correlated with stress, so I read about confounding variables before trusting either.
 
-These projects drew me toward molecular neuroscience, because the questions I care about, like how memory breaks down in Alzheimer's or what changes in neurons when a brain's state shifts, need experimental biology at the cellular level. Through ASDRP I want lab experience and mentorship, and to pair wet-lab work with the computational skills I have built.
+These projects drew me toward molecular neuroscience, because the questions I care about, like how memory breaks down in Alzheimer's or what changes in neurons when a brain's state shifts, need experimental biology at the cellular level. Through ASDRP I want lab experience and mentorship, and to pair wet-lab work with the computational skills I have built. My code, results and apps are collected at amishi123.github.io/neuroscience-portfolio.
 
 ## Advisor / field preference (limit 150), 123 words
 
