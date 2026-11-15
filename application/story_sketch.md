@@ -43,7 +43,7 @@ measured it in mouse visual cortex, and I want to understand it at the cellular 
 
 ### 5. Hands-on research (375, max 3 examples)
 Choose three, strongest first:
-1. **Mouse study (with her father):** [what she did vs what he helped with]. Three mice, controls, "predictive not causal".
+1. **Mouse study (with her father):** she did most of the work, with her father's advice and guidance. Three mice, controls, "predictive not causal".
 2. **EEG eye-state study:** negative result; the added method did not generalize. [her part]
 3. **Alzheimer's imaging classifier** (random forest beat the linear model).
 - **Sleep project:** drop, or one clause.
