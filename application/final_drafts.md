@@ -28,13 +28,13 @@ This year I am taking Honors Chemistry and AP Calculus AB. Chemistry sits behind
 
 My classes have given me a foundation in math and biology. The more useful lesson has been what to do when I get stuck and how to learn something without waiting for someone to explain it again. Those are the habits I want to bring to ASDRP.
 
-## 3 Other STEM experience (limit 375), 386 words
+## 3 Other STEM experience (limit 375), 366 words
 
 Outside the classroom, I look for activities that build both my scientific curiosity and my ability to help others.
 
-I volunteer with Pragnya, which supports neurodivergent children. I run games and activities and adjust how I interact with each child. In one session a child was dancing while another covered their ears because the noise was too much. One girl I was paired with remembers my name on days I am not with her, comes over to say hi, and starts conversations about shared interests. Watching how differently each child engages with the same activity was my first close look at how the brain shapes behavior, and a big part of why I want to study neuroscience.
+I volunteer with Pragnya, which supports neurodivergent children. In one session a child was dancing while another covered their ears because the noise was too much. One girl I was paired with remembers my name on days I am not with her, comes over to say hi, and starts conversations about shared interests. Watching how differently each child engages with the same activity was my first close look at how the brain shapes behavior, and a big part of why I want to study neuroscience.
 
-I also tutor math with Learn To Be. One student on IXL could handle the arithmetic but froze at any problem longer than a sentence. We spent sessions breaking problems into pieces and underlining what each part was asking before touching any numbers. Once she saw it was mostly translation, her scores climbed. Tutoring has taught me to slow down, listen for where someone is actually confused, and try explanations until one lands. I understand math differently after teaching it.
+I also tutor math with Learn To Be. One student on IXL could handle the arithmetic but froze at any problem longer than a sentence. We spent sessions breaking problems into pieces and underlining what each part was asking before touching any numbers. Once she saw it was mostly translation, her scores climbed. Tutoring has taught me to slow down, listen for where someone is actually confused, and try explanations until one lands.
 
 That interest carries into projects I do on my own. Using Python and public datasets, I explore sleep, neuronal activity, and Alzheimer's. For one project I built a classifier on a brain imaging dataset to tell healthy scans from scans at different stages of Alzheimer's. Getting the preprocessing right was harder than the modeling, and it showed me how much of research happens in the careful steps before any result. Alzheimer's interests me because of stories I have read and a film about families living with it. I noticed not only what the disease does to a person, but how much the people around them carry.
 
