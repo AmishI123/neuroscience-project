@@ -14,7 +14,7 @@ I am applying to ASDRP because I have taken my independent work about as far as 
 
 Longer term, I want to keep pairing neuroscience with healthcare through college and beyond, so that understanding the brain at the cellular level helps me make better decisions for patients. ASDRP is where I want to start building those habits: in the lab now, and in the hospital someday.
 
-## 2 Coursework and grades (limit 400), 259 words
+## 2 Coursework and grades (limit 400), 300 words
 
 In ninth grade I took Biology and Precalculus, the hardest science and math courses available to me.
 
@@ -23,6 +23,8 @@ Biology is where my interest in neuroscience and medicine began. Learning how ge
 Precalculus was harder. I ended the year with a high B, the grade I worked hardest for. The course moved fast, with no extra credit or test corrections, and I realized early that keeping up would take more than attending lectures. I did extra problems, went back through my notes, and stayed with the topics that gave me trouble until I could actually use them. By the end I understood the material in a way I would not have if it had come easily.
 
 This year I am taking Honors Chemistry and AP Calculus AB. Chemistry sits behind most of what I care about, from how neurons signal and how a brain's state shifts to how medications act on the body. Calculus builds directly on Precalculus and is the math I need for the quantitative questions I want to take on in research.
+
+Outside school, I taught myself Python and its scientific libraries, including numpy and scikit-learn, so I could analyze real datasets for my independent research projects. I learned it the same way I learned Precalculus: by working problems until they made sense.
 
 My classes have given me a foundation in math and biology. The more useful lesson has been what to do when I get stuck, and how to learn something without waiting for someone to explain it again. Those are the habits I want to bring to ASDRP.
 
@@ -60,9 +62,9 @@ I have not been part of a formal lab program yet, but I have done computational 
 
 These projects drew me toward molecular neuroscience, because the questions I care about, like how memory breaks down in Alzheimer's or what changes in neurons when a brain's state shifts, need experimental biology at the cellular level. Through ASDRP I want lab experience and mentorship, and to pair wet-lab work with the computational skills I have built. My code, results and apps are collected at amishi123.github.io/neuroscience-project.
 
-## Advisor / field preference (limit 150), 123 words
+## Advisor / field preference (limit 150), 120 words
 
-I'm interested in molecular neuroscience because I want to work in healthcare, understanding and treating the brain and nervous system. I'm considering becoming a Certified Registered Nurse Anesthetist or a psychiatrist, and both require a solid grounding in neuroscience, pharmacology, and how the body works.
+I'm interested in molecular neuroscience because I want to work in healthcare, understanding and treating the brain and nervous system. I plan to become a Certified Registered Nurse Anesthetist, which requires a solid grounding in neuroscience, pharmacology, and how the body works.
 
 I'm especially curious about how neurons communicate, how a brain's state changes what neurons do, and how medications interact with the nervous system. Anesthesia fascinates me because it changes neural activity on purpose, so that pain and consciousness can be managed safely.
 
