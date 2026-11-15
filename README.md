@@ -35,6 +35,7 @@ experiment was uninformative because Sensorium's trial order is shuffled (see
 ## Read more
 
 - 📄 **Full write-up:** [`docs/REPORT.md`](docs/REPORT.md)
+- 🖼️ **Poster (one page):** [`poster/poster.pdf`](poster/poster.pdf)
 - Pre-specified protocol: [`docs/REPLICATION_PLAN.md`](docs/REPLICATION_PLAN.md)
 - Clean-environment run record: [`docs/REPRODUCIBILITY_RUN.md`](docs/REPRODUCIBILITY_RUN.md)
 - Original project plan: [`docs/PROJECT_PLAN.md`](docs/PROJECT_PLAN.md)
