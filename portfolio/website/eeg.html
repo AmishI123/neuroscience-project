@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#F3ECE1" />
+  <title>Measure · EEG study · From neurons to next steps</title>
+  <meta name="description" content="Chapter 3: a simple model reads eye state from one person’s EEG on one stretch of time, but not reliably across the recording, because the signal drifts." />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="From neurons to next steps" />
+  <meta property="og:title" content="Measure · EEG study · From neurons to next steps" />
+  <meta property="og:description" content="Chapter 3: a simple model reads eye state from one person’s EEG on one stretch of time, but not reliably across the recording, because the signal drifts." />
+  <meta property="og:url" content="https://amishi123.github.io/neuroscience-project/eeg.html" />
+  <meta property="og:image" content="https://amishi123.github.io/neuroscience-project/presentation/slides/01-cover.jpg" />
+  <meta property="og:image:width" content="1920" />
+  <meta property="og:image:height" content="1080" />
+  <meta property="og:image:alt" content="From neurons to next steps: an ASDRP neuroscience portfolio by Amishi Mehta." />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link rel="canonical" href="https://amishi123.github.io/neuroscience-project/eeg.html" />
+  
+  <link rel="icon" href="assets/icon.svg" type="image/svg+xml" />
+  <link rel="stylesheet" href="assets/base.css" />
+  <link rel="stylesheet" href="assets/experience.css" />
+  <link rel="stylesheet" href="assets/theme-atlas.css" />
+  <link rel="stylesheet" href="assets/styles.css" />
+  <link rel="stylesheet" href="assets/charts.css" />
+</head>
+<body>
+  <aside class="public-demo-banner" aria-label="About this portfolio">ASDRP application portfolio · Public data only · Every number comes from saved results</aside>
+  <a class="skip-link" href="#app">Skip to the page</a>
+  <header>
+    <a class="brand" href="index.html"><span class="mark" aria-hidden="true">n.</span> From neurons to next steps</a>
+    <span class="header-status"><span class="badge">Public data only</span><span class="badge">Future plans clearly marked</span></span>
+    <a class="header-link" href="https://github.com/AmishI123/neuroscience-project/tree/main/portfolio">Source code</a>
+  </header>
+  <main id="app" tabindex="-1">
+    <section class="screen active landing" aria-labelledby="page-title">
+    <div class="lm-head"><div class="hj-heading"><a class="back-button" href="index.html">← <span>All chapters</span></a><p class="eyebrow">Chapter 3 · Measure · EEG study</p><h1><span id="page-title">Can sensors on the head tell when someone’s eyes are closed?</span></h1><p class="hj-sub">EEG is a cap of small sensors that pick up the brain’s electrical activity through the scalp. Closing your eyes is one of the clearest changes it can see. If a simple model cannot read even that reliably for two minutes, quieter states like tiredness will be harder still.</p></div><div class="hj-art" data-art="eegHero"></div></div>
+      <section class="landing-problems answer"><p class="lp-energy"><b>On one stretch, yes. Over time, no.</b> On the last part of the recording the model scored 0.625 (0.5 is a coin flip, 1 is always right), and 0.728 once four glitchy readings were trimmed. But tested on five stretches across the recording, it averaged 0.478: about a coin flip. <span>Letting it see the last few moments as well did not help.</span></p></section>
+
+      <section class="landing-more" aria-labelledby="how-title">
+        <div class="lm-head"><div><h2 class="landing-subhead" id="how-title">How we tested it</h2><p class="lp-lead">Learn from earlier in the recording, then test on what comes later, like a real app would have to.</p></div><div class="hj-art" data-art="eegStudy"></div></div>
+        <ul class="lm-grid"><li><div class="lm-top"><span class="lm-icon" data-icon="activity"></span><p class="lm-k">The recording</p></div><h3>One person, two minutes</h3><p>14 sensors, about 128 readings a second. Each moment is marked eyes open or eyes closed (closed about 45% of the time).</p></li><li><div class="lm-top"><span class="lm-icon" data-icon="timeline"></span><p class="lm-k">Learn, then test</p></div><h3>Earlier, then later</h3><p>The model learns from the first 70% of the recording, is checked on the next 15%, and is tested once on the last 15%.</p></li><li><div class="lm-top"><span class="lm-icon" data-icon="chart-dots"></span><p class="lm-k">Two models</p></div><h3>Now, or now plus a moment ago</h3><p>One sees a single moment. The other also sees the last 9 readings, about a fourteenth of a second.</p></li><li><div class="lm-top"><span class="lm-icon" data-icon="target"></span><p class="lm-k">The score</p></div><h3>0.5 is a coin flip</h3><p>How often the model ranks an eyes-closed moment above an eyes-open one. 0.5 is guessing, 1.0 is always right.</p></li><li><div class="lm-top"><span class="lm-icon" data-icon="route-2"></span><p class="lm-k">Five stretches</p></div><h3>Moving forward in time</h3><p>Learn from everything before a stretch, test on that stretch, and repeat five times across the recording.</p></li><li><div class="lm-top"><span class="lm-icon" data-icon="books"></span><p class="lm-k">The data</p></div><h3>A public recording</h3><p>UCI EEG Eye State (Roesler, 2013), shared for anyone to study.</p></li></ul>
+      </section>
+
+      <h2 class="landing-subhead">The results</h2>
+      <div class="chart-card"><div data-chart="eeg-scale"></div><div><p class="lm-k">How to read the score</p><h3>Where the results sit between guessing and always right.</h3><p>Anything near 0.5 is no better than flipping a coin. Below 0.5 means the model is wrong more often than right, so the pattern it learned has flipped.</p><p class="chart-note">The score is called AUC.</p></div></div>
+      <div class="chart-card"><div data-chart="eeg-holdout"></div><div><p class="lm-k">The last stretch</p><h3>Good on one stretch, better once glitchy readings are trimmed.</h3><p>Four readings were glitches: up to 715,897 when normal is about 4,000. Trimming each sensor to the range seen while learning lifts the score from 0.625 to 0.728.</p><p class="chart-note">We added this check after the first results, so the new numbers sit next to the old ones, not in place of them.</p></div></div>
+      <div class="chart-card"><div data-chart="eeg-folds"></div><div><p class="lm-k">Five stretches in time</p><h3>Across the recording, it drifts to a coin flip.</h3><p>Scores land on both sides of 0.5, and some fall well below it. Being worse than guessing means the pattern the model learned earlier had flipped by later on.</p><p class="chart-note">So the signal drifts within two minutes. Trimming glitchy readings and leaving a gap do not fix it.</p></div></div>
+
+      <section class="landing-more" aria-labelledby="checks-title" id="checks">
+        <div class="lm-head"><div><h2 class="landing-subhead" id="checks-title">Making sure it is not our mistake</h2><p class="lp-lead">Three checks that the result comes from the recording, not from how we handled it.</p></div><div class="hj-art" data-art="controls"></div></div>
+        <ul class="lm-grid"><li><div class="lm-top"><span class="lm-icon" data-icon="arrows-shuffle"></span><p class="lm-k">Mix up the answers</p></div><h3>Scores 0.499, a coin flip</h3><p>With eyes open and closed scrambled 20 times, the model scores a coin flip, as it should. Our method does not invent a pattern.</p></li><li><div class="lm-top"><span class="lm-icon" data-icon="route-2"></span><p class="lm-k">Leave a gap</p></div><h3>Scores 0.448, still near guessing</h3><p>We left out the moments just before each test stretch, so the model could not lean on near-copies. The result stays near a coin flip.</p></li><li><div class="lm-top"><span class="lm-icon" data-icon="filter"></span><p class="lm-k">Trim glitchy readings</p></div><h3>Four readings, trimmed fairly</h3><p>The limits come only from the part the model learns from, so the test part never shapes them.</p></li></ul>
+      </section>
+      <div class="chart-card"><div data-chart="eeg-windows"></div><div><p class="lm-k">How far back to look</p><h3>Looking further back seems to help, but we did not pick a winner.</h3><p>We chose to try 3, 9, 30 and 90 readings back before seeing any results. Ninety does best on average, but picking it now would mean tuning to this one recording.</p><p class="chart-note">Next: compare these on new recordings before choosing.</p></div></div>
+
+      <section class="landing-more" aria-labelledby="bands-title" id="bands">
+        <div class="lm-head"><div><h2 class="landing-subhead" id="bands-title">Experiment 2: would brain-wave rhythms hold steady?</h2><p class="lp-lead">Alpha waves grow when eyes close. So we asked a follow-up question, wrote the plan down before running it, and tested it the same way.</p></div><div class="hj-art" data-art="eegStudy"></div></div>
+        <ul class="lm-grid"><li><div class="lm-top"><span class="lm-icon" data-icon="activity"></span><p class="lm-k">The idea</p></div><h3>Strength over the last second</h3><p>Instead of the raw reading at one moment, the model sees how strong four kinds of brain wave were over the last second, including alpha.</p></li><li><div class="lm-top"><span class="lm-icon" data-icon="route-2"></span><p class="lm-k">The test</p></div><h3>Same five stretches, plus a gap</h3><p>Learn from earlier, test on later, with one second left out between them, because the one-second windows overlap.</p></li><li><div class="lm-top"><span class="lm-icon" data-icon="target"></span><p class="lm-k">The rule set beforehand</p></div><h3>Better on average, never below 0.5</h3><p>It counts as holding up only if it beats the raw readings on average and no stretch falls below a coin flip.</p></li></ul>
+      </section>
+      <section class="landing-problems answer"><p class="lp-energy"><b>Better on average, but it still did not hold up.</b> All four rhythms averaged <b>0.566</b> across the five stretches, against <b>0.481</b> for the raw readings. But two stretches still dipped just below a coin flip (0.492 and 0.493), so by the rule we set beforehand it did not hold up. Alpha alone did worse (0.442). <span>Mixing up the answers gave 0.500, as it should.</span></p></section>
+      <div class="chart-card"><div data-chart="eeg-bands"></div><div><p class="lm-k">Experiment 2</p><h3>Brain-wave rhythms help, but not enough to rely on.</h3><p>Rhythms lift the average and the worst stretch, but a model that is sometimes worse than guessing is still not something to build an app on. This is why the apps ask the person.</p><p class="chart-note">With a one-second gap between learning and testing. Without the gap: 0.571 for rhythms, 0.529 for raw readings. Plan written before running: EXPERIMENT-2-PLAN.md in the source code.</p></div></div>
+
+      <div class="landing-facts" style="margin-top:28px">
+        <div class="landing-fact"><h2>Rerun it</h2><p><code>python3 projects/eeg-eye-state/src/analyze.py</code> writes <code>results/metrics.json</code>, <code>src/analyze_bands.py</code> writes <code>results/bands.json</code> for experiment 2, and <code>python3 website/build_results.py</code> turns it into these charts. See the <a href="https://github.com/AmishI123/neuroscience-project/tree/main/portfolio/blob/main/projects/eeg-eye-state/report.md">full report</a>. Data: Roesler, O. (2013). <i>EEG Eye State</i>. UCI Machine Learning Repository, doi:10.24432/C57G7J.</p></div>
+        <div class="landing-fact landing-fact-not"><h2>What it does not show</h2><p>One person and one short recording cannot show how this works for other people. The only thing measured is eyes open or closed, not attention, tiredness or any condition.</p></div>
+      </div>
+      <section class="landing-problems answer bridge"><p class="lp-energy"><b>What chapter 3 tells us:</b> a sensor that is right on one stretch and wrong on the next, even using brain-wave rhythms, is not something to build a tool on. So the apps ask the person instead of guessing. <a href="tools.html">Chapter 4 →</a></p></section>
+      <p class="landing-note"><a href="mouse.html">← Chapter 2 · Mouse</a><a href="tools.html">Chapter 4 · Design →</a><a href="index.html">All chapters</a></p>
+    </section>
+    <nav class="landing-note family-links" aria-label="Everything in this portfolio"><b>Everything in this portfolio:</b><a href="https://amishi123.github.io/neuroscience-project/share/">Share and demo</a><a href="https://amishi123.github.io/neuroscience-project/handoff/">For Amishi</a><a href="https://amishi123.github.io/neuroscience-project/">The website</a><a href="https://amishi123.github.io/neuroscience-project/neuroscience-mobile/">Phone tour</a><a href="https://amishi123.github.io/neuroscience-project/presentation/">Slides</a><a href="https://amishi123.github.io/neuroscience-project/video/">Video</a><a href="https://next-step-live.onrender.com/">Next Step app</a><a href="https://helper-jobs.onrender.com">Helper Jobs app</a><a href="https://github.com/AmishI123/neuroscience-project/tree/main/portfolio">Source code</a></nav>
+  </main>
+  <script src="assets/icons.js"></script><script src="assets/icons-extra.js"></script><script src="assets/art.js"></script><script src="assets/science-art.js"></script>
+  <script src="assets/results.js"></script><script src="assets/charts.js"></script><script src="assets/site.js"></script>
+</body>
+</html>

@@ -1,0 +1,6 @@
+{
+  "appId": "org.myvisitnotes.app",
+  "appName": "My Visit Notes",
+  "webDir": "dist",
+  "server": {"androidScheme": "https"}
+}

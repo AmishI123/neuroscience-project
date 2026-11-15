@@ -79,7 +79,7 @@ Other scripts in `src/`: `summarize_replication.py`, `plot_replication.py`,
 
 ## Related projects
 
-- **Portfolio and story:** [ASDRP Neuroscience Portfolio](https://amishi123.github.io/neuroscience-portfolio/) ties these projects together.
+- **Portfolio and story:** [the portfolio website](https://amishi123.github.io/neuroscience-project/) ties these projects together. Its source, slides, video and reviewer packet are in [`portfolio/`](portfolio/).
 - **Next Step:** [AmishI123/next-step](https://github.com/AmishI123/next-step), a calm web app that asks how much energy you have and shows only the next step on a low day. Built with AI tools, with advice and guidance from a parent.
 - **Neurocomms:** [AmishI123/neurocomms-app](https://github.com/AmishI123/neurocomms-app), communication-support prototypes and Helper Jobs. Same build notes; fictional data only.
 

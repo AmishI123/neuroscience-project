@@ -1,0 +1,42 @@
+WEBVTT
+
+00:00:00.000 --> 00:00:04.000
+ASDRP / EEG EYE STATE
+Can short-term history decode a neural state?
+A time-aware classification study using a public 14-channel EEG recording.
+
+00:00:04.000 --> 00:00:08.000
+THE DATA
+14 channels. 14,980 samples.
+One continuous recording with a manually annotated open-eye / closed-eye label.
+
+00:00:08.000 --> 00:00:12.000
+THE EVALUATION
+Time order matters.
+70% train, 15% validation, 15% final test. No random row split.
+
+00:00:12.000 --> 00:00:16.000
+THE BASELINE
+Test ROC AUC: 0.625
+Pointwise standardized EEG with class-balanced logistic regression.
+
+00:00:16.000 --> 00:00:20.000
+THE EXTENSION
+Test ROC AUC: 0.530
+Causal temporal context did not generalize on the final held-out block.
+
+00:00:20.000 --> 00:00:24.000
+THE EXPANSION
+Five blocked folds stay near chance.
+Mean ROC AUC: 0.478 pointwise versus 0.488 with context; fold variation is wide.
+
+00:00:24.000 --> 00:00:28.000
+THE TIMESCALE TEST
+90 samples led the sweep.
+Mean blocked-fold ROC AUC: 0.491 at 3 samples, 0.488 at 9, 0.548 at 30, and 0.567 at 90.
+
+00:00:28.000 --> 00:00:32.000
+THE LIMIT
+Negative results count.
+More recordings and multiple time scales are needed before generalization claims.
+

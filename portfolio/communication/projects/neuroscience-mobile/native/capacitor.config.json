@@ -1,0 +1,6 @@
+{
+  "appId": "org.asdrp.neurosciencelab",
+  "appName": "Neurons to Next Steps",
+  "webDir": "dist",
+  "server": {"androidScheme": "https"}
+}

@@ -1,0 +1,45 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Next Step · Opening the live rooms</title><meta name="description" content="Wakes the live rooms test, then opens it.">
+<style>
+:root{--cream:#F3ECE1;--paper:#FAF6EF;--ink:#2B2622;--muted:#5A5047;--rust:#9A4A22;--line:#D9CDBA}
+*{box-sizing:border-box}html{background:var(--cream)}
+body{margin:0;min-height:100vh;display:flex;align-items:center;justify-content:center;background:var(--cream);color:var(--ink);font:400 18px/1.55 Georgia,'Source Serif 4',serif;padding:16px}
+.card{max-width:520px;width:100%;background:var(--paper);border:1px solid var(--line);padding:28px 24px;text-align:center}
+h1{font:400 30px/1.15 Georgia,serif;margin:0 0 10px}
+p{margin:0 0 14px;color:var(--muted)}
+.dots{display:inline-flex;gap:8px;margin:8px 0 18px}.dots i{width:10px;height:10px;border-radius:50%;background:var(--rust);opacity:.25;animation:pulse 1.2s infinite}
+.dots i:nth-child(2){animation-delay:.2s}.dots i:nth-child(3){animation-delay:.4s}
+@keyframes pulse{50%{opacity:1}}
+@media (prefers-reduced-motion:reduce){.dots i{animation:none;opacity:.6}}
+a.btn{display:inline-flex;align-items:center;justify-content:center;min-height:48px;padding:10px 20px;background:var(--rust);color:#fff;text-decoration:none;font:600 17px/1.2 system-ui,sans-serif}
+a.quiet{color:var(--rust)}
+:focus-visible{outline:3px solid var(--rust);outline-offset:2px}
+</style></head><body>
+<main class="card">
+  <h1 id="title">Waking up the live rooms…</h1>
+  <p id="status" role="status" aria-live="polite">The live test runs on a free service that sleeps when nobody is using it. It can take up to a minute to wake. This page opens it as soon as it is ready.</p>
+  <div class="dots" aria-hidden="true"><i></i><i></i><i></i></div>
+  <p><a class="btn" id="go" href="https://next-step-live.onrender.com/#people">Open the live rooms now</a></p>
+  <p><a class="quiet" href="./">Back to the slides and handout</a></p>
+</main>
+<script>
+(function () {
+  var LIVE = 'https://next-step-live.onrender.com';
+  var target = LIVE + '/#people';
+  // Already on the live site: it is awake, so go straight in.
+  if (location.hostname === 'next-step-live.onrender.com') { location.replace('/#people'); return; }
+  var started = Date.now(), done = false, status = document.getElementById('status');
+  function ready() { if (done) return; done = true; document.getElementById('title').textContent = 'Ready. Opening the live rooms…'; status.textContent = 'The live rooms are awake.'; location.href = target; }
+  function ping() {
+    if (done) return;
+    // An opaque reply still means the server answered; while it sleeps the request waits or fails.
+    fetch(LIVE + '/healthz?t=' + Date.now(), {mode: 'no-cors', cache: 'no-store'}).then(ready, function () {
+      var waited = Math.round((Date.now() - started) / 1000);
+      if (waited > 120) { status.textContent = 'This is taking longer than usual. Tap “Open the live rooms now”, or try again in a minute.'; return; }
+      setTimeout(ping, 3000);
+    });
+  }
+  setTimeout(function () { if (!done) status.textContent = 'Still waking up. Thanks for waiting; this happens only on the first visit after a quiet spell.'; }, 20000);
+  ping();
+})();
+</script>
+</body></html>

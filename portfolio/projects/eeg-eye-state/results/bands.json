@@ -1,0 +1,114 @@
+{
+  "plan": "projects/eeg-eye-state/EXPERIMENT-2-PLAN.md",
+  "rows_scored": 14853,
+  "window_readings": 128,
+  "rate_per_second": 128,
+  "bands_hz": {
+    "delta": [
+      1,
+      4
+    ],
+    "theta": [
+      4,
+      8
+    ],
+    "alpha": [
+      8,
+      13
+    ],
+    "beta": [
+      13,
+      30
+    ]
+  },
+  "with_gap": {
+    "raw readings": {
+      "stretches": [
+        0.3586,
+        0.5631,
+        0.3682,
+        0.4672,
+        0.649
+      ],
+      "mean": 0.4812,
+      "min": 0.3586,
+      "max": 0.649,
+      "stretches_below_coin_flip": 3
+    },
+    "all four bands": {
+      "stretches": [
+        0.6452,
+        0.492,
+        0.5752,
+        0.6239,
+        0.4925
+      ],
+      "mean": 0.5658,
+      "min": 0.492,
+      "max": 0.6452,
+      "stretches_below_coin_flip": 2
+    },
+    "alpha only": {
+      "stretches": [
+        0.4155,
+        0.5771,
+        0.5386,
+        0.4403,
+        0.2385
+      ],
+      "mean": 0.442,
+      "min": 0.2385,
+      "max": 0.5771,
+      "stretches_below_coin_flip": 3
+    }
+  },
+  "without_gap": {
+    "raw readings": {
+      "stretches": [
+        0.5714,
+        0.548,
+        0.3708,
+        0.4905,
+        0.6655
+      ],
+      "mean": 0.5292,
+      "min": 0.3708,
+      "max": 0.6655,
+      "stretches_below_coin_flip": 2
+    },
+    "all four bands": {
+      "stretches": [
+        0.6475,
+        0.4986,
+        0.5724,
+        0.6321,
+        0.5041
+      ],
+      "mean": 0.5709,
+      "min": 0.4986,
+      "max": 0.6475,
+      "stretches_below_coin_flip": 1
+    },
+    "alpha only": {
+      "stretches": [
+        0.3999,
+        0.5499,
+        0.531,
+        0.4377,
+        0.2188
+      ],
+      "mean": 0.4275,
+      "min": 0.2188,
+      "max": 0.5499,
+      "stretches_below_coin_flip": 3
+    }
+  },
+  "label_shuffle_all_bands_with_gap": {
+    "permutations": 20,
+    "seed": 20261110,
+    "mean": 0.4996,
+    "min": 0.493,
+    "max": 0.5092
+  },
+  "holds_up_better": false
+}

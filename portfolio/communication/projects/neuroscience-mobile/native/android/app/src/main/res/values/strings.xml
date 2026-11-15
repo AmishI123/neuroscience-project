@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">Neurons to Next Steps</string>
+    <string name="title_activity_main">Neurons to Next Steps</string>
+    <string name="package_name">org.asdrp.neurosciencelab</string>
+    <string name="custom_url_scheme">org.asdrp.neurosciencelab</string>
+</resources>
