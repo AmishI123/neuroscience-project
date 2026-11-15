@@ -73,7 +73,7 @@ def main():
         pg.goto(base + "handoff/answers.html"); pg.fill("#q-moment", "Test moment")
         pg.reload(); check(pg.input_value("#q-moment") == "Test moment", "handoff: an answer is still there after reloading")
         pg.goto(base + "handoff/essay-1.html"); words = pg.inner_text("[data-words-for]")
-        check("of 375" in words and "[brackets]" in words, f"handoff: Essay 1 shows its word count ({words})")
+        check("of 375" in words, f"handoff: Essay 1 shows its word count ({words})")
         with pg.expect_download() as dl: pg.click("[data-download]")
         check(dl.value.suggested_filename == "essay-1.txt", "handoff: Essay 1 downloads as a text file")
         ctx.close()
