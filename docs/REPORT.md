@@ -2,12 +2,8 @@
 
 *An encoding-model study of arousal and locomotion in mouse primary visual cortex (V1).*
 
-**Author:** [Your Name] · **Collaborator:** Manish Mehta (parent)
+**Author:** Amishi Mehta · **Collaborator:** Manish Mehta (parent)
 **Code & data:** https://github.com/AmishI123/neuroscience-project
-
-> This is a draft report intended as the application's "paper" attachment. Replace
-> [Your Name], read it in full, and edit anything you'd say differently — it should
-> sound like you.
 
 ---
 
@@ -128,7 +124,10 @@ the mouse's state does.
 We asked whether features from a **pretrained deep network** predict V1 better than the
 simple pixel summary. Using a pretrained ResNet-50 as a fixed feature extractor (a
 middle layer, at the image's native resolution to preserve spatial layout), we compared
-four models, selecting regularization on validation and reporting on the test set:
+four models, selecting regularization on validation and reporting on the test set.
+(These numbers come from a test-only evaluation with separately tuned regularization,
+so they differ slightly from the headline 0.126 / 0.158, which are scored on the
+combined validation + test trials with a fixed α.)
 
 ![Deep-learning comparison](../results/fig6_deep_learning.png)
 
@@ -157,7 +156,7 @@ state was at least as valuable as using a more sophisticated image model.**
 To test whether the headline result was specific to the original mouse, we ran the
 same four-model pipeline on two additional Sensorium recordings. The runner uses the
 same 4×4 image downsampling, 150-component PCA, training-only standardization, ridge
-alpha 1000, and official chronological train/validation/test tiers.
+alpha 1000, and official train/validation/test tiers.
 
 | Mouse | Stimulus only | + running | + pupil | + both | Relative gain |
 |---|---:|---:|---:|---:|---:|
@@ -193,7 +192,7 @@ omitting the original mouse, **0.0396** when omitting the second mouse, and
 three-animal sensitivity analysis—not a population estimate or hierarchical
 confidence interval.
 
-### Behavior-shuffle negative control
+### 4.8 Behavior-shuffle negative control
 
 As a control for trial alignment, we independently permuted the three behavior
 columns across trials within each animal and refit the stimulus-plus-behavior model
@@ -228,6 +227,12 @@ internal state**, and can be recovered by measuring that state.
   accuracy is low.
 - **Small animal sample.** Three animals provide replication evidence, but not a
   population estimate or hierarchical confidence interval.
+- **No timing analysis.** The trial order in the Sensorium release is shuffled, not
+  chronological: neighboring-trial autocorrelation of pupil and running is about 0
+  and the splits are interleaved. A trial-offset experiment therefore acted as another
+  shuffled-behavior control (aligned 0.158 vs. ~0.126 at every offset) and says nothing
+  about how quickly behavior and neural activity are related. That would need original
+  trial timestamps.
 - **Correlational.** We show behavior improves *prediction*; we do not establish a
   causal or mechanistic account of how arousal modulates responses.
 
@@ -242,10 +247,14 @@ internal state**, and can be recovered by measuring that state.
 
 ## 8. Reproducibility
 
-All code is in the repository as six documented notebooks
-(`notebooks/01`–`06`), runnable in Google Colab (notebook 06 needs a GPU runtime). The dataset is downloaded
-automatically from the public Sensorium repository. Every figure in this report was
-generated from the code in this project.
+The discovery analysis is in six documented notebooks (`notebooks/01`–`06`), runnable
+in Google Colab (notebook 06 needs a GPU runtime); notebook 02 downloads one mouse from
+the public Sensorium repository. The three-mouse replication, bootstrap intervals,
+summary and shuffle controls are scripts in `src/`, run on locally downloaded raw
+recordings (see `docs/REPRODUCIBILITY_RUN.md` and `docs/REPLICATION_PLAN.md`). Core
+dependencies are pinned in `requirements.txt`; CNN dependencies are separate in
+`requirements-cnn.txt`. Every figure and number in this report comes from code in this
+repository.
 
 ## References
 

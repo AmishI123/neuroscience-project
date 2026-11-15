@@ -1,23 +1,12 @@
-# Research field choices + advisor/field preference
+# Field choices and advisor preference
 
-## Preferred research field dropdowns (my recommendation)
+Her submitted choices (see `submitted_answers.md`): 1. Biology, 2. Cognitive Science & Psychology, 3. Chemistry.
 
-- **First choice:** Cognitive Science & Psychology
-- **Second choice:** Computer Science
-- **Third choice:** Biology  *(or Mathematics, if she leans more toward the
-  statistics/modeling side — either is defensible; Biology keeps it neuroscience-adjacent)*
+## Advisor / field preference (limit 150), as submitted
+I'm really interested in molecular neuroscience because I want to go into healthcare, especially in a field that involves understanding and treating the brain and nervous system. Right now I'm looking at paths like becoming a Certified Registered Nurse Anesthetist (CRNA) or a psychiatrist, and both of those need a solid understanding of neuroscience, pharmacology, and how the body works.
 
-## Advisor / field preference (limit: 150 words) — DRAFT
+I'm especially curious about how neurons communicate with each other, how changes at the molecular level affect brain function, and how medications interact with the nervous system. My interest in anesthesia comes from wanting to understand how anesthetic drugs change neural activity in order to safely manage pain and consciousness.
 
-> ≈ 130 words. Truthful; edit to taste.
+I would love the chance to work on a project with Mrs. Sahar Jahanikia. I want to see how research in the lab actually shapes the way patients get treated.
 
-My first-choice field is Cognitive Science & Psychology, with Computer Science a close
-second. I'm most drawn to research at the intersection of neuroscience and machine
-learning — building and comparing models of how the brain represents visual
-information, and how internal states like arousal shape neural activity. My independent
-work has been exactly this: encoding models of mouse visual cortex that incorporate
-behavior. I'd be glad to work with any advisor studying neural coding, computational
-neuroscience, or the comparison between artificial neural networks and biological
-vision. I'm comfortable with Python and data analysis, eager to learn deep-learning
-methods, and most excited by projects where I can test a clear question against real
-neural data and follow wherever the results lead.
+(Note: this is about 190 words. Check the 150-word limit in the form and trim if needed.)

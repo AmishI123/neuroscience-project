@@ -65,3 +65,15 @@ It requires a raw Sensorium mouse directory and compares pre-specified trial
 offsets `-10, -5, -2, -1, 0, 1, 2, 5, 10`. Positive offsets use behavior from
 earlier trials; negative offsets use later trials. This is an alignment-
 sensitivity analysis, not a causal timing claim.
+
+**Timing experiment outcome (mouse static21067): uninformative.** Aligned
+behavior gave 0.1583; every nonzero offset (-10 to +10) gave 0.1260-0.1262,
+about the stimulus-only level of 0.1265. Neighboring-trial autocorrelation of
+pupil, pupil change and running speed is about 0 (lag 1: -0.005, 0.008, -0.004),
+and train/validation/test trials are interleaved in the trial index. The trial
+order is therefore shuffled, not chronological, so an offset does not mean an
+earlier or later moment in time. The run acts as another shuffled-behavior
+control: the gain depends on each trial's own behavior values. It says nothing
+about timing. A real timing analysis needs original trial timestamps, which
+this release does not appear to provide. Results are in
+`results/behavior_timing_static21067.json`; the other two mice were not run.

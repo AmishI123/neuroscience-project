@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<title>Poster: Behavior and Mouse Visual Cortex</title>
+<style>
+@page{size:36in 24in;margin:0}
+*{box-sizing:border-box}
+body{margin:0;width:36in;height:24in;font-family:Helvetica,Arial,sans-serif;color:#1b2430;background:#fff;font-size:21pt;line-height:1.35}
+header{background:#1f3a5f;color:#fff;padding:.55in .8in;height:3.3in}
+h1{margin:0;font-size:58pt;line-height:1.1}
+.sub{font-size:26pt;margin-top:.15in;color:#cfe0f5}
+.by{font-size:20pt;margin-top:.15in;color:#cfe0f5}
+main{display:grid;grid-template-columns:1fr 1.45fr 1fr;gap:.45in;padding:.45in .8in;height:19.7in}
+section{background:#f4f7fb;border-radius:12px;padding:.3in .35in;margin-bottom:.3in}
+h2{margin:0 0 .12in;font-size:30pt;color:#1f3a5f;border-bottom:4px solid #4a90d9;padding-bottom:.05in}
+.col{display:flex;flex-direction:column}
+img{width:100%;display:block;border-radius:6px}
+table{width:100%;border-collapse:collapse;font-size:20pt;margin:.1in 0}
+th,td{padding:.07in .1in;text-align:right;border-bottom:1px solid #c9d4e3}
+th:first-child,td:first-child{text-align:left}
+th{color:#1f3a5f}
+.big{font-size:44pt;font-weight:700;color:#1f3a5f;line-height:1}
+.q{font-size:25pt;font-weight:600}
+ul{margin:.05in 0 0 .3in;padding:0}li{margin-bottom:.07in}
+.note{font-size:17pt;color:#4a5568}
+footer{position:absolute;bottom:.25in;left:.8in;right:.8in;font-size:17pt;color:#4a5568;display:flex;justify-content:space-between}
+</style></head><body>
+<header>
+<h1>Does a mouse's behavior help predict its visual cortex?</h1>
+<div class="sub">An encoding-model study of arousal and running in mouse V1, replicated in three mice</div>
+<div class="by">Amishi Mehta · with advice and guidance from Manish Mehta (parent) · Data: Sensorium 2022 · Code: github.com/AmishI123/neuroscience-project</div>
+</header>
+<main>
+<div class="col">
+<section><h2>Question</h2>
+<p class="q">Does adding pupil size and running speed improve prediction of V1 activity beyond the image the mouse sees?</p>
+<p>The same image can drive a neuron differently depending on whether the animal is alert or calm. If so, part of what looks like noise should be recoverable from behavior.</p></section>
+<section><h2>Data</h2>
+<ul><li>Public Sensorium 2022 recordings, 3 mice</li><li>7,300–8,400 V1 neurons per mouse (two-photon imaging)</li><li>~6,000 natural grayscale images per mouse</li><li>Pupil size, pupil change and running speed on every trial</li><li>Official train / validation / test split</li></ul></section>
+<section><h2>Method</h2>
+<ul><li>Images downsampled, then 150 principal components (fit on training data only)</li><li>Ridge regression predicts every neuron</li><li>Four models: image only, + running, + pupil, + both</li><li>Score: per-neuron correlation on held-out trials</li><li>Same pipeline and settings for every mouse, chosen before looking at outcomes</li></ul></section>
+</div>
+<div class="col">
+<section><h2>Result: behavior helped in all three mice</h2>
+<img src="../results/per_mouse_replication_summary.png" alt="Per-mouse replication">
+<table><tr><th>Mouse</th><th>Image only</th><th>+ behavior</th><th>Gain</th></tr>
+<tr><td>1 (discovery)</td><td>0.126</td><td>0.158</td><td>+25%</td></tr>
+<tr><td>2 (replication)</td><td>0.154</td><td>0.203</td><td>+32%</td></tr>
+<tr><td>3 (replication)</td><td>0.143</td><td>0.191</td><td>+33%</td></tr></table>
+<p class="note">Mean held-out correlation. Pupil helped every mouse; running helped by very different amounts.</p></section>
+<section><h2>Who benefits? Arousal-sensitive neurons</h2>
+<img src="../results/fig3_improvement_vs_arousal.png" alt="Improvement vs arousal" style="width:62%;margin:auto">
+<p>In mouse 1, neurons whose activity rose with pupil size (r &gt; 0.1) improved by +0.069 on average, versus +0.014 for the rest.</p></section>
+</div>
+<div class="col">
+<section><h2>Could it be an accident?</h2>
+<ul><li><b>Shuffled behavior:</b> real gains of +0.03 to +0.05 become about −0.0005 in every mouse</li><li><b>Leave one mouse out:</b> mean gain stays positive (+0.040 to +0.048)</li><li><b>Bootstrap intervals</b> within each mouse do not overlap between models</li></ul></section>
+<section><h2>Does a better image model change it?</h2>
+<img src="../results/fig6_deep_learning.png" alt="CNN comparison">
+<p>Pretrained CNN features beat raw pixels only slightly (0.137 vs 0.131). Behavior helped either way, so the result does not depend on the image model.</p></section>
+<section><h2>Takeaways and limits</h2>
+<ul><li>Behavioral state carries real information about V1 activity</li><li>Which signal matters (pupil or running) depends on the animal</li><li>Three mice are a replication, not a population estimate</li><li>Predictive, not causal</li><li>Trial order in this release is shuffled, so timing was not testable</li></ul></section>
+</div>
+</main>
+<footer><span>Willeke et al. 2022 (Sensorium) · Niell &amp; Stryker 2010 · Reimer et al. 2014</span><span>Full write-up: docs/REPORT.md</span></footer>
+</body></html>

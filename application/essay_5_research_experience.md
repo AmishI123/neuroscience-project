@@ -1,44 +1,19 @@
-# Essay 5 — Hands-on science / lab research experience (limit: 375 words, max 3 examples)
+# Essay 5: Hands-on / lab research experience (limit 375 words, max 3 examples)
 
-> **DRAFT to personalize.** Example 1 (our project) is written for you and is truthful.
-> Add examples 2–3 if you have them (a school lab, summer program, science fair, etc.).
-> Being honest that this was a joint project with your father is the right call — ASDRP
-> values integrity, and a self-started project is impressive regardless. ≈ 300 words;
-> you have room to add more.
+> Replaces the earlier draft. Keeps her original three projects (sleep, Alzheimer's, mouse)
+> and credits the collaboration honestly, so it matches `docs/REPORT.md`.
+> Collaboration line settled: she did most of the work, with her father's advice and guidance. ~335 words.
 
 ---
 
-**1. Predicting neural activity from behavior (independent project, collaborating with
-my father).** This is the project I've worked on most closely. My father has a software
-background, and together we set out to test whether a mouse's behavior helps predict how
-its visual-cortex neurons respond to images.
+I have not been part of a formal lab program yet, but I have done computational research on public biological datasets. Each project taught me something different about how to trust a result.
 
-My specific tasks: I learned Python and its scientific libraries (numpy, scikit-learn)
-from scratch, then loaded Sensorium 2022 recordings — thousands of visual-cortex
-neurons across roughly 6,000 trials per animal, along with pupil size and running speed.
-I first explored the data and measured how neural activity related to behavior. Pupil
-linked to the prediction improvement in all three evaluated animals, while the running
-contribution varied; in the first mouse, running appeared on only about 5% of trials.
+**1. Sleep health data.** I wanted to know whether common claims about stress or steps held up in real data, starting from my own sleep habits. In Python I ran correlations, plotted the relationships, and trained a linear regression and a decision tree to predict sleep duration. Stress and age both correlated with sleep, but age also correlated with stress, so I read about confounding variables before trusting either.
 
-I then built two prediction models using ridge regression: a baseline using only the
-image the mouse saw, and an extended model that also included behavior. I evaluated both
-on held-out test trials by correlating predicted and actual responses. Adding behavior
-raised mean prediction accuracy from 0.126 to 0.158 in the first mouse, from 0.154
-to 0.203 in a second mouse, and from 0.143 to 0.191 in a third mouse. Using an ablation, I found that pupil-linked arousal
-improved all three animals, while movement contributed differently across them. The
-replication strengthened the predictive claim without turning it into a causal claim.
+**2. Alzheimer's brain imaging.** Using a public imaging dataset, I built logistic regression and random forest classifiers to separate healthy scans from Alzheimer's scans. The random forest did much better, which told me a simple linear boundary was missing real structure. Preprocessing took more effort than the modeling.
 
-I also ran behavior-shuffle controls and a leave-one-animal-out stability check. The
-aligned gain stayed positive in all three animals, and the mean gain stayed positive
-when any one animal was omitted. These controls taught me that a convincing result
-needs tests designed to make it fail, not just a stronger headline number.
+**3. Mouse visual cortex (with my father).** I did most of the work myself, with advice and guidance from my father, who has a software background. Using public recordings from thousands of neurons in mouse visual cortex, I asked whether a mouse's behavior, meaning pupil size and running, improves predictions of its neural activity beyond the image it saw. Adding behavior raised held-out prediction accuracy from 0.126 to 0.158 in the first mouse, and the result held in two more mice (0.154 to 0.203 and 0.143 to 0.191). Pupil-linked arousal helped all three, while running helped by very different amounts, so the pattern repeated while its parts varied.
 
-What I accomplished: a complete, reproducible analysis — documented in notebooks and a
-short write-up — answering a real question (internal state improves models of visual
-cortex) using transparent methods I can fully explain. Most importantly, I learned to
-let the data change my mind.
+I also tested whether the result could be an accident. Shuffling behavior across trials erased the gain, and dropping any one mouse left it positive. I learned that a convincing result needs tests built to make it fail. It is a predictive result, not a causal one, and three mice are not a population.
 
-**2. [Other hands-on experience — what you did, with whom, your tasks, what you
-accomplished.]**
-
-**3. [Another example, if you have one.]**
+These projects drew me toward molecular neuroscience, because the questions I care about, like how memory breaks down in Alzheimer's, need experimental biology at the cellular level. Through ASDRP I want lab experience and mentorship, and to pair wet-lab work with the computational skills I have built.

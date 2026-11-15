@@ -1,49 +1,19 @@
-# ASDRP Application — status & what I need from your daughter
+# ASDRP application: status
 
-## The 8 prompts
+Her own answers are in `submitted_answers.md`. Current drafts are in `final_drafts.md` (use those, with her approval); `improved_essays.md` is the earlier tightening.
 
-| # | Prompt | Limit | Status |
-|---|--------|-------|--------|
-| 1 | Why applying / interests / goals | 375 | ✅ Draft: `essay_1_why_applying.md` (needs personal spark) |
-| 2 | Coursework & grades | 400 | ⛔ Needs her info (below) |
-| 3 | Other STEM experience (clubs/volunteering) | 375 | ⛔ Needs her info |
-| 4 | Contribution to diversity | 200 | ⛔ Needs her info |
-| 5 | Hands-on / lab research experience | 375 | ✅ Draft: `essay_5_research_experience.md` (project written; add others) |
-| — | Advisor / field preference | 150 | ✅ Draft: `essay_advisor_and_fields.md` |
-| — | Field dropdowns (1st/2nd/3rd) | — | ✅ Recommended: CogSci&Psych / CS / Biology |
-| — | All coursework + extracurriculars w/ weekly hours | 1000 | ⛔ Needs her info |
-| — | File uploads: transcript, resume (optional), papers/posters | — | Report from Week 6 = the "papers" upload |
+| # | Prompt | Status |
+|---|---|---|
+| 1 | Why applying (375) | Done, hers |
+| 2 | Coursework and grades (400) | Done, hers |
+| 3 | Other STEM experience (375) | Done, hers. Fixed in `improved_essays.md` (333 words). |
+| 4 | Diversity (200) | Done, hers |
+| 5 | Hands-on research (375) | Revised in `essay_5_research_experience.md`. Collaboration line settled (she did most of the work, with her father's advice and guidance). |
+| - | Advisor / field (150) | Hers, but ~190 words. Fixed in `improved_essays.md` (113 words). |
+| - | Activities (1000) | Drafted in `activities_final.md`; confirm Learn To Be hours. |
+| - | Uploads | Transcript required; report `docs/REPORT.md` as the paper; resume optional |
 
-## What I need from your daughter to finish 2, 3, 4, and the activities list
-
-I won't invent personal facts. Send me these and I'll draft the rest in her voice:
-
-**For Essay 2 (coursework & grades):**
-- Math/science/CS courses taken (school + any online/summer), with grades.
-- Anything relevant she's self-taught (this Python + ML project counts — it shows
-  initiative beyond coursework).
-- Any grade she wants to explain (illness, switched schools, hard semester, etc.).
-
-**For Essay 3 (other STEM experience):**
-- Clubs, competitions, volunteering, tutoring, camps — anything STEM-flavored.
-- Even non-STEM leadership/teamwork can work if framed well.
-
-**For Essay 4 (diversity, broadly defined — 200 words):**
-- Anything about her background, perspective, or life experience she's comfortable
-  sharing: culture, language, being a girl in STEM, a nontraditional path, a
-  challenge overcome, an unusual combination of interests. "Diversity" here is broad.
-
-**For the activities list (1000 words):**
-- EVERYTHING she might do during the school year, with average hours/week: classes,
-  sports, music, clubs, tutoring, SAT prep, religious/scout activities, jobs, family
-  responsibilities. Note anything uncertain as "not sure yet" (they explicitly allow it).
-
-**Also useful:**
-- Her first name and grade level (so drafts read naturally).
-- Her transcript and (optional) resume for the uploads.
-
-## Integrity note
-
-Everything in the drafts is truthful. Keep it that way — mentors can tell, and the
-project is genuinely strong on its own. The joint nature of the project (with Dad) is
-stated openly on purpose.
+## Still open
+- Essay 5 bracket: what she did versus what her father helped with. Keep this consistent with the report byline.
+- Put her name in `docs/REPORT.md` (still `[Your Name]`) and delete its "replace this" note.
+- Optional: one sentence in Essay 1 mentioning the mouse project and the three-mouse replication.
