@@ -1,6 +1,6 @@
 # ASDRP application: status
 
-Her own answers are in `submitted_answers.md`. Tightened versions that fit every word limit are in `improved_essays.md` (use those, with her approval).
+Her own answers are in `submitted_answers.md`. Current drafts are in `final_drafts.md` (use those, with her approval); `improved_essays.md` is the earlier tightening.
 
 | # | Prompt | Status |
 |---|---|---|
