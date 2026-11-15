@@ -6,6 +6,8 @@ from pathlib import Path
 
 W = Path(__file__).resolve().parent
 REPO = "https://github.com/AmishI123/neuroscience-project/tree/main/portfolio"
+REPO_BLOB = "https://github.com/AmishI123/neuroscience-project/blob/main/portfolio/"
+REPO_TREE = "https://github.com/AmishI123/neuroscience-project/tree/main/portfolio/"
 FLAGSHIP = "https://github.com/AmishI123/neuroscience-project"
 NEXT_STEP = "https://next-step-live.onrender.com/"
 HELPER_JOBS = "https://helper-jobs.onrender.com"
@@ -172,7 +174,7 @@ page("index.html", "From neurons to next steps · an ASDRP neuroscience portfoli
 
 
       <div class="landing-facts">
-        <div class="landing-fact"><h2>Who did what</h2><p>The studies were done by Amishi with her father, who helped shape the questions, review the code and fix problems. Software tools, including AI assistants, helped build this website and the apps. The <a href="{REPO}/blob/main/application/contribution-ledger.md">contribution ledger</a> lists each part.</p></div>
+        <div class="landing-fact"><h2>Who did what</h2><p>The studies were done by Amishi with her father, who helped shape the questions, review the code and fix problems. Software tools, including AI assistants, helped build this website and the apps. The <a href="{REPO_BLOB}application/contribution-ledger.md">contribution ledger</a> lists each part.</p></div>
         <div class="landing-fact landing-fact-not"><h2>What it is not</h2><p>It is not a medical study and it does not diagnose anyone. Three mice and one person cannot speak for everyone, and being able to predict something is not the same as knowing what causes it.</p></div>
       </div>
       <p class="landing-note">Data: Sensorium 2022 (Willeke et al., 2022) and UCI EEG Eye State (Roesler, 2013). <a href="mouse.html">Mouse study</a><a href="eeg.html">EEG study</a><a href="tools.html">Design</a><a href="next.html">What’s next</a></p>
@@ -270,7 +272,7 @@ page("eeg.html", "Measure · EEG study · From neurons to next steps",
       {chart('eeg-bands', 'Experiment 2', 'Brain-wave rhythms help, but not enough to rely on.', 'Rhythms lift the average and the worst stretch, but a model that is sometimes worse than guessing is still not something to build an app on. This is why the apps ask the person.', 'With a one-second gap between learning and testing. Without the gap: 0.571 for rhythms, 0.529 for raw readings. Plan written before running: EXPERIMENT-2-PLAN.md in the source code.')}
 
       <div class="landing-facts" style="margin-top:28px">
-        <div class="landing-fact"><h2>Rerun it</h2><p><code>python3 projects/eeg-eye-state/src/analyze.py</code> writes <code>results/metrics.json</code>, <code>src/analyze_bands.py</code> writes <code>results/bands.json</code> for experiment 2, and <code>python3 website/build_results.py</code> turns it into these charts. See the <a href="{REPO}/blob/main/projects/eeg-eye-state/report.md">full report</a>. Data: Roesler, O. (2013). <i>EEG Eye State</i>. UCI Machine Learning Repository, doi:10.24432/C57G7J.</p></div>
+        <div class="landing-fact"><h2>Rerun it</h2><p><code>python3 projects/eeg-eye-state/src/analyze.py</code> writes <code>results/metrics.json</code>, <code>src/analyze_bands.py</code> writes <code>results/bands.json</code> for experiment 2, and <code>python3 website/build_results.py</code> turns it into these charts. See the <a href="{REPO_BLOB}projects/eeg-eye-state/report.md">full report</a>. Data: Roesler, O. (2013). <i>EEG Eye State</i>. UCI Machine Learning Repository, doi:10.24432/C57G7J.</p></div>
         <div class="landing-fact landing-fact-not"><h2>What it does not show</h2><p>One person and one short recording cannot show how this works for other people. The only thing measured is eyes open or closed, not attention, tiredness or any condition.</p></div>
       </div>
       {bridge('What chapter 3 tells us:', 'a sensor that is right on one stretch and wrong on the next, even using brain-wave rhythms, is not something to build a tool on. So the apps ask the person instead of guessing.', 'tools.html', 'Chapter 4')}
@@ -416,7 +418,7 @@ def download(out, base, apk):
         {grid([
             ('route-2', 'Step 1', 'Download the file', 'Tap the button above on an Android phone. The file ends in .apk.'),
             ('shield-check', 'Step 2', 'Allow this one install', 'Android asks before installing apps from outside the store. Say yes for this file only.'),
-            ('code', 'Check it', 'Same file as the code', f'Every new tour is built by GitHub from the repository. Its fingerprint (SHA-256) is in <a href="{REPO}/blob/main/communication/projects/neuroscience-mobile/releases/SHA256.txt">SHA256.txt</a>.'),
+            ('code', 'Check it', 'Same file as the code', f'Every new tour is built by GitHub from the repository. Its fingerprint (SHA-256) is in <a href="{REPO_BLOB}communication/projects/neuroscience-mobile/releases/SHA256.txt">SHA256.txt</a>.'),
         ])}
       </section>
       <div class="landing-facts"><div class="landing-fact landing-fact-not"><h2>What it is not</h2><p>It does not collect anything, does not need an account and does not diagnose anyone. It explains the research, one screen at a time.</p></div><div class="landing-fact"><h2>iPhone and iPad</h2><p>Open the <a href="index.html">phone tour</a> in Safari and choose Share, then Add to Home Screen. It works the same way.</p></div></div>
@@ -502,7 +504,7 @@ page("share/index.html", "Share and demo · From neurons to next steps", "Everyt
       </section>
 
       <div class="landing-facts">
-        <div class="landing-fact"><h2>Checked before every publish</h2><p>Every page, chart, drawing, download, the phone tour and the slide viewer are tested automatically before the site goes live, and every number is checked against the saved results. <a href="{REPO}/blob/main/application/e2e_site.py">The test</a> · <a href="{REPO}/blob/main/application/audit_portfolio.py">the number check</a>.</p></div>
+        <div class="landing-fact"><h2>Checked before every publish</h2><p>Every page, chart, drawing, download, the phone tour and the slide viewer are tested automatically before the site goes live, and every number is checked against the saved results. <a href="{REPO_BLOB}application/e2e_site.py">The test</a> · <a href="{REPO_BLOB}application/audit_portfolio.py">the number check</a>.</p></div>
         <div class="landing-fact landing-fact-not"><h2>Still to add, by Amishi</h2><p>One real moment for chapter 1, her own essays, who did what, and, if she wants, her voice on the video. <a href="../handoff/">Her four steps</a>.</p></div>
       </div>
     </section>""", base="../")
