@@ -1,60 +1,82 @@
-# neuro-research
+# Does a mouse's behavior help predict its visual cortex?
 
-A joint neuroscience + AI research project: **Does knowing what a mouse is *doing*
-(running, arousal) help us predict what its visual cortex is *doing* — better than
-using the image it sees alone?**
+A neuroscience + machine-learning project using public mouse V1 recordings
+(Sensorium 2022). We build **encoding models** that predict neural activity from the
+image a mouse sees, then test whether adding **behavior** (pupil size, running speed)
+improves held-out prediction.
 
-We build an **encoding model** of mouse visual cortex and test whether adding
-**behavioral variables** (running speed, pupil size) improves how well we predict
-neural activity, compared to using the visual stimulus alone.
+## Result
 
-## Open the notebooks in Colab (one click each)
+Adding behavior improved held-out prediction in **all three mice tested**:
 
-> These open the notebook directly from GitHub. In Colab, do **File → Save a copy in
-> Drive** the first time so your work is saved to your own account.
+| Mouse | Neurons | Image only | + behavior | Relative gain |
+|---|---:|---:|---:|---:|
+| `static21067` (discovery) | 8,372 | 0.126 | 0.158 | +25% |
+| `static22846` (replication) | 7,344 | 0.154 | 0.203 | +32% |
+| `static23343` (replication) | 7,334 | 0.143 | 0.191 | +33% |
 
-- Week 1 — Python & data: [Open in Colab](https://colab.research.google.com/github/AmishI123/neuroscience-project/blob/main/notebooks/01_python_and_data.ipynb)
-- Week 2 — real data exploration: [Open in Colab](https://colab.research.google.com/github/AmishI123/neuroscience-project/blob/main/notebooks/02_real_data_exploration.ipynb)
-- Week 3 — baseline model: [Open in Colab](https://colab.research.google.com/github/AmishI123/neuroscience-project/blob/main/notebooks/03_baseline_model.ipynb)
-- Week 4 — add behavior (the result): [Open in Colab](https://colab.research.google.com/github/AmishI123/neuroscience-project/blob/main/notebooks/04_add_behavior.ipynb)
-- Week 5 — analysis & figures: [Open in Colab](https://colab.research.google.com/github/AmishI123/neuroscience-project/blob/main/notebooks/05_analysis.ipynb)
-- Week 6 — deep-learning stretch (needs GPU): [Open in Colab](https://colab.research.google.com/github/AmishI123/neuroscience-project/blob/main/notebooks/06_deep_learning_stretch.ipynb)
+*Mean per-neuron test correlation, ridge regression on image PCA features.*
 
-📄 **Written report:** [`docs/REPORT.md`](docs/REPORT.md) — the paper-style summary (application attachment).
+![Per-mouse replication](results/per_mouse_replication_summary.png)
 
-## Where things live
+- **Pupil (arousal) helped every mouse.** Running helped by very different amounts
+  across animals (almost nothing in the first mouse, which ran on ~5% of trials).
+- **Controls:** shuffling behavior across trials removes the gain (about −0.0005), and
+  the mean gain stays positive when any one mouse is left out.
+- **Deep-network check:** pretrained CNN features barely beat raw pixels, and behavior
+  helps either way.
 
-| Folder | What's in it |
-|--------|--------------|
-| `docs/` | The project plan and notes. **Start with [`docs/PROJECT_PLAN.md`](docs/PROJECT_PLAN.md).** |
-| `notebooks/` | The Jupyter/Colab notebooks — this is where the work happens, week by week. |
-| `data/` | Datasets (downloaded locally; not committed to git). |
-| `src/` | Reusable Python helper code. |
-| `results/` | Figures and outputs. |
-| `application/` | The written report and application materials. |
+**What this does and doesn't show:** it supports the claim that behavioral state carries
+predictive information about V1 activity. Three animals are a replication, not a
+population estimate, and the analysis is predictive, not causal. A trial-offset timing
+experiment was uninformative because Sensorium's trial order is shuffled (see
+[`docs/REPLICATION_PLAN.md`](docs/REPLICATION_PLAN.md)).
 
-## The approach in one line
+## Read more
 
-A **ridge-regression encoding model** (`scikit-learn`) — standard, transparent
-neuroscience methodology — comparing a **stimulus-only** model against a
-**stimulus + behavior** model on held-out data.
+- 📄 **Full write-up:** [`docs/REPORT.md`](docs/REPORT.md)
+- Pre-specified protocol: [`docs/REPLICATION_PLAN.md`](docs/REPLICATION_PLAN.md)
+- Clean-environment run record: [`docs/REPRODUCIBILITY_RUN.md`](docs/REPRODUCIBILITY_RUN.md)
+- Original project plan: [`docs/PROJECT_PLAN.md`](docs/PROJECT_PLAN.md)
+- Per-mouse numbers: [`results/per_mouse_metrics.csv`](results/per_mouse_metrics.csv)
 
-## Status
+## Notebooks (open in Colab)
 
-Notebooks 1–4 are written and **verified end-to-end on the real dataset**.
-Checkboxes below track your daughter *completing* each one.
+| Step | Notebook |
+|---|---|
+| 1. Python and data | [Open](https://colab.research.google.com/github/AmishI123/neuroscience-project/blob/main/notebooks/01_python_and_data.ipynb) |
+| 2. Real data exploration | [Open](https://colab.research.google.com/github/AmishI123/neuroscience-project/blob/main/notebooks/02_real_data_exploration.ipynb) |
+| 3. Baseline model (image only) | [Open](https://colab.research.google.com/github/AmishI123/neuroscience-project/blob/main/notebooks/03_baseline_model.ipynb) |
+| 4. Add behavior (core result) | [Open](https://colab.research.google.com/github/AmishI123/neuroscience-project/blob/main/notebooks/04_add_behavior.ipynb) |
+| 5. Analysis and figures | [Open](https://colab.research.google.com/github/AmishI123/neuroscience-project/blob/main/notebooks/05_analysis.ipynb) |
+| 6. Deep-learning stretch (GPU) | [Open](https://colab.research.google.com/github/AmishI123/neuroscience-project/blob/main/notebooks/06_deep_learning_stretch.ipynb) |
 
-- [x] Project set up
-- [ ] Week 1 — Python + data exploration &nbsp;· `notebooks/01_python_and_data.ipynb`
-- [ ] Week 2 — real Sensorium data exploration &nbsp;· `notebooks/02_real_data_exploration.ipynb`
-- [ ] Week 3 — baseline encoding model (Model A) &nbsp;· `notebooks/03_baseline_model.ipynb`
-- [ ] Week 4 — add behavior (Model B), compare &nbsp;· `notebooks/04_add_behavior.ipynb`
-- [ ] Week 5 — analysis + figures &nbsp;· `notebooks/05_analysis.ipynb`
-- [x] Week 6 — write-up &nbsp;· `docs/REPORT.md` + figures in `results/`
+Use **File → Save a copy in Drive** the first time so your work is saved.
 
-## Headline result (verified on mouse `static21067`, 8,372 V1 neurons)
+## Reproduce the replication
 
-Adding behavior improves neural prediction: mean test correlation **0.126 → 0.158
-(+25%)**, ~90% of neurons improved. The gain comes entirely from **pupil/arousal**,
-not running (this mouse rarely ran) — and the **arousal-sensitive neurons benefit
-most** (+0.069). An honest, self-consistent finding.
+```bash
+pip install -r requirements.txt
+# download a mouse (~424 MB) from https://gin.g-node.org/cajal/Sensorium2022, unzip it, then:
+python src/replicate_mouse.py /path/to/static21067-10-18-... --output result.json
+```
+
+Other scripts in `src/`: `summarize_replication.py`, `plot_replication.py`,
+`shuffle_behavior_control.py`, `analyze_behavior_timing.py`. See
+[`docs/REPRODUCIBILITY_RUN.md`](docs/REPRODUCIBILITY_RUN.md) for the verified run.
+
+## Repository layout
+
+| Folder | Contents |
+|---|---|
+| `notebooks/` | Step-by-step Colab notebooks |
+| `src/` | Replication, summary, plotting and control scripts |
+| `results/` | Figures, per-mouse metrics, control outputs |
+| `docs/` | Report, protocol, reproducibility record, plan |
+| `data/` | Datasets (downloaded locally, not committed) |
+| `application/` | Application essay drafts |
+
+## Method in one line
+
+Ridge regression (scikit-learn) on 150 image principal components, comparing a
+stimulus-only model against stimulus + behavior on held-out trials.
