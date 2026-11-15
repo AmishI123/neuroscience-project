@@ -47,6 +47,8 @@ jobs:
           pip install -q playwright==1.48.0
           python3 -m playwright install --with-deps chromium >/dev/null
           python3 application/e2e_site.py _site
+      - name: Leave the working pages for Amishi out of the public site
+        run: rm -rf _site/handoff
       - name: Push the site to gh-pages
         run: |
           cd _site

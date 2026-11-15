@@ -59,7 +59,7 @@ def page(name, title, description, body, base="", extra_js="", manifest="", og_e
   </header>
   <main id="app" tabindex="-1">
 {body}
-    <nav class="landing-note family-links" aria-label="Everything in this portfolio"><b>Everything in this portfolio:</b><a href="{SITE}share/">Share and demo</a><a href="{SITE}handoff/">For Amishi</a><a href="{SITE}">The website</a><a href="{SITE}neuroscience-mobile/">Phone tour</a><a href="{SITE}presentation/">Slides</a><a href="{SITE}video/">Video</a><a href="{NEXT_STEP}">Next Step app</a><a href="{HELPER_JOBS}">Helper Jobs app</a><a href="{REPO}">Source code</a></nav>
+    <nav class="landing-note family-links" aria-label="Everything in this portfolio"><b>Everything in this portfolio:</b><a href="{SITE}share/">Share and demo</a><a href="{SITE}">The website</a><a href="{SITE}neuroscience-mobile/">Phone tour</a><a href="{SITE}presentation/">Slides</a><a href="{SITE}video/">Video</a><a href="{NEXT_STEP}">Next Step app</a><a href="{HELPER_JOBS}">Helper Jobs app</a><a href="{REPO}">Source code</a></nav>
   </main>
   <script src="{base}assets/icons.js"></script><script src="{base}assets/icons-extra.js"></script><script src="{base}assets/art.js"></script><script src="{base}assets/science-art.js"></script>
   <script src="{base}assets/results.js"></script><script src="{base}assets/charts.js"></script><script src="{base}assets/site.js"></script>{extra_js}
@@ -174,7 +174,7 @@ page("index.html", "From neurons to next steps · an ASDRP neuroscience portfoli
 
 
       <div class="landing-facts">
-        <div class="landing-fact"><h2>Who did what</h2><p>The studies were done by Amishi with her father, who helped shape the questions, review the code and fix problems. Software tools, including AI assistants, helped build this website and the apps. The <a href="{REPO_BLOB}application/contribution-ledger.md">contribution ledger</a> lists each part.</p></div>
+        <div class="landing-fact"><h2>Who did what</h2><p>Amishi did most of the work on the studies, with advice and guidance from her father, who helped shape the questions, review the code and fix problems. Software tools, including AI assistants, helped build this website and the apps. The <a href="{REPO_BLOB}application/contribution-ledger.md">contribution ledger</a> lists each part.</p></div>
         <div class="landing-fact landing-fact-not"><h2>What it is not</h2><p>It is not a medical study and it does not diagnose anyone. Three mice and one person cannot speak for everyone, and being able to predict something is not the same as knowing what causes it.</p></div>
       </div>
       <p class="landing-note">Data: Sensorium 2022 (Willeke et al., 2022) and UCI EEG Eye State (Roesler, 2013). <a href="mouse.html">Mouse study</a><a href="eeg.html">EEG study</a><a href="tools.html">Design</a><a href="next.html">What’s next</a></p>
@@ -317,7 +317,7 @@ page("tools.html", "Design · From neurons to next steps",
 
 # ---------------- next ----------------
 EXPS = [
-    ("flask", "1 · Started · tests chapter 2", "Does the timing matter?", "Does the mouse’s state at that exact moment help more than its state a little earlier or later? The code is written in Amishi’s repository; it needs the full mouse recordings to run."),
+    ("flask", "1 · Tried · tests chapter 2", "Does the timing matter?", "Does the mouse’s state at that exact moment help more than its state a little earlier or later? We ran it on the first mouse: any shift erased the gain, but this dataset stores trials in shuffled order, so a shift is not a step in time. A real test needs the original trial timestamps."),
     ("activity", "2 · Done · tests chapter 3", "Brain-wave rhythms", "Rhythms did better on average (0.566 against 0.481) but two of five stretches still fell just below a coin flip, so by the rule set beforehand it did not hold up. See chapter 3."),
     ("brain", "3 · Planned · tests chapter 2", "Which brain cells change?", "Does alertness change every brain cell a little, or a few groups a lot? A first look at the first mouse found no clear pattern by where the cells sit. Groups are chosen before looking. Needs the full mouse recordings."),
     ("timeline", "4 · Started · tests chapter 3", "Why does it drift?", "How quickly does the eyes-closed pattern change, and can the model keep up if it keeps learning? The stretch-by-stretch scores and the glitch check are done."),
@@ -505,7 +505,6 @@ page("share/index.html", "Share and demo · From neurons to next steps", "Everyt
 
       <div class="landing-facts">
         <div class="landing-fact"><h2>Checked before every publish</h2><p>Every page, chart, drawing, download, the phone tour and the slide viewer are tested automatically before the site goes live, and every number is checked against the saved results. <a href="{REPO_BLOB}application/e2e_site.py">The test</a> · <a href="{REPO_BLOB}application/audit_portfolio.py">the number check</a>.</p></div>
-        <div class="landing-fact landing-fact-not"><h2>Still to add, by Amishi</h2><p>One real moment for chapter 1, her own essays, who did what, and, if she wants, her voice on the video. <a href="../handoff/">Her four steps</a>.</p></div>
       </div>
     </section>""", base="../")
 
