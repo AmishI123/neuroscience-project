@@ -2,11 +2,11 @@
 
 Written from her own submitted answers plus the choices made with her family: Pragnya opening, anesthesia from curiosity, mouse study credited as 'most of the work, with advice and guidance from my father', EEG study left out, one sentence on the Next Step app. Each story appears in only one essay. Plain text, ready to paste. She should read each one and change anything that doesn't sound like her.
 
-## 1 Why ASDRP (limit 375), 369 words
+## 1 Why ASDRP (limit 375), 368 words
 
 At Pragnya, where I volunteer with neurodivergent children, I once watched one child dancing while another covered their ears because the room was too loud. Same room, same noise, opposite reactions. I keep coming back to that moment. The input was identical, so the difference had to be inside each child, in how their brain was taking in the room.
 
-How a brain's state shapes what it takes in is now the center of my interest in neuroscience, and right now I explore it through code. I would rather ask my own questions of data than memorize what someone else has already found. In my main project, I used public recordings from thousands of neurons in mouse visual cortex to test whether a mouse's pupil size and running help predict what its neurons do, beyond the image it sees. They did, in all three mice I analyzed. Then I tried to break the result: when I shuffled the behavior data, the gain disappeared. That check convinced me more than the result itself.
+How a brain's state shapes what it takes in is now the center of my interest in neuroscience, and I have explored it through code. I would rather ask my own questions of data than memorize what someone else has already found. In my main project, I used public recordings from thousands of neurons in mouse visual cortex to test whether a mouse's pupil size and running help predict what its neurons do, beyond the image it sees. They did, in all three mice I analyzed. Then I tried to break the result: when I shuffled the behavior data, the gain disappeared. That check convinced me more than the result itself.
 
 But prediction only describes the brain from the outside. What I want to understand is what is physically changing, and that is part of why I plan to become a Certified Registered Nurse Anesthetist. Anesthesia switches consciousness off and back on, on purpose, and I am curious what happens in neurons and the signals between them when it does, and how drugs and diseases change the way those signals travel.
 
