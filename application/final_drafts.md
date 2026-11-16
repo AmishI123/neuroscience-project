@@ -28,15 +28,15 @@ Outside school, I taught myself Python and its scientific libraries, including n
 
 My classes have given me a foundation in math and biology. The more useful lesson has been what to do when I get stuck, and how to learn something without waiting for someone to explain it again. Those are the habits I want to bring to ASDRP.
 
-## 3 Other STEM experience (limit 375), 373 words
+## 3 Other STEM experience (limit 375), 368 words
 
 The two activities that have shaped me most outside school both involve helping someone learn in their own way.
 
 I volunteer with Pragnya, which supports neurodivergent children, running games and activities and adjusting how I work with each child. One girl I was paired with still remembers my name on days I am not working with her. She comes over to say hi and starts conversations about things we both like. Watching how differently each child engages with the same activity was my first close look at how the brain shapes behavior, and a big part of why I want to study neuroscience.
 
-I also tutored math with Learn To Be. One student could handle the arithmetic on IXL but froze at any problem longer than a sentence. We spent sessions breaking problems into pieces and underlining what each part was asking before touching any numbers. Once she saw that it was mostly translation, her scores climbed. Tutoring has taught me to slow down, listen for where someone is actually confused, and try explanations until one lands. I understand math differently after teaching it.
+I also tutored math with Learn To Be, a free online tutoring nonprofit. One student could handle the arithmetic on IXL but froze at any problem longer than a sentence. We spent sessions breaking problems into pieces and underlining what each part was asking before touching any numbers. Once she saw that it was mostly translation, her scores climbed. Tutoring has taught me to slow down, listen for where someone is actually confused, and try explanations until one lands. I understand math differently after teaching it.
 
-These experiences follow me into the questions I care about. I am especially drawn to Alzheimer's, because of stories I have read and a film about families living with it. What stayed with me was not only what the disease does to a person, but how much the people around them carry.
+I am especially drawn to Alzheimer's, because of stories I have read and a film about families living with it. What stayed with me was not only what the disease does to a person, but how much the people around them carry.
 
 For a month I volunteered at a hospice, doing administrative work. In the office, I saw how many different terminal illnesses brought people there, and how much of their care was about keeping them comfortable and free of pain. That is part of why anesthesia, and how drugs act on the nervous system, draws me.
 
@@ -44,9 +44,9 @@ I have also built a small app, Next Step, using AI coding tools, with advice and
 
 At ASDRP I want to bring these habits into research, alongside mentors who can push my thinking further than I can alone.
 
-## 4 Diversity (limit 200), 156 words
+## 4 Diversity (limit 200), 162 words
 
-Volunteering at Pragnya has shown me how differently each child moves through the same room. Some of the kids I work with speak in single words. Others are non-verbal and communicate in other ways. Each has their own ideas about what to play and how to play it, and most of those ideas are more creative than mine.
+Volunteering at Pragnya, a program that supports neurodivergent children, has shown me how differently each child moves through the same room. Some of the kids I work with speak in single words. Others are non-verbal and communicate in other ways. Each has their own ideas about what to play and how to play it, and most of those ideas are more creative than mine.
 
 That is what diversity looks like to me: real, in front of me, in how people take in the world. It has made me a better listener. The game I plan is often not the game we end up playing, and the child usually knows better than I do what will work.
 
