@@ -28,7 +28,7 @@ Outside of school, I taught myself Python and libraries like numpy and scikit-le
 
 My classes gave me a foundation in math and biology, but the more useful thing they taught me is what to do when I get stuck and how to figure something out without waiting for someone to explain it again. Those are the habits I want to bring to ASDRP.
 
-## 3 Other STEM experience (limit 375), 362 words
+## 3 Other STEM experience (limit 375), 361 words
 
 The two things that have shaped me most outside of school both involve helping someone learn in their own way.
 
@@ -40,7 +40,7 @@ I am especially interested in Alzheimer's, because of stories I have read and a 
 
 For a month I volunteered at a hospice, doing administrative work. In the office, I saw how many different terminal illnesses brought people there, and how much of their care was about keeping them comfortable and out of pain. That experience is part of why I am drawn to anesthesia and to how drugs affect the nervous system.
 
-I also built a small app called Next Step, using AI coding tools, with advice and guidance from my father. It asks students how much energy they have, and on a low day it only shows them the next step. I made it ask instead of guess, because Pragnya taught me that kids usually know better than I do what will help them.
+I also built a small app called Next Step, using AI coding tools, with advice and guidance from my father. It asks students how much energy they have, and on a low day it only shows them the next step. I made it for students who feel overwhelmed by long assignments, so they can focus on one small step at a time.
 
 ## 4 Diversity (limit 200), 171 words
 
