@@ -45,7 +45,7 @@ I want to be part of a research group that works the same way, where people arri
 - Pragnya Volunteer Program: academic year, ~5 h/week (Fri 6-8 pm, Sun 9:30 am-12 pm).
 - Karate: academic year, ~3 h/week (Mon, Tue, Wed, 1 h each).
 - Coursework and studying: academic year, ~7-8 h/week outside class.
-- Drafted in `activities_final.md` (Learn To Be hours still to confirm).
+- Final list in `activities_final.md`: Pragnya, karate, coursework. Learn To Be and independent research removed (no longer ongoing).
 - The form's page 7 sample lines (SAT prep, cross country, animal shelter, debate, music, travel cross country) are the form's sample answer. Remove them unless they are really hers.
 
 ## Fields
