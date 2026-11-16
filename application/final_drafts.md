@@ -2,17 +2,17 @@
 
 Written from her own submitted answers plus the choices made with her family: Pragnya opening, anesthesia from curiosity, mouse study credited as 'most of the work, with advice and guidance from my father', EEG study left out, one sentence on the Next Step app. Each story appears in only one essay. Plain text, ready to paste. She should read each one and change anything that doesn't sound like her.
 
-## 1 Why ASDRP (limit 375), 372 words
+## 1 Why ASDRP (limit 375), 373 words
 
-At Pragnya, where I volunteer with neurodivergent children, I once watched one child dance while another covered their ears because the room was too loud. It was the same room and the same noise, but the two kids reacted in completely opposite ways. I still think about that day. So the difference had to be inside each child, in how their brain was taking it all in.
+At Pragnya, where I volunteer with neurodivergent children, I once watched one child dance while another covered their ears because the room was too loud. It was the same room and the same noise, but the two kids reacted in opposite ways. The difference had to be inside each child, in how their brain was taking it all in. I still think about that day.
 
-That idea, that a brain's state changes what it takes in, is what got me into neuroscience. So far I have explored it through code, because I like working things out from real data. In my main project, I used public recordings of thousands of neurons in mouse visual cortex to see whether a mouse's pupil size and running could help predict what its neurons were doing, beyond the image it was looking at. They did, in all three mice I analyzed. Then I shuffled the behavior data to see if the result would fall apart, and the improvement went away. Honestly, that check convinced me more than the result did.
+It made me curious about why the same thing can feel so different depending on what is going on inside someone's brain. That curiosity is what got me into neuroscience, and so far I have explored it through code. In my main project, I used public recordings of thousands of neurons in mouse visual cortex to see whether a mouse's pupil size and running could help predict what its neurons were doing, beyond the image it was looking at. They did, in all three mice I analyzed. Then I shuffled the behavior data to see if the result would fall apart, and the improvement went away. Honestly, that check convinced me more than the result did.
 
 Still, predicting activity only tells me so much. I want to understand what is actually changing inside the neurons, and that is part of why I plan to become a Certified Registered Nurse Anesthetist. Anesthesia turns consciousness off and back on on purpose, and I am curious what happens to neurons and the signals between them when it does, and how drugs and diseases change those signals.
 
 I am applying to ASDRP because I have taken my independent work about as far as I can on my own. I want a mentor who can teach me to analyze data more carefully, push back on my own results, and explain what I find. I also want real lab experience, since a lot of what I am curious about cannot be figured out from a laptop. I also want to work with students who get me into things I would never find by myself.
 
-In the long run, I want to keep combining neuroscience and healthcare through college and beyond, so that understanding the brain at the cellular level helps me make better decisions for patients one day. ASDRP feels like the right place to start.
+In the long run, I want to keep combining neuroscience and healthcare through college and beyond, so that understanding the brain at the cellular level helps me make better decisions for patients. ASDRP feels like the right place to start.
 
 ## 2 Coursework and grades (limit 400), 300 words
 
