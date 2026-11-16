@@ -11,4 +11,4 @@ Academic year, about 5 hours per week (Friday 6-8 pm, Sunday 9:30 am-12 pm). I v
 Academic year, about 3 hours per week (Monday, Tuesday and Wednesday, 1 hour each).
 
 **Academic coursework and studying**
-Academic year, about 7-8 hours per week outside of class, depending on assignments, tests and projects. This year: Honors Chemistry and AP Calculus AB.
+Academic year, about 7-8 hours per week outside of class, depending on assignments, tests and projects. This year I am taking Honors Chemistry and AP Calculus AB.
