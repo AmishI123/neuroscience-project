@@ -28,15 +28,17 @@ Outside school, I taught myself Python and its scientific libraries, including n
 
 My classes have given me a foundation in math and biology. The more useful lesson has been what to do when I get stuck, and how to learn something without waiting for someone to explain it again. Those are the habits I want to bring to ASDRP.
 
-## 3 Other STEM experience (limit 375), 351 words
+## 3 Other STEM experience (limit 375), 373 words
 
 The two activities that have shaped me most outside school both involve helping someone learn in their own way.
 
-I volunteer with Pragnya, which supports neurodivergent children, running games and activities and adjusting how I work with each child. One girl I was paired with a while ago still remembers my name on days I am not working with her. She comes over to say hi and starts conversations about things we both like. Watching how differently each child engages with the same activity was my first close look at how the brain shapes behavior, and a big part of why I want to study neuroscience.
+I volunteer with Pragnya, which supports neurodivergent children, running games and activities and adjusting how I work with each child. One girl I was paired with still remembers my name on days I am not working with her. She comes over to say hi and starts conversations about things we both like. Watching how differently each child engages with the same activity was my first close look at how the brain shapes behavior, and a big part of why I want to study neuroscience.
 
 I also tutor math with Learn To Be. One student could handle the arithmetic on IXL but froze at any problem longer than a sentence. We spent sessions breaking problems into pieces and underlining what each part was asking before touching any numbers. Once she saw that it was mostly translation, her scores climbed. Tutoring has taught me to slow down, listen for where someone is actually confused, and try explanations until one lands. I understand math differently after teaching it.
 
-These experiences follow me into my independent projects. I am especially drawn to Alzheimer's, because of stories I have read and a film about families living with it. What stayed with me was not only what the disease does to a person, but how much the people around them carry. That is part of why I built a classifier on public brain scans to separate healthy brains from brains at different stages of the disease, which I describe in my research essay.
+These experiences follow me into the questions I care about. I am especially drawn to Alzheimer's, because of stories I have read and a film about families living with it. What stayed with me was not only what the disease does to a person, but how much the people around them carry.
+
+For a month I volunteered at a hospice, doing administrative work. In the office, I saw how many different terminal illnesses brought people there, and how much of their care was about keeping them comfortable and free of pain. That is part of why anesthesia, and how drugs act on the nervous system, draws me.
 
 I have also built a small app, Next Step, using AI coding tools, with advice and guidance from my father. It asks students how much energy they have and, on a low day, shows only the next step. Designing it taught me that a tool should ask instead of guess, which is what the children at Pragnya keep teaching me.
 
