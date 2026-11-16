@@ -2,9 +2,9 @@
 
 Written from her own submitted answers plus the choices made with her family: Pragnya opening, anesthesia from curiosity, mouse study credited as 'most of the work, with advice and guidance from my father', EEG study left out, one sentence on the Next Step app. Each story appears in only one essay. Plain text, ready to paste. She should read each one and change anything that doesn't sound like her.
 
-## 1 Why ASDRP (limit 375), 374 words
+## 1 Why ASDRP (limit 375), 373 words
 
-At Pragnya, where I volunteer with neurodivergent children, I once watched one child dance while another covered their ears because the room was too loud. It was the same room and the same noise, but the two kids reacted in opposite ways. I still think about that day. So the difference had to be inside each child, in how their brain was taking it all in.
+At Pragnya, where I volunteer with neurodivergent children, I once watched one child dance while another covered their ears because the room was too loud. It was the same room and the same noise, but the two kids reacted in opposite ways. The difference had to be inside each child, in how their brain was taking it all in. I still think about that day.
 
 It made me curious about why the same thing can feel so different depending on what is going on inside someone's brain. That curiosity is what got me into neuroscience, and so far I have explored it through code. In my main project, I used public recordings of thousands of neurons in mouse visual cortex to see whether a mouse's pupil size and running could help predict what its neurons were doing, beyond the image it was looking at. They did, in all three mice I analyzed. Then I shuffled the behavior data to see if the result would fall apart, and the improvement went away. Honestly, that check convinced me more than the result did.
 
