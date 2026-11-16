@@ -64,7 +64,7 @@ def build():
     for k in "12345":
         lim, paras = S[k]
         txt += [f"===== QUESTION {k}: {TITLES[k]} ({words(paras)} of {lim} words) =====", *paras, ""]
-    txt += [f"===== ACTIVITIES (about {act_words} of 1000 words) ====="] + [f"{t}: {b}" for t, b in A] + [""]
+    txt += [f"===== ACTIVITIES (about {act_words} of 1000 words) ====="] + [x for t, b in A for x in (t, b)] + [""]
     txt += ["===== PREFERRED FIELDS =====", "1. Biology", "2. Cognitive Science & Psychology", "3. Chemistry", ""]
     lim, paras = S["advisor"]
     txt += [f"===== ADVISOR PREFERENCE ({words(paras)} of {lim} words) =====", *paras, ""]
